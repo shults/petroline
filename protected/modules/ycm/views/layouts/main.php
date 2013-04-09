@@ -18,73 +18,16 @@ $cs->registerCssFile($baseUrl . '/css/styles.css');
     </head>
     <body>
         <?php
-        $this->widget('bootstrap.widgets.TbNavbar', array(
+        if (!Yii::app()->user->isGuest) {
+            $this->widget('bootstrap.widgets.TbNavbar', array(
             'type' => 'inverse', // null or 'inverse'
             'brand' => Yii::t('YcmModule.ycm', 'Administration'),
             'brandUrl' => Yii::app()->createUrl('/' . $this->module->name),
             'collapse' => true, // requires bootstrap-responsive.css
             'fluid' => true,
-            'items' => array(
-                array(
-                    'class' => 'bootstrap.widgets.TbMenu',
-                    'items' => array(
-                        array(
-                            'label' => 'Страницы',
-                            'url' => array('model/list', 'name' => 'Page'),
-                            'visible' => !Yii::app()->user->isGuest,
-                        ),
-                        array(
-                            'label' => 'Пункты меню',
-                            'url' => array('model/list', 'name' => 'Menu'),
-                            'visible' => !Yii::app()->user->isGuest,
-                        ),
-                        array(
-                            'label' => 'Модули',
-                            'url' => '#',
-                            'visible' => !Yii::app()->user->isGuest,
-                            'items' => array(
-                                array(
-                                    'label' => 'Карусель',
-                                    'url' => array('model/list', 'name' => 'Carousel'),
-                                    'visible' => !Yii::app()->user->isGuest,
-                                ),
-                                array(
-                                    'label' => 'Промо',
-                                    'url' => array('model/list', 'name' => 'Promo'),
-                                    'visible' => !Yii::app()->user->isGuest,
-                                ),
-                            )
-                        ),
-						array(
-                            'label' => 'Настройки',
-                            'url' => array('model/list', 'name' => 'Config'),
-                            'visible' => !Yii::app()->user->isGuest,
-                        ),
-						array(
-                            'label' => 'Сообщения',
-                            'url' => array('model/list', 'name' => 'Message'),
-                            'visible' => !Yii::app()->user->isGuest,
-                        ),
-                    )
-                ),
-                array(
-                    'class' => 'bootstrap.widgets.TbMenu',
-                    'htmlOptions' => array('class' => 'pull-right'),
-                    'items' => array(
-                        array(
-                            'label' => Yii::t('YcmModule.ycm', 'Login'),
-                            'url' => array('/' . $this->module->name . '/default/login'),
-                            'visible' => Yii::app()->user->isGuest,
-                        ),
-                        array(
-                            'label' => Yii::t('YcmModule.ycm', 'Logout'),
-                            'url' => array('/' . $this->module->name . '/default/logout'),
-                            'visible' => !Yii::app()->user->isGuest,
-                        ),
-                    ),
-                ),
-            ),
-        ));
+            'items' => require(Yii::getPathOfAlias('application.config') . '/_ycm_main_menu.php')
+            ));
+        }
         ?>
 
         <?php if (!empty($this->breadcrumbs)): ?>
