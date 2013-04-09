@@ -9,7 +9,7 @@ return array(
                 'items' => array(
                     array(
                         'label' => Yii::t('catalog', 'Categories'),
-                        'url' => array('model/list', 'name' => 'ProductCategory'),
+                        'url' => array('model/list', 'name' => 'Categories'),
                     ),
                     array(
                         'label' => Yii::t('catalog', 'Manufacturers'),

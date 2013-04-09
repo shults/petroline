@@ -305,6 +305,45 @@ class YcmModule extends CWebModule {
                 }
                 break;
 
+            case 'tinymce':
+                if ($form->type == TbActiveForm::TYPE_HORIZONTAL) {
+                    echo '<div class="control-group">';
+                    echo $form->labelEx($model, $attribute, array('class' => 'control-label'));
+                    echo '<div class="controls">';
+                } else {
+                    echo $form->labelEx($model, $attribute);
+                }
+                $attributeOptions = array_slice($this->getAttributeOptions($attribute), 2);
+                $options = array(
+                    'model' => $model,
+                    'attribute' => $attribute,
+                    'fileManager' => array(
+                        'class' => 'ext.elFinder.TinyMceElFinder',
+                        'connectorRoute'=>'ycm/elfinder/connector',
+                    ),
+                    'htmlOptions' => array(
+                        'rows' => 6,
+                        'cols' => 20,
+                    ),
+                    'settings' => array(
+                        'theme_advanced_buttons1' => "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+        'theme_advanced_buttons2' => "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+                        'theme_advanced_buttons3' => '',
+                        'theme_advanced_buttons4' => '',
+                    ),
+                );
+                if ($attributeOptions) {
+                    $options = array_merge($options, $attributeOptions);
+                }
+
+                $this->controller->widget('ext.tinymce.TinyMce', $options);
+                echo $form->error($model, $attribute);
+                if ($form->type == TbActiveForm::TYPE_HORIZONTAL) {
+                    echo '</div></div>';
+                }
+                break;
+
+                
             case 'textArea':
                 echo $form->textAreaRow($model, $attribute, array('rows' => 5, 'cols' => 50, 'class' => 'span8'));
                 break;
