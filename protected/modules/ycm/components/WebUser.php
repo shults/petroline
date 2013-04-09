@@ -8,6 +8,10 @@
 class WebUser extends CWebUser
 {
 
+    /**
+     *
+     * @var User or null
+     */
     private $_model;
 
     public function getRole()
@@ -24,7 +28,18 @@ class WebUser extends CWebUser
         }
     }
 
-    private function getModel()
+    public function getFirst_name()
+    {
+        if ($user = $this->getModel()) {
+            return $user->first_name;
+        }
+    }
+
+    /**
+     * 
+     * @return User or null if not login in
+     */
+    public function getModel()
     {
         if (!$this->isGuest && $this->_model === null) {
             $this->_model = User::model()->findByPk($this->id);
