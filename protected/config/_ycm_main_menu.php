@@ -12,10 +12,6 @@ return array(
                         'url' => array('model/list', 'name' => 'Categories'),
                     ),
                     array(
-                        'label' => Yii::t('catalog', 'Manufacturers'),
-                        'url' => array('model/list', 'name' => 'ProductManufacturer'),
-                    ),
-                    array(
                         'label' => Yii::t('catalog', 'Products'),
                         'url' => array('model/list', 'name' => 'Product'),
                     ),
@@ -25,10 +21,6 @@ return array(
                 'label' => 'Страницы',
                 'url' => array('model/list', 'name' => 'Page'),
             ),
-            /*             * array(
-              'label' => 'Пункты меню',
-              'url' => array('model/list', 'name' => 'Menu'),
-              ), */
             array(
                 'label' => 'Модули',
                 'url' => '#',
@@ -45,7 +37,16 @@ return array(
             ),
             array(
                 'label' => 'Настройки',
-                'url' => array('model/list', 'name' => 'Config'),
+                'items' => array(
+                    array(
+                        'label' => 'Пользователи',
+                        'url' => array('user/index'),
+                    ),
+                    array(
+                        'label' => 'Конфигурация',
+                        'url' => array('model/list', 'name' => 'Config'),
+                    ),
+                )
             ),
         )
     ),
