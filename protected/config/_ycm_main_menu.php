@@ -8,16 +8,12 @@ return array(
                 'label' => Yii::t('catalog', 'Catalog'),
                 'items' => array(
                     array(
-                        'label' => Yii::t('catalog', 'Categories'),
+                        'label' => 'Категории',
                         'url' => array('model/list', 'name' => 'Categories'),
                     ),
                     array(
-                        'label' => Yii::t('catalog', 'Manufacturers'),
-                        'url' => array('model/list', 'name' => 'ProductManufacturer'),
-                    ),
-                    array(
-                        'label' => Yii::t('catalog', 'Products'),
-                        'url' => array('model/list', 'name' => 'Product'),
+                        'label' => 'Товары',
+                        'url' => array('model/list', 'name' => 'Products'),
                     ),
                 )
             ),
