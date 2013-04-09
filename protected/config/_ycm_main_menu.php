@@ -54,7 +54,11 @@ return array(
         'htmlOptions' => array('class' => 'pull-right'),
         'items' => array(
             array(
-                'label' => Yii::t('YcmModule.ycm', 'Logout'),
+                'label' => Yii::t('user', 'Profile'),
+                'url' => array('user/profile'),
+            ),
+            array(
+                'label' => Yii::t('YcmModule.ycm', 'Logout') . ' (' . Yii::app()->user->first_name . ')',
                 'url' => array('/' . $this->module->name . '/default/logout'),
             ),
         ),
