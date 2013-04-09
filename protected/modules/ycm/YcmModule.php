@@ -92,7 +92,7 @@ class YcmModule extends CWebModule {
                 'errorAction' => $this->name . '/default/error',
             ),
             'user' => array(
-                'class' => 'CWebUser',
+                'class' => 'WebUser',
                 'allowAutoLogin' => true,
                 'stateKeyPrefix' => $this->name,
                 'loginUrl' => Yii::app()->createUrl($this->name . '/default/login'),
