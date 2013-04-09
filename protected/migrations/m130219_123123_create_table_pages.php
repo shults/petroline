@@ -1,8 +1,10 @@
 <?php
 
-class m130219_123123_create_table_pages extends CDbMigration {
+class m130219_123123_create_table_pages extends CDbMigration
+{
 
-    public function up() {
+    public function up()
+    {
         $this->createTable('{{pages}}', array(
             'page_id' => 'INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'enabled' => 'BOOLEAN NOT NULL DEFAULT true',
@@ -17,7 +19,8 @@ class m130219_123123_create_table_pages extends CDbMigration {
         ));
     }
 
-    public function down() {
+    public function down()
+    {
         $this->dropTable('{{pages}}');
         return true;
     }
