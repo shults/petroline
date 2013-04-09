@@ -2,4 +2,8 @@
 /nbproject/
 /assets/
 /protected/config/_db_main.php
+<<<<<<< HEAD
 /protected/runtime
+=======
+/protected/runtime/
+>>>>>>> 89f8e41072d271c8b1cb25d7e291df15e89a67a0
