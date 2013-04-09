@@ -1,8 +1,10 @@
 <?php
 
-class m130219_185540_create_table_promo extends CDbMigration {
+class m130219_185540_create_table_promo extends CDbMigration
+{
 
-    public function up() {
+    public function up()
+    {
         $this->createTable('{{promo}}', array(
             'id' => 'SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'order' => 'TINYINT UNSIGNED NOT NULL DEFAULT 1',
@@ -14,7 +16,8 @@ class m130219_185540_create_table_promo extends CDbMigration {
         ));
     }
 
-    public function down() {
+    public function down()
+    {
         $this->dropTable('{{promo}}');
         return true;
     }

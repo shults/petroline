@@ -1,8 +1,10 @@
 <?php
 
-class m130219_152259_create_table_menu extends CDbMigration {
+class m130219_152259_create_table_menu extends CDbMigration
+{
 
-    public function up() {
+    public function up()
+    {
         $this->createTable('{{menu}}', array(
             'menu_id' => 'SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'parent_menu_id' => 'SMALLINT UNSIGNED NOT NULL DEFAULT 0',
@@ -16,7 +18,8 @@ class m130219_152259_create_table_menu extends CDbMigration {
         ));
     }
 
-    public function down() {
+    public function down()
+    {
         $this->dropTable('{{menu}}');
         return true;
     }
