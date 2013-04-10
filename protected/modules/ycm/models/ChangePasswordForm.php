@@ -22,6 +22,7 @@ class ChangePasswordForm extends CFormModel
         return array(
             array('password, password_repeat, old_password', 'required'),
             array('password', 'compare'),
+            array('password, password_repeat', 'match', 'pattern' => '/^[a-z0-9]+$/', 'message' => Yii::t('user', 'Field "{attribute}" must consist letters and numbers only.')),
             array('password', 'length', 'allowEmpty' => false, 'min' => 6),
             array('old_password', 'checkOldPassword')
         );

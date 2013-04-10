@@ -9,7 +9,8 @@
  * @author Jani Mikkonen <janisto@php.net>
  * @license public domain
  */
-class YcmModule extends CWebModule {
+class YcmModule extends CWebModule
+{
 
     private $controller;
     private $_assetsUrl;
@@ -34,14 +35,15 @@ class YcmModule extends CWebModule {
      * @throws CHttpException
      * @return object Model
      */
-    public function loadModel($name, $pk = null) {
+    public function loadModel($name, $pk = null)
+    {
         $name = (string) $name;
         $model = new $name;
         if ($pk !== null) {
             $model = $model->findByPk((int) $pk);
             if ($model === null) {
                 throw new CHttpException(500, Yii::t(
-                                'YcmModule.ycm', 'Could not load model "{name}".', array('{name}' => $name)
+                        'YcmModule.ycm', 'Could not load model "{name}".', array('{name}' => $name)
                 ));
             }
         }
@@ -52,7 +54,8 @@ class YcmModule extends CWebModule {
     /**
      * Init module.
      */
-    public function init() {
+    public function init()
+    {
         if (!$this->defaultModel)
             throw new CException('YcmModule: set default model please!');
 
@@ -62,7 +65,7 @@ class YcmModule extends CWebModule {
             if ($this->uploadPath === false && $this->uploadCreate === true) {
                 if (!mkdir($path, $this->permissions, true)) {
                     throw new CHttpException(500, Yii::t(
-                                    'YcmModule.ycm', 'Could not create upload folder "{dir}".', array('{dir}' => $path)
+                            'YcmModule.ycm', 'Could not create upload folder "{dir}".', array('{dir}' => $path)
                     ));
                 }
             }
@@ -97,6 +100,10 @@ class YcmModule extends CWebModule {
                 'stateKeyPrefix' => $this->name,
                 'loginUrl' => Yii::app()->createUrl($this->name . '/default/login'),
             ),
+            'authManager' => array(
+                'class' => 'PhpAuthManager',
+                'defaultRoles' => array('guest'),
+            ),
                 ), true);
     }
 
@@ -105,7 +112,8 @@ class YcmModule extends CWebModule {
      *
      * @return array Model names
      */
-    public function getModelsList() {
+    public function getModelsList()
+    {
         $models = $this->registerModels;
 
         if (!empty($models)) {
@@ -135,7 +143,8 @@ class YcmModule extends CWebModule {
      *
      * @param string $model Model name
      */
-    protected function addModel($model) {
+    protected function addModel($model)
+    {
         $model = (string) $model;
         if (!in_array($model, $this->excludeModels)) {
             $this->_modelsList[] = $model;
@@ -149,7 +158,8 @@ class YcmModule extends CWebModule {
      * @param object $model Model
      * @param string $attribute Model attribute
      */
-    public function createWidget($form, $model, $attribute) {
+    public function createWidget($form, $model, $attribute)
+    {
         $lang = Yii::app()->language;
         if ($lang == 'en_us') {
             $lang = 'en';
@@ -319,7 +329,7 @@ class YcmModule extends CWebModule {
                     'attribute' => $attribute,
                     'fileManager' => array(
                         'class' => 'ext.elFinder.TinyMceElFinder',
-                        'connectorRoute'=>'ycm/elfinder/connector',
+                        'connectorRoute' => 'ycm/elfinder/connector',
                     ),
                     'htmlOptions' => array(
                         'rows' => 6,
@@ -327,7 +337,7 @@ class YcmModule extends CWebModule {
                     ),
                     'settings' => array(
                         'theme_advanced_buttons1' => "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
-        'theme_advanced_buttons2' => "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+                        'theme_advanced_buttons2' => "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
                         'theme_advanced_buttons3' => '',
                         'theme_advanced_buttons4' => '',
                     ),
@@ -343,7 +353,7 @@ class YcmModule extends CWebModule {
                 }
                 break;
 
-                
+
             case 'textArea':
                 echo $form->textAreaRow($model, $attribute, array('rows' => 5, 'cols' => 50, 'class' => 'span8'));
                 break;
@@ -495,7 +505,8 @@ class YcmModule extends CWebModule {
      * @param string $attribute Model attribute
      * @return string Model attribute file path
      */
-    public function getAttributePath($name, $attribute) {
+    public function getAttributePath($name, $attribute)
+    {
         return $this->uploadPath . DIRECTORY_SEPARATOR . strtolower($name) . DIRECTORY_SEPARATOR . strtolower($attribute);
     }
 
@@ -507,7 +518,8 @@ class YcmModule extends CWebModule {
      * @param string $file Filename
      * @return string Model attribute file URL
      */
-    public function getAttributeUrl($name, $attribute, $file) {
+    public function getAttributeUrl($name, $attribute, $file)
+    {
         return $this->uploadUrl . '/' . strtolower($name) . '/' . strtolower($attribute) . '/' . $file;
     }
 
@@ -518,7 +530,8 @@ class YcmModule extends CWebModule {
      * @param string $attribute Model attribute
      * @return null|object
      */
-    public function getAttributeWidget($model, $attribute) {
+    public function getAttributeWidget($model, $attribute)
+    {
         if ($this->attributesWidgets !== null) {
             if (isset($this->attributesWidgets->$attribute)) {
                 return $this->attributesWidgets->$attribute;
@@ -561,7 +574,8 @@ class YcmModule extends CWebModule {
      * @param string $attribute Model attribute
      * @return array
      */
-    private function getAttributeChoices($model, $attribute) {
+    private function getAttributeChoices($model, $attribute)
+    {
         $data = array();
         $choicesName = (string) $attribute . 'Choices';
         if (method_exists($model, $choicesName) && is_array($model->$choicesName())) {
@@ -578,7 +592,8 @@ class YcmModule extends CWebModule {
      * @param string $attribute Model attribute
      * @return null|array
      */
-    protected function getAttributeOptions($attribute) {
+    protected function getAttributeOptions($attribute)
+    {
         $optionsName = (string) $attribute . 'Options';
         if (isset($this->attributesWidgets->$optionsName)) {
             return $this->attributesWidgets->$optionsName;
@@ -593,7 +608,8 @@ class YcmModule extends CWebModule {
      * @param mixed $model
      * @return string
      */
-    public function getAdminName($model) {
+    public function getAdminName($model)
+    {
         if (is_string($model)) {
             $model = new $model;
         }
@@ -610,7 +626,8 @@ class YcmModule extends CWebModule {
      * @param mixed $model
      * @return string
      */
-    public function getSingularName($model) {
+    public function getSingularName($model)
+    {
         if (is_string($model)) {
             $model = new $model;
         }
@@ -627,7 +644,8 @@ class YcmModule extends CWebModule {
      * @param mixed $model
      * @return string
      */
-    public function getPluralName($model) {
+    public function getPluralName($model)
+    {
         if (is_string($model)) {
             $model = new $model;
         }
@@ -644,7 +662,8 @@ class YcmModule extends CWebModule {
      * @param mixed $model
      * @return bool
      */
-    public function getDownloadExcel($model) {
+    public function getDownloadExcel($model)
+    {
         if (is_string($model)) {
             $model = new $model;
         }
@@ -661,7 +680,8 @@ class YcmModule extends CWebModule {
      * @param mixed $model
      * @return bool
      */
-    public function getDownloadMsCsv($model) {
+    public function getDownloadMsCsv($model)
+    {
         if (is_string($model)) {
             $model = new $model;
         }
@@ -678,7 +698,8 @@ class YcmModule extends CWebModule {
      * @param mixed $model
      * @return bool
      */
-    public function getDownloadCsv($model) {
+    public function getDownloadCsv($model)
+    {
         if (is_string($model)) {
             $model = new $model;
         }
@@ -692,7 +713,8 @@ class YcmModule extends CWebModule {
     /**
      * @return string the base URL that contains all published asset files of the module.
      */
-    public function getAssetsUrl() {
+    public function getAssetsUrl()
+    {
         if ($this->_assetsUrl === null) {
             $this->_assetsUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias($this->name . '.assets'));
         }
@@ -702,7 +724,8 @@ class YcmModule extends CWebModule {
     /**
      * @param string $value the base URL that contains all published asset files of the module.
      */
-    public function setAssetsUrl($value) {
+    public function setAssetsUrl($value)
+    {
         $this->_assetsUrl = $value;
     }
 
@@ -711,7 +734,8 @@ class YcmModule extends CWebModule {
      * @param CAction $action
      * @return bool
      */
-    public function beforeControllerAction($controller, $action) {
+    public function beforeControllerAction($controller, $action)
+    {
         if (parent::beforeControllerAction($controller, $action)) {
             // this method is called before any module controller action is performed
             $this->controller = $controller;
