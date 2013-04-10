@@ -71,7 +71,7 @@ class YcmModule extends CWebModule
             }
         }
         if ($this->uploadUrl === null) {
-            $this->uploadUrl = e;
+            $this->uploadUrl = Yii::app()->request->baseUrl . '/uploads';
         }
 
         $this->setImport(array(
