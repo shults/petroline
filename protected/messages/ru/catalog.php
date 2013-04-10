@@ -3,5 +3,6 @@
 return array(
     'Catalog' => 'Каталог',
     'Categories' => 'Категории',
-    'Products' => 'Товары'
+    'Products' => 'Товары',
+    'Orders' => 'Заказы'
 );

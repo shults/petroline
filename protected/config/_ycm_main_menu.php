@@ -5,6 +5,10 @@ return array(
         'class' => 'bootstrap.widgets.TbMenu',
         'items' => array(
             array(
+                'label' => Yii::t('catalog', 'Orders'),
+                'url' => array('order/index'),
+            ),
+            array(
                 'label' => Yii::t('catalog', 'Catalog'),
                 'items' => array(
                     array(
@@ -18,13 +22,13 @@ return array(
                 )
             ),
             array(
-                'label' => 'Страницы',
-                'url' => array('model/list', 'name' => 'Page'),
-            ),
-            array(
                 'label' => 'Модули',
                 'url' => '#',
                 'items' => array(
+                    array(
+                        'label' => 'Страницы',
+                        'url' => array('model/list', 'name' => 'Page'),
+                    ),
                     array(
                         'label' => 'Карусель',
                         'url' => array('model/list', 'name' => 'Carousel'),
