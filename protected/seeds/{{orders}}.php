@@ -10,7 +10,7 @@ return array(
         'customer_email' => 'petrov_p@i.ua',
         'delivery_address' => 'г. Киев, ул. Кахи-Каладзе, 13, кв. 15',
         'status' => 'executed',
-        'incoming_date' => new CDbException('NOW()'),
+        'incoming_date' => new CDbExpression('NOW()'),
     ),
     array(
         'order_id' => 2,
@@ -21,6 +21,6 @@ return array(
         'customer_email' => 'ivanov_i@i.ua',
         'delivery_address' => 'г. Киев, ул. Кахи-Каладзе, 13, кв. 14',
         'status' => 'not_processed',
-        'incoming_date' => new CDbException('NOW()'),
+        'incoming_date' => new CDbExpression('NOW()'),
     )
 );

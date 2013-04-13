@@ -8,6 +8,7 @@ class m130413_113831_create_table_orders_products extends CDbMigration
         $this->createTable('{{orders_products}}', array(
             'order_id' => 'INT UNSIGNED NOT NULL',
             'product_id' => 'INT UNSIGNED NOT NULL',
+            'product_price' => 'DECIMAL(8,2) NOT NULL',
             'number_of_products' => 'SMALLINT UNSIGNED NOT NULL DEFAULT 1',
         ));
         $this->createIndex('order_id', '{{orders_products}}', 'order_id');
@@ -20,7 +21,7 @@ class m130413_113831_create_table_orders_products extends CDbMigration
     public function down()
     {
         $this->dropTable('{{orders_products}}');
-        return false;
+        return true;
     }
 
 }
