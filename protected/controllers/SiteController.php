@@ -13,8 +13,8 @@ class SiteController extends FrontController
                     directionNav: false
                 });
             });
-		');
-		$this->render('index');*/
+		');*/
+		$this->render('index');
 	}
 
 	public function actionPage($page_id)

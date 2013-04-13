@@ -1,0 +1,185 @@
+
+#slides-box {
+    background: url("../images/js.gif") no-repeat scroll 0 0 transparent;
+    padding: 8px 0;
+    width: 940px;
+}
+.container {
+    font-size: 0.875em;
+    margin: 0;
+    width: 925px;
+}
+#featured {
+    height: 310px;
+    position: relative;
+    width: 925px;
+}
+#featured ul.ui-tabs-nav {
+    background: url("../images/ui-tabs-nav.jpg") no-repeat scroll 100% 100% transparent;
+    bottom: 0;
+    height: 310px;
+    left: 0;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 249px;
+    z-index: 100;
+}
+#featured ul.ui-tabs-nav li {
+    background: url("../images/ui-tabs.gif") repeat-x scroll 0 0 transparent;
+    float: left;
+    font-size: 0;
+    height: 62px;
+    line-height: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-top: 0;
+    overflow: hidden;
+    vertical-align: top;
+    width: 249px;
+}
+#featured ul.ui-tabs-nav li.ui-tabs-selected, #featured ul.ui-tabs-nav li.ui-tabs-selected a.un span, #featured ul.ui-tabs-nav li.ui-tabs-selected a.un5 span, #featured ul.ui-tabs-nav li.ui-tabs-selected a span {
+    background: none repeat scroll 0 0 transparent;
+}
+#featured ul.ui-tabs-nav li a {
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    width: 249px;
+}
+.slides-box-table .container {
+    margin: 0 0 30px;
+}
+#featured .ui-tabs-hide {
+    display: none;
+}
+.ui-tabs-panel img {
+    right: 0;
+    text-align: right;
+}
+.ui-tabs-panel a {
+    display: block;
+    right: 0;
+    text-align: right;
+}
+.ui-tabs-nav-item a span {
+    cursor: pointer;
+    display: block;
+    height: 62px;
+    padding: 0;
+    width: 249px;
+}
+.ui-tabs-nav-item a span strong, .ui-tabs-selected a span strong {
+    display: block;
+    font-family: Arial,Arial Narrow,Helvetica,sans-serif;
+    height: 41px;
+    padding: 19px 0 2px 54px;
+    text-align: left;
+    width: 195px;
+}
+.ui-tabs-nav-item a span {
+    background: url("../images/ui-tabs-nav-item.gif") repeat-y scroll 0 0 transparent;
+}
+.ui-tabs-nav-item a:hover span {
+    background: none repeat scroll 0 0 transparent;
+}
+.ui-tabs-nav-item a.un span {
+    background: url("../images/ui-tabs-nav-item1.gif") no-repeat scroll 0 0 transparent;
+}
+.ui-tabs-nav-item a.un5 span {
+    background: url("../images/ui-tabs-nav-item5.gif") no-repeat scroll 0 0 transparent;
+}
+.ui-tabs-nav-item a span strong {
+    background: url("../images/js-marker.gif") no-repeat scroll 19px 19px transparent;
+}
+.ui-tabs-selected a span strong {
+    background: url("../images/js-marker-act.png") no-repeat scroll 19px 19px transparent;
+}
+li a span strong {
+    color: #2F3638 !important;
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 22px;
+    text-decoration: none;
+}
+li.ui-tabs-selected a span strong {
+    color: #FFFFFF !important;
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 22px;
+    text-decoration: none;
+}
+.carousel-box {
+    height: 142px;
+    margin: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+    position: relative;
+    width: 940px;
+}
+.carousel-box .inner {
+    padding: 0;
+    position: relative;
+}
+.carousel-box button {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 21px;
+    outline: medium none;
+    position: absolute;
+    width: 19px;
+    z-index: 10;
+}
+.carousel-box button.prev {
+    background: url("../images/prev.gif") no-repeat scroll left top transparent;
+    left: 0 !important;
+    top: 31px;
+}
+.carousel-box button.prev:hover {
+    background: url("../images/prev-act.gif") no-repeat scroll left top transparent;
+}
+.carousel-box button.next {
+    background: url("../images/next.gif") no-repeat scroll left top transparent;
+    right: 0;
+    top: 31px;
+}
+.carousel-box button.next:hover {
+    background: url("../images/next-act.gif") no-repeat scroll left top transparent;
+}
+.carousel-box ul {
+    overflow: hidden;
+}
+.carousel-box ul li {
+    float: left;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.carousel-box ul li .div {
+    color: #716F6F;
+    float: left;
+    height: 142px;
+    margin-left: 5px;
+    position: relative;
+    text-decoration: none;
+    width: 211px;
+}
+.carousel-box ul li a span {
+    bottom: 17px;
+    color: #716F6F;
+    left: 20px;
+    line-height: 20px;
+    position: absolute;
+    z-index: 10;
+}
+.carousel-box ul li a strong {
+    display: block;
+    font-weight: normal;
+    text-decoration: underline;
+}
+.carousel-box ul li a:hover strong {
+    text-decoration: none;
+}
