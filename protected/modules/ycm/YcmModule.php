@@ -25,7 +25,7 @@ class YcmModule extends CWebModule
     public $uploadCreate = false;
     public $redactorUpload = false;
     public $permissions = 0774;
-    public $defaultModel;
+    public $homeUrl;
 
     /**
      * Load model.
@@ -56,9 +56,8 @@ class YcmModule extends CWebModule
      */
     public function init()
     {
-        if (!$this->defaultModel)
-            throw new CException('YcmModule: set default model please!');
-
+        if ($this->homeUrl === null)
+            throw new CException('Init "homeUrl" in YcmModule');
         if ($this->uploadPath === null) {
             $path = Yii::app()->basePath . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'uploads';
             $this->uploadPath = realpath($path);

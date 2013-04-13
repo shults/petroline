@@ -8,11 +8,7 @@ class DefaultController extends AdminController
      */
     public function actionIndex()
     {
-        $this->redirect(array('model/list', 'name' => $this->module->defaultModel));
-        /* $this->render('index',array(
-          'title'=>Yii::t('YcmModule.ycm','Administration'),
-          'models'=>$this->module->modelsList,
-          )); */
+        $this->redirect($this->module->homeUrl);
     }
 
     /**

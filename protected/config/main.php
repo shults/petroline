@@ -16,9 +16,7 @@ return array(
 	),
 	'modules' => array(
 		'ycm' => array(
-			'username' => 'admin',
-			'password' => '12345',
-			'defaultModel' => 'Page',
+            'homeUrl' => array('order/index'),
 			'registerModels' => array(
 				'application.models.*',
 			),

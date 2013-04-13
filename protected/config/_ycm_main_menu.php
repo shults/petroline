@@ -47,6 +47,14 @@ return array(
                         'url' => array('user/index'),
                     ),
                     array(
+                        'label' => 'Доставка',
+                        'url' => array('model/list', 'name' => 'Delivery'),
+                    ),
+                    array(
+                        'label' => 'Оплата',
+                        'url' => array('model/list', 'name' => 'Payment'),
+                    ),
+                    array(
                         'label' => 'Конфигурация',
                         'url' => array('model/list', 'name' => 'Config'),
                     ),
