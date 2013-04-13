@@ -4,6 +4,8 @@ $tableNames = array(
     '{{users}}',
 	//'{{pages}}',
 	'{{config}}',
+    '{{deliveries}}',
+    '{{payments}}',
 	//'{{menu}}',
 	//'{{promo}}',
 	//'{{carousel}}',
