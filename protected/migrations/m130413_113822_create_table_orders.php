@@ -17,7 +17,7 @@ class m130413_113822_create_table_orders extends CDbMigration
             //rejected => отказ
             //executed => выполнен
             //performed => в процессе выполнения
-            'status' => 'ENUM(\'not_processed\', \'rejected\', \'executed\', \'performed\') DEFAULT \'not_processed\'',
+            'status' => 'ENUM(\'not_processed\', \'performed\', \'executed\', \'rejected\') DEFAULT \'not_processed\'',
             'incoming_date' => 'DATETIME NOT NULL', // дата поступления
             'total_price' => 'DECIMAL(8,2) NOT NULL'
         ));

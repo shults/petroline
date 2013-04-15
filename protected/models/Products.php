@@ -81,7 +81,7 @@ class Products extends CActiveRecord
         $data = array();
         foreach ($parents as $parent) {
             $data[$parent->category_id] = $parent->title;
-            $children = Categories::model()->findAll('parent_category_id = '.$parent->category_id);
+            $children = Categories::model()->findAll('parent_category_id = ' . $parent->category_id);
             foreach ($children as $child) {
                 $data[$child->category_id] = ' - ' . $child->title;
             }
@@ -151,6 +151,27 @@ class Products extends CActiveRecord
     public static function t($message, $params = null, $source = null, $language = null)
     {
         return Yii::t('products', $message, $params, $source, $language);
+    }
+
+    public function addProductSearch()
+    {
+        $criteria = new CDbCriteria;
+        if ($_GET[__CLASS__]) {
+            $this->attributes = $_GET[__CLASS__];
+            
+            if (isset($this->title) && $this->title !== '')
+                $criteria->addSearchCondition('title', $this->title);
+            
+            if (isset($this->category_id) && $this->category_id != null) {
+                $criteria->addCondition('category_id=:category_id');
+                $criteria->params = CMap::mergeArray($criteria->params, array(
+                    ':category_id' => $this->category_id
+                ));
+            }
+        }
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria
+        ));
     }
 
 }

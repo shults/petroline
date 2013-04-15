@@ -1,0 +1,31 @@
+<?php
+
+return array(
+    'not_processed' => 'Не обработан',
+    'rejected' => 'Отказ',
+    'executed' => 'Выполнен',
+    'performed' => 'В процессе выполнения',
+    'Create order' => 'Создать заказ',
+    'Full name' => 'Ф.И.О',
+    'Customer phone' => 'Телефон',
+    'Delivery address' => 'Адрес доставки',
+    'Order status' => 'Статус заказа',
+    'Incoming date' => 'Дата поступления',
+    'Total price' => 'Общая цена',
+    'Order not found' => 'Заказ не найден',
+    'View order' => 'Посмотреть заказ',
+    'Orders' => 'Заказы',
+    'Order is alreadey excuted. You cannot change it.' => 'Заказ уже выполнен. Вы не можете его изменить.',
+    '-= Select category =-' => '-= Выберите категорию =-',
+    'You cannot delete executed order' => 'Вы не можете удалить выполненый заказ',
+    'Edit order' => 'Редактировать заказ',
+    'Save and add products' => 'Сохранить и добавить товары',
+    'Add product to order' => 'Добавить товар к заказу',
+    'Save' => 'Сохранить',
+    'Order products' => 'Товары',
+    'Number of products' => 'Кол-во',
+    'Product price' => 'Цена',
+    'Subtotal price' => 'Сумма',
+    'Increment' => 'Увеличить',
+    'Decrement' => 'Уменьшить'
+);
