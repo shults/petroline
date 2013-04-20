@@ -4,65 +4,94 @@
         <tbody>
             <tr>
                 <td class="content_wrapper_td">	
-                    <!-- Welcome_box_start -->
-                         <!--   <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                              <tr><td class="main"></td></tr>
-                              <tr><td></td></tr>
-                              <tr><td class="main"></td></tr>
-                            </table>  -->
-
-
-
-                    <!-- Welcome_box_end -->
-
-
                     <table width="100%" cellspacing="0" cellpadding="0" border="0" class="cont_heading_table">
-                        <tbody><tr>
-                                <td class="cont_heading_td"><cufon class="cufon cufon-canvas" alt="What's " style="width: 75px; height: 24px;"><canvas width="100" height="27" style="width: 100px; height: 27px; top: -2px; left: -1px;"></canvas><cufontext>What's </cufontext></cufon><cufon class="cufon cufon-canvas" alt="New " style="width: 53px; height: 24px;"><canvas width="78" height="27" style="width: 78px; height: 27px; top: -2px; left: -1px;"></canvas><cufontext>New </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Here?" style="width: 60px; height: 24px;"><canvas width="80" height="27" style="width: 80px; height: 27px; top: -2px; left: -1px;"></canvas><cufontext>Here?</cufontext></cufon></td>
+                        <tbody>
+                            <tr>
+                                <td class="cont_heading_td"><cufon class="cufon cufon-canvas" alt="What's " style="width: 75px; height: 24px;"><canvas width="100" height="27" style="width: 100px; height: 27px; top: -2px; left: -1px;"></canvas><cufontext>What's </cufontext></cufon><cufon class="cufon cufon-canvas" alt="New " style="width: 53px; height: 24px;"><canvas width="78" height="27" style="width: 78px; height: 27px; top: -2px; left: -1px;"></canvas><cufontext>New </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Here?" style="width: 60px; height: 24px;"><canvas width="80" height="27" style="width: 80px; height: 27px; top: -2px; left: -1px;"></canvas><cufontext>Here?</cufontext></cufon>
+                </td>
             </tr>
-        </tbody></table>
+        </tbody>
+    </table>
 
 
     <table cellspacing="0" cellpadding="0" border="0" class="content_wrapper3_table">
-        <tbody><tr><td class="content_wrapper3_td">		
+        <tbody>
+            <tr>
+                <td class="content_wrapper3_td">		
                     <!-- new_products //-->
                     <table width="" cellspacing="0" cellpadding="0" border="0" class="tableBox_output_table">
-                        <tbody><tr>
+                        <tbody>
+                            <tr>
                                 <td class="main"><table width="" cellspacing="0" cellpadding="0" border="0">
-                                        <tbody><tr>
+                                        <tbody>
+                                            <tr>
                                                 <td align="left" style="width:25%">
                                                     <table cellspacing="0" cellpadding="0" border="0" align="center" class="prod2_table">
-                                                        <tbody><tr><td class="prod2_td">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="prod2_td">
                                                                     <table cellspacing="0" cellpadding="0" border="0" class="wrapper_box">
-                                                                        <tbody><tr><td class="pic2_padd">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="pic2_padd">
                                                                                     <table cellspacing="0" cellpadding="0" border="0" align="center" class="wrapper_pic_table">
                                                                                         <tbody><tr><td class="wrapper_pic_td"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/product_info.php?products_id=203"><img width="140" border="0" height="130" title=" Product #203 " alt="Product #203" src="images/203.jpg"></a></td></tr>
                                                                                         </tbody></table> </td></tr>
                                                                             <tr><td class="name name2_padd"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/product_info.php?products_id=203">Product #203</a></td></tr>
-                                                                            <tr><td class="price2_padd"><span class="productSpecialPrice">$49.99</span></td></tr>
-                                                                        </tbody></table>									   
-                                                                </td></tr>
-                                                        </tbody></table> </td>  
+                                                                            <tr><td class="price2_padd"><span class="productSpecialPrice">$49.99</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>									   
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>  
                                                 <td class="prod_line_y padd_vv"><img width="1" border="0" height="1" alt="" src="images/spacer.gif"></td>    <td align="left" style="width:25%">
                                                     <table cellspacing="0" cellpadding="0" border="0" align="center" class="prod2_table">
-                                                        <tbody><tr><td class="prod2_td">
+                                                        <tbody>
+                                                            <tr><td class="prod2_td">
                                                                     <table cellspacing="0" cellpadding="0" border="0" class="wrapper_box">
-                                                                        <tbody><tr><td class="pic2_padd">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="pic2_padd">
                                                                                     <table cellspacing="0" cellpadding="0" border="0" align="center" class="wrapper_pic_table">
-                                                                                        <tbody><tr><td class="wrapper_pic_td"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/product_info.php?products_id=201"><img width="140" border="0" height="130" title=" Product #201 " alt="Product #201" src="images/201.jpg"></a></td></tr>
-                                                                                        </tbody></table> </td></tr>
-                                                                            <tr><td class="name name2_padd"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/product_info.php?products_id=201">Product #201</a></td></tr>
-                                                                            <tr><td class="price2_padd"><span class="productSpecialPrice">$299.99</span></td></tr>
-                                                                        </tbody></table>									   
-                                                                </td></tr>
-                                                        </tbody></table> </td>  
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td class="wrapper_pic_td"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/product_info.php?products_id=201"><img width="140" border="0" height="130" title=" Product #201 " alt="Product #201" src="images/201.jpg"></a>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="name name2_padd"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/product_info.php?products_id=201">Product #201</a></td></tr>
+                                                                            <tr>
+                                                                                <td class="price2_padd"><span class="productSpecialPrice">$299.99</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>  
                                                 <td class="prod_line_y padd_vv"><img width="1" border="0" height="1" alt="" src="images/spacer.gif"></td>    <td align="left" style="width:25%">
                                                     <table cellspacing="0" cellpadding="0" border="0" align="center" class="prod2_table">
-                                                        <tbody><tr><td class="prod2_td">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="prod2_td">
                                                                     <table cellspacing="0" cellpadding="0" border="0" class="wrapper_box">
-                                                                        <tbody><tr><td class="pic2_padd">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="pic2_padd">
                                                                                     <table cellspacing="0" cellpadding="0" border="0" align="center" class="wrapper_pic_table">
-                                                                                        <tbody><tr><td class="wrapper_pic_td"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/product_info.php?products_id=202"><img width="140" border="0" height="130" title=" Product #202 " alt="Product #202" src="images/202.jpg"></a></td></tr>
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td class="wrapper_pic_td"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/product_info.php?products_id=202"><img width="140" border="0" height="130" title=" Product #202 " alt="Product #202" src="images/202.jpg"></a></td></tr>
                                                                                         </tbody></table> </td></tr>
                                                                             <tr><td class="name name2_padd"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/product_info.php?products_id=202">Product #202</a></td></tr>
                                                                             <tr><td class="price2_padd"><span class="productSpecialPrice">$499.99</span></td></tr>

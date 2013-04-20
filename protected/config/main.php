@@ -10,6 +10,11 @@ return array(
 	'language' => 'ru',
 	//'preload' => array('log'),
 	// autoloading model and component classes
+    'aliases' => array(
+        'xupload' => 'application.modules.ycm.extensions.xupload',
+        'ycm' => 'application.modules.ycm',
+        'chosen' => 'application.modules.ycm.extensions.chosen',
+    ),
 	'import' => array(
 		'application.models.*',
 		'application.components.*',
@@ -63,5 +68,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params' => array(
 		'adminEmail' => 'webmaster@example.com',
+        'imagestore' => 'uploads',
+        'salt' => '[$8?k~Mfd=%',
 	),
 );

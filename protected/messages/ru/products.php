@@ -15,4 +15,5 @@ return array(
     'Price' => 'Цена',
     'Trade price' => 'Оптовая цена',
     'Min trade order' => 'Минимальный оптовый заказ',
+    'Edit product' => 'Редактировать товар',
 );

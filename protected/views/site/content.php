@@ -1,6 +1,4 @@
 <div class="row_2">
-    <!-- header_eof //-->
-    <!-- body //-->
     <table cellspacing="0" cellpadding="0" border="0" class="main_table">
         <tbody>
             <tr>

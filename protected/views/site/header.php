@@ -40,6 +40,6 @@
                             </div>
                         </div>
                     </div>
-                    <?php $this->renderPartial('application.views.site.top_menu'); ?>
+                    <?php $this->renderPartial('application.views.site.top_menu_search'); ?>
                 </div>
             </div>

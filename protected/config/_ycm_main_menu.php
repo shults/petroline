@@ -17,7 +17,7 @@ return array(
                     ),
                     array(
                         'label' => Yii::t('catalog', 'Products'),
-                        'url' => array('model/list', 'name' => 'Products'),
+                        'url' => array('product/index'),
                     ),
                 )
             ),
