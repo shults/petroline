@@ -133,10 +133,15 @@ class Promo extends CActiveRecord {
 		);
 	}
 
-	public function defaultScope() {
-		return array(
-			'order' => '`order` ASC'
-		);
-	}
+	public function defaultScope()
+    {
+        return array(
+            'condition' => 'language_id=:language_id',
+            'params' => array(
+                ':language_id' => Yii::app()->lang->language_id
+            ),
+            'order' => '`order` ASC',
+        );
+    }
 
 }

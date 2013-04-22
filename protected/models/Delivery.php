@@ -91,9 +91,10 @@ class Delivery extends CActiveRecord
     public function defaultScope()
     {
         return array(
-            'condition' => 'deleted=:deleted',
+            'condition' => 'deleted=:deleted AND language_id=:language_id',
             'params' => array(
-                ':deleted' => 0
+                ':deleted' => 0,
+                ':language_id' => Yii::app()->lang->language_id
             )
         );
     }

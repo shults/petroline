@@ -158,20 +158,30 @@ class Products extends CActiveRecord
         $criteria = new CDbCriteria;
         if ($_GET[__CLASS__]) {
             $this->attributes = $_GET[__CLASS__];
-            
+
             if (isset($this->title) && $this->title !== '')
                 $criteria->addSearchCondition('title', $this->title);
-            
+
             if (isset($this->category_id) && $this->category_id != null) {
                 $criteria->addCondition('category_id=:category_id');
                 $criteria->params = CMap::mergeArray($criteria->params, array(
-                    ':category_id' => $this->category_id
+                            ':category_id' => $this->category_id
                 ));
             }
         }
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria
         ));
+    }
+
+    public function defaultScope()
+    {
+        return array(
+            'condition' => 'language_id=:language_id',
+            'params' => array(
+                ':language_id' => Yii::app()->lang->language_id
+            ),
+        );
     }
 
 }
