@@ -29,7 +29,7 @@ class m130409_145346_create_table_products extends CDbMigration
         $this->createIndex('language_id_url', '{{products}}', 'language_id, url', true);
         $this->createIndex('price', '{{products}}', 'price');
         $this->createIndex('language_id', '{{products}}', 'language_id');
-        $this->addForeignKey('products_language_id_fk', '{{categories}}', 'language_id', '{{languages}}', 'language_id', 'CASCADE', 'CASCADE');
+        $this->addForeignKey('products_language_id_fk', '{{products}}', 'language_id', '{{languages}}', 'language_id', 'CASCADE', 'CASCADE');
     }
 
     public function down()
