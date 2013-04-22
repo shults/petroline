@@ -35,7 +35,9 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin' => true,
 		),
-		// uncomment the following to enable URLs in path-format
+		'lang' => array(
+            'class' => 'FrontLanguageComponent',
+        ),
 		'urlManager' => array(
 			'urlFormat' => 'path',
 			'showScriptName' => false,

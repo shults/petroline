@@ -1,11 +1,13 @@
 <?php
 
+Yii::import('application.components.ILanguageComponent');
+
 /**
  * Description of LanguageComponent
  *
  * @author shults
  */
-class LanguageComponent extends CComponent
+class LanguageComponent extends CComponent implements ILanguageComponent
 {
 
     const LANGUAGE_COOKIE_KEY = 'language_code';
