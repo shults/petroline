@@ -108,6 +108,13 @@ class Language extends CActiveRecord
         }
         return parent::beforeSave();
     }
+    
+    public function beforeDelete()
+    {
+        $this->deleted = 1;
+        $this->save(false);
+        return false;
+    }
 
     public static function t($message, $params = null, $source = null, $language = null)
     {
