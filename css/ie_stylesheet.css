@@ -1,0 +1,24 @@
+/*
+  $Id: ie_stylesheet.css 1739 2007-12-20 00:52:16Z hpdl $
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
+  Copyright (c) 2003 osCommerce
+  Released under the GNU General Public License 
+*/
+/* ************************************************************************************* */
+/* ************************************************************************************* */
+.s_width2_100						{width:100%;}
+div.productsNotifications input		{margin-top:-2px;}
+/* ************************************************************************************* */
+/* ************************************************************************************* */
+.ui-tabs-nav-item a span strong,
+.ui-tabs-selected a span strong	{
+	width:auto;
+	padding-bottom:4px;
+}
+/* ************************************************************************************* */
+/* ************************************************************************************* */
+.ie_width	{width:211px;}
+.carousel-box button.prev {
+	margin-left:-467px;
+}
