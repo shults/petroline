@@ -1,6 +1,7 @@
 <?php
 
 $tableNames = array(
+    '{{languages}}',
     '{{users}}',
 	//'{{pages}}',
 	'{{config}}',

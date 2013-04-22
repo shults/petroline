@@ -103,6 +103,9 @@ class YcmModule extends CWebModule
                 'class' => 'PhpAuthManager',
                 'defaultRoles' => array('guest'),
             ),
+            'lang' => array(
+                'class' => 'LanguageComponent',
+            )
                 ), true);
     }
 

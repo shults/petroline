@@ -47,6 +47,10 @@ return array(
                         'url' => array('user/index'),
                     ),
                     array(
+                        'label' => Yii::t('language', 'Languages'),
+                        'url' => array('model/list', 'name' => 'Language'),
+                    ),
+                    array(
                         'label' => 'Доставка',
                         'url' => array('model/list', 'name' => 'Delivery'),
                     ),
@@ -69,6 +73,10 @@ return array(
             array(
                 'label' => Yii::t('user', 'Profile'),
                 'url' => array('user/profile'),
+            ),
+            array(
+                'label' => Yii::t('language', 'Language') . ' (' . Yii::app()->lang->title . ')',
+                'items' => Language::getMenuItems()
             ),
             array(
                 'label' => Yii::t('YcmModule.ycm', 'Logout') . ' (' . Yii::app()->user->first_name . ')',
