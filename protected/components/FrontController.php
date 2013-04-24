@@ -7,50 +7,89 @@
 class FrontController extends CController
 {
 
-	/**
-	 * @var array context menu items. This property will be assigned to {@link CMenu::items}.
-	 */
-	public $menu = array();
+    public $layoutPath;
+    public $layout = '//layouts/index';
 
-	/**
-	 * @var array the breadcrumbs of the current page. The value of this property will
-	 * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
-	 * for more details on how to specify this property.
-	 */
-	public $breadcrumbs = array();
-	public $companyName;
+    /**
+     * @var array context menu items. This property will be assigned to {@link CMenu::items}.
+     */
+    public $menu = array();
 
-	public function setCompanyName($companyName)
-	{
-		$this->companyName = $companyName;
-	}
+    /**
+     * @var array the breadcrumbs of the current page. The value of this property will
+     * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
+     * for more details on how to specify this property.
+     */
+    public $breadcrumbs = array();
+    public $companyName;
 
-	public function getCompanyName()
-	{
-		return $this->companyName;
-	}
+    /**
+     * Client script object
+     *
+     * @var CClientScript 
+     */
+    private $_cs;
 
-	public function setMetaKeywords($keywords)
-	{
-		Yii::app()->clientScript->registerMetaTag($keywords, 'keywords', null, array(), 'meta_keywords');
-	}
+    /**
+     * Returns link for clientScript
+     *
+     * @return CClientScript object
+     */
+    public function getCs()
+    {
+        return $this->_cs;
+    }
 
-	public function setMetaDescription($description)
-	{
-		Yii::app()->clientScript->registerMetaTag($description, 'description', null, array(), 'meta_description');
-	}
+    public function setCompanyName($companyName)
+    {
+        $this->companyName = $companyName;
+    }
 
-	public function init()
-	{
-		$this->setCompanyName(Config::get('company'));
-		$this->setMetaDescription(Config::get('meta_description'));
-		$this->setMetaKeywords(Config::get('meta_keywords'));
-		$this->setPageTitle(Config::get('title'));
-		Yii::app()->clientScript->registerCoreScript('jquery');
-		Yii::app()->clientScript->registerCssFile('/css/style.css');
-		Yii::app()->clientScript->registerCssFile('/css/bootstrap.min.css');
-		Yii::app()->clientScript->registerScriptFile('/js/bootstrap.min.js');
-		return parent::init();
-	}
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
+
+    public function setMetaKeywords($keywords)
+    {
+        Yii::app()->clientScript->registerMetaTag($keywords, 'keywords', null, array(), 'meta_keywords');
+    }
+
+    public function setMetaDescription($description)
+    {
+        Yii::app()->clientScript->registerMetaTag($description, 'description', null, array(), 'meta_description');
+    }
+
+    /**
+     * This method initials the layout path in FrontController
+     */
+    private function initLayoutPath()
+    {
+         $this->setLayoutPath('application.views.layouts');
+    }
+
+    /**
+     * Sets the layout folder path
+     * 
+     * @param sting $path Dotted path to 
+     */
+    protected function setLayoutPath($path)
+    {
+        $this->layoutPath = Yii::getPathOfAlias($path);
+    }
+
+    public function init()
+    {
+        $this->setCompanyName(Config::get('company'));
+        $this->setMetaDescription(Config::get('meta_description'));
+        $this->setMetaKeywords(Config::get('meta_keywords'));
+        $this->setPageTitle(Config::get('title'));
+        $this->initLayoutPath();
+        //Yii::app()->clientScript->registerCoreScript('jquery');
+        //Yii::app()->clientScript->registerCssFile('/css/style.css');
+        //Yii::app()->clientScript->registerCssFile('/css/bootstrap.min.css');
+        //Yii::app()->clientScript->registerScriptFile('/js/bootstrap.min.js');
+        return parent::init();
+    }
 
 }
