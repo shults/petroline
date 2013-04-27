@@ -135,5 +135,17 @@ class Language extends CActiveRecord
         }
         return self::$_menuItems;
     }
+    
+    public function scopes()
+    {
+        return array(
+            'default' => array(
+                'condition' => '`default`=:default',
+                'params' => array(
+                    ':default' => 1
+                )
+            )
+        );
+    }
 
 }

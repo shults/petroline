@@ -8,7 +8,7 @@
                                 <table cellpadding="0" cellspacing="0" border="0" class="infoBoxHeading_tl">
                                     <tr><td class="infoBoxHeading_tr">
                                             <table cellpadding="0" cellspacing="0" border="0" class="infoBoxHeading_bl">
-                                                <tr><td class="infoBoxHeading_td infoBoxHeading_br">Categories</td></tr>
+                                                <tr><td class="infoBoxHeading_td infoBoxHeading_br"><?php echo Yii::t('catalog', 'Categories') ?></td></tr>
                                             </table>
                                         </td></tr>
                                 </table>
@@ -21,7 +21,46 @@
             <tr>
                 <td  class="infoBox_td"><table border="0" width="100%" cellspacing="0" cellpadding="0"  class="infoBoxContents2_table">
                         <tr>
-                            <td  class="boxText"><ul class="categories"><li class="bg_list_un"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=1">Sound devices</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=2">Video game consoles -&gt;</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=3">Cell &frasl; mobile &frasl; wire</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=4">Home security systems</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=5">Cameras</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=6">Home theater systems</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=7">TVs</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=8">Computers</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=9">Games &frasl; movies &frasl; mus</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=10">Accessories</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=11">Office</a></li><li class="bg_list"><a href="http://vadimpanchuk.la.net.ua/maket/free_free-oscommerce-template-electronics-store_qlmwprxy718y2g3d/site/index.php?cPath=12">House wears</a></li></ul></td>
+                            <td  class="boxText">
+                                <?php
+                                $this->widget('zii.widgets.CMenu', array(
+                                    'items' => $this->categoryItems,
+                                    'itemCssClass' => 'bg_list',
+                                    'htmlOptions' => array(
+                                        'class' => 'categories'
+                                    )
+                                ));
+                                ?>
+                                <? /* ?><ul class="categories">
+                                  <li class="bg_list">
+                                  <a href="<?php echo CHtml::normalizeUrl(array('catalog/category')) ?>">Sound devices</a>
+                                  </li>
+                                  <ul class="categories">
+                                  <li class="bg_list">
+                                  <a href="#">Sound devices</a>
+                                  </li>
+                                  <li class="bg_list">
+                                  <a href="#">Sound devices</a>
+                                  </li>
+                                  <li class="bg_list">
+                                  <a href="#">Sound devices</a>
+                                  </li>
+                                  </ul>
+                                  <li class="bg_list">
+                                  <a href="#">Sound devices</a>
+                                  </li>
+                                  <li class="bg_list">
+                                  <a href="#">Sound devices</a>
+                                  </li>
+                                  <li class="bg_list">
+                                  <a href="#">Sound devices</a>
+                                  </li>
+                                  <li class="bg_list">
+                                  <a href="#">House wears</a>
+                                  </li>
+                                  </ul>
+                                  <? */ ?>
+                            </td>
                         </tr>
                     </table>
                 </td>

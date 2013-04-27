@@ -5,20 +5,17 @@
                 <table cellpadding="0" cellspacing="0" border="0">
                     <tr>
                         <td class="languages">
-                            <table border="0" cellspacing="0" cellpadding="0" align="center">
-                                <tr>
-                                    <td style="padding:0px 0px 2px 0px;">Language:&nbsp;&nbsp;</td>
-                                    <td style="width:100%;">
-                                        <form name="languages" action="#" method="get">
-                                            <select name="language" onChange="this.form.submit();" class="select">
-                                                <option value="en">English</option>
-                                                <option value="de">Deutsch</option>
-                                                <option value="es">Espa&ntilde;ol</option>
-                                            </select>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </table>
+                            <?php
+                            /* @var $language Language */
+                            foreach (($languages = Language::model()->findAll()) as $language) {
+                                $imageFile = '/images/flags/' . $language->flag;
+                                $url = $language->default ? '/' : '/' . $language->code;
+                                echo CHtml::link(CHtml::image($imageFile), $url, array(
+                                    'class' => 'language',
+                                    'title' => $language->title
+                                ));
+                            }
+                            ?>
                         </td>                                              
                     </tr>
                 </table> 

@@ -8,7 +8,8 @@ class FrontController extends CController
 {
 
     public $layoutPath;
-    public $layout = '//layouts/index';
+    public $layout = '//layouts/main';
+    private $categoryItems;
 
     /**
      * @var array context menu items. This property will be assigned to {@link CMenu::items}.
@@ -65,7 +66,7 @@ class FrontController extends CController
      */
     private function initLayoutPath()
     {
-         $this->setLayoutPath('application.views.layouts');
+        $this->setLayoutPath('application.views.layouts');
     }
 
     /**
@@ -90,6 +91,66 @@ class FrontController extends CController
         //Yii::app()->clientScript->registerCssFile('/css/bootstrap.min.css');
         //Yii::app()->clientScript->registerScriptFile('/js/bootstrap.min.js');
         return parent::init();
+    }
+
+    public function getCategoryItems()
+    {
+        $product_id = $_GET['product_id'] ? (int) $_GET['product_id'] : null;
+        $category_id = $_GET['category_id'] ? (int) $_GET['category_id'] : null;
+        if ($product_id) {
+            
+        }
+        if ($category_id) {
+            return $this->getMenuItemsByCategoryId($category_id);
+        }
+        return $this->getDefaulMenuItems();
+    }
+
+    private function getDefaulMenuItems()
+    {
+        $categories = Categories::model()->findAll('parent_category_id=:parent_category_id', array(
+            ':parent_category_id' => 0
+        ));
+        $menuItems = array();
+        foreach ($categories as $category) {
+            $menuItems[] = array(
+                'label' => $category->title,
+                'url' => array('catalog/category', 'category_id' => $category->category_id)
+            );
+        }
+        return $menuItems;
+    }
+
+    private function getMenuItemsByCategoryId($category_id)
+    {
+        $activeCategory = Categories::model()->findByPk($category_id);
+        $rootCategories = Categories::model()->findAll('parent_category_id=:parent_category_id', array(
+            ':parent_category_id' => 0
+        ));
+        $menuItems = array();
+        foreach ($rootCategories as $category) {
+            $subItems = array();
+            if ($category->category_id == $category_id || 
+                    $category->category_id == $activeCategory->parent->category_id) {
+                foreach ($category->children as $childCategory) {
+                    $subItems[] = array(
+                        'label' => $childCategory->title,
+                        'url' => array('catalog/category', 'category_id' => $childCategory->category_id)
+                    );
+                }
+            }
+            $menuItems[] = array(
+                'label' => $category->title,
+                'url' => array('catalog/category', 'category_id' => $category->category_id),
+                'items' => $subItems
+            );
+        }
+        return $menuItems;
+    }
+
+    private function getMenuItemsByProductId($product_id)
+    {
+        return array();
     }
 
 }

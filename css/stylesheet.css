@@ -48,10 +48,11 @@ html, body 							{height:100%;}
 .navigation_separator			{width:20%;}
 .navigation_separator img 		{width:21px;}
 /* ************************************************************************************* */
-.navigation  .languages 				{padding:10px 29px 0px 22px;}
+.navigation  .languages 				{padding:12px 10px 0px 10px; text-align: right;}
 .navigation  .languages table			{width:159px;}
 .navigation  .languages td				{}
 .navigation  .languages .languages_img	{margin:0px 2px 0px 2px;}
+.navigation  .languages a.language {margin-right: 5px;}
 
 .navigation  .currencies 				{padding:10px 21px 0px 0px; width:100%;}
 .navigation  .currencies table			{width:165px;}
