@@ -26,9 +26,10 @@
                                 $this->widget('zii.widgets.CMenu', array(
                                     'items' => $this->categoryItems,
                                     'itemCssClass' => 'bg_list',
+                                    'activateParents' => true,
                                     'htmlOptions' => array(
                                         'class' => 'categories'
-                                    )
+                                    ),
                                 ));
                                 ?>
                                 <? /* ?><ul class="categories">
