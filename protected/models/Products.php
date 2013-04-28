@@ -130,6 +130,7 @@ class Products extends CActiveRecord
     {
         return array(
             'category' => array(self::HAS_ONE, 'Categories', array('category_id' => 'category_id')),
+            'images' => array(self::HAS_MANY, 'ProductImages', array('product_id' => 'product_id'))
         );
     }
 
@@ -182,6 +183,13 @@ class Products extends CActiveRecord
                 ':language_id' => Yii::app()->lang->language_id
             ),
         );
+    }
+    
+    public function searchImages()
+    {
+        return new CActiveDataProvider('ProductImages', array(
+            'data' => $this->images
+        ));
     }
 
 }

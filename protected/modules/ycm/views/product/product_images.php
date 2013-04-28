@@ -8,8 +8,9 @@
     $imagestore = Yii::app()->params->imagestore;
     //$imagestore = Yii::app()->params->imagestore;
     $this->widget('bootstrap.widgets.TbGridView', array(
-        'dataProvider' => ProductImages::model()->search(),
+        'dataProvider' => $model->searchImages(),
         'id' => 'images',
+        'summaryText' => '',
         'columns' => array(
             array(
                 'name' => 'image',
