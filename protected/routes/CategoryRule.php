@@ -36,8 +36,11 @@ class CategoryRule extends CBaseUrlRule
             $params = array();
             if ($matches[1])
                 $params['language'] = $_GET['language'] = $matches[1];
-            if ($matches[2])
-                $params['category_id'] = $_GET['category_id'] = $matches[2];
+            if ($matches[2]) {
+                $params['category_id'] = $matches[2];
+            } else if ($_GET['category_id']) {
+                $params['category_id'] = $_GET['category_id'];
+            }
             if ($url = $manager->createUrl(self::RULE_ROUTE, $params))
                 $request->redirect($url);
         }
