@@ -6,15 +6,28 @@ class SiteController extends FrontController
     public function actionIndex()
     {
         $this->layout = '//layouts/index';
-        $this->render('index');
+        //$categories = Categories::model()->findAll();
+        $this->render('index', array(
+            //'categories' => $categories
+        ));
     }
 
     /**
      * Contact page with
      */
-    public function actionContact()
+    public function actionContacts()
     {
-        $this->render('contact');
+        
+    }
+    
+    public function actionDelivery_payment()
+    {
+        
+    }
+    
+    public function actionAbout_us()
+    {
+        
     }
 
 }

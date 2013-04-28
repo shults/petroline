@@ -47,7 +47,7 @@ class FrontLanguageComponent extends CComponent implements ILanguageComponent
             if ($language->code === $defaultLanguage->code) {
                 $redirectUrl = substr(Yii::app()->request->getPathInfo(), 2);
                 $redirectUrl = (!$redirectUrl) ? '/' : $redirectUrl;
-                Yii::app()->controller->redirect($redirectUrl);
+                Yii::app()->request->redirect($redirectUrl);
             }
         } else {
             $language = $defaultLanguage;
