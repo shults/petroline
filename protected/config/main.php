@@ -7,7 +7,7 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Компания',
-    //'language' => 'ru',
+    'language' => 'ru',
     'preload' => array(),
     'aliases' => array(
         'xupload' => 'application.modules.ycm.extensions.xupload',
