@@ -342,7 +342,8 @@ html, body 							{height:100%;}
 .footer #over_m8 a,
 .footer #over_m9 a,
 .footer #over_m10 a,
-.footer #over_m11 a			{text-transform:none; font-size:13px; line-height:19px; font-weight:normal;padding:10px 7px 10px 7px; vertical-align:middle; display:block; text-align:center;
+.footer #over_m11 a,
+.footer .footer_wrapper_tl a {text-transform:none; font-size:13px; line-height:19px; font-weight:normal;padding:10px 7px 10px 7px; vertical-align:middle; display:block; text-align:center;
                        background:none;}
 
 .footer #m1 a,
@@ -355,7 +356,8 @@ html, body 							{height:100%;}
 .footer #m8 a,
 .footer #m9 a,
 .footer #m10 a,
-.footer #m11 a					{color:#fff; cursor:pointer; text-decoration:none;}
+.footer #m11 a,
+.footer .footer_wrapper_tl a {color:#fff; cursor:pointer; text-decoration:none;}
 
 .footer #over_m1 a,
 .footer #over_m2 a,
@@ -367,7 +369,9 @@ html, body 							{height:100%;}
 .footer #over_m8 a,
 .footer #over_m9 a,
 .footer #over_m10 a,
-.footer #over_m11 a				{color:#fff; cursor:pointer; text-decoration:underline;}
+.footer #over_m11 a,
+.footer .footer_wrapper_tl a:hover,
+.footer .footer_wrapper_tl a.active {color:#fff; cursor:pointer; text-decoration:underline;}
 /* ************************************************************************************* */
 /* ************************************************************************************* */
 /* ************************************************************************************* */

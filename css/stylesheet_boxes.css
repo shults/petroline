@@ -150,6 +150,7 @@ del						 			{color:#0bb1e8;font-size:13px; line-height:15px; font-weight:bold;}
 /* ************************************************************************************* */
 /* ************************************************************************************* */
 .boxText li							{padding:0px 0px 0px 0px; width:100%;}
+.boxText li ul li a                      {margin:0px 0px 0px 20px;}
 .boxText li, .boxText li a, .boxText li a font
 									{ vertical-align:top; font-size:14px; line-height:15px; font-weight:normal;}
 .boxText li a b
@@ -167,7 +168,10 @@ del						 			{color:#0bb1e8;font-size:13px; line-height:15px; font-weight:bold;}
 .boxText .bg_list 					{padding:0px 0px 0px 0px;margin:1px 0px 0px; background:url(../images/list_hline.gif) 0px 0px repeat-x;}
 .boxText .bg_list a					{color:#111017;
 									 padding:8px 0px 6px 31px;text-decoration:none;background:url(../images/list_marker.gif) 19px 14px no-repeat;}
-.boxText .bg_list a:hover			{color:#0bb1e8; text-decoration:none;}
+.boxText .bg_list a:hover,
+.boxText .categories li.active a {color:#0bb1e8; text-decoration:none;}
+.boxText .categories li.active li a {color: #111017;}
+.boxText .categories li.active li.active a {color:#0bb1e8;}
 .boxText .bg_list a b				{color:#0bb1e8; font-weight:normal;text-decoration:none;margin:-8px 0px -6px -31px; padding:8px 0px 6px 31px; display:block;}
 .boxText .bg_list a:hover b			{color:#111017;text-decoration:none;margin:-8px 0px -6px -31px; padding:8px 0px 6px 31px; display:block;}
 	

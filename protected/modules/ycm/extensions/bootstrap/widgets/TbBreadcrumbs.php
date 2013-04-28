@@ -51,15 +51,17 @@ class TbBreadcrumbs extends CBreadcrumbs
 		else if ($this->homeLink !== false)
 			$links[] = $this->renderItem($this->homeLink);
 
+        $counter = 0;
 		foreach ($this->links as $label => $url)
 		{
+            $counter++;
 			if (is_string($label) || is_array($url))
 			{
 				$content = CHtml::link($this->encodeLabel ? CHtml::encode($label) : $label, $url);
 				$links[] = $this->renderItem($content);
 			}
 			else
-				$links[] = $this->renderItem($this->encodeLabel ? CHtml::encode($url) : $url, true);
+				$links[] = $this->renderItem($this->encodeLabel ? CHtml::encode($url) : $url, $counter === count($this->links));
 		}
 
 		echo CHtml::tag('ul', $this->htmlOptions, implode('', $links));

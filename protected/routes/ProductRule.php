@@ -10,7 +10,6 @@ class ProductRule extends CBaseUrlRule
 
     public function createUrl($manager, $route, $params, $ampersand)
     {
-        die($route);
         return false;
     }
 

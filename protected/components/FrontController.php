@@ -10,6 +10,7 @@ class FrontController extends CController
     public $layoutPath;
     public $layout = '//layouts/main';
     private $categoryItems;
+    private $mainMenuItems;
 
     /**
      * @var array context menu items. This property will be assigned to {@link CMenu::items}.
@@ -130,7 +131,7 @@ class FrontController extends CController
         $menuItems = array();
         foreach ($rootCategories as $category) {
             $subItems = array();
-            if ($category->category_id == $category_id || 
+            if ($category->category_id == $category_id ||
                     $category->category_id == $activeCategory->parent->category_id) {
                 foreach ($category->children as $childCategory) {
                     $subItems[] = array(
@@ -151,6 +152,23 @@ class FrontController extends CController
     private function getMenuItemsByProductId($product_id)
     {
         return array();
+    }
+
+    public function getMainMenuItems()
+    {
+        if ($this->mainMenuItems === null) {
+            $this->mainMenuItems = array();
+            $requestUri = Yii::app()->request->requestUri;
+            $menuItems = require(Yii::getPathOfAlias('application.config') . '/front_main_menu_items.php');
+            foreach ($menuItems as $item) {
+                $this->mainMenuItems[] = array(
+                    'label' => $item['label'],
+                    'url' => $url = CHtml::normalizeUrl($item['url']),
+                    'class' => ($requestUri === $url) ? 'class="active"' : null,
+                );
+            }
+        }
+        return $this->mainMenuItems;
     }
 
 }

@@ -7,7 +7,7 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Компания',
-    //'language' => 'ru',
+    'language' => 'ru',
     'preload' => array(),
     'aliases' => array(
         'xupload' => 'application.modules.ycm.extensions.xupload',
@@ -45,9 +45,12 @@ return array(
                 array(
                     'class' => 'application.routes.CategoryRule'
                 ),
+                '<language:(\w{2})>' => 'site/index',
+                '' => 'site/index',
                 '<language:(\w{2})>/' => 'site/index',
+                '<language:(\w{2})>/<page:(delivery_payment|about_us|contacts)>' => 'site/<page>',
+                '<page:(delivery_payment|about_us|contacts)>' => 'site/<page>',
                 '<language:(\w{2})>/contact' => 'site/contact',
-                //'<language:(\w{2})>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<language:(\w{2})>/<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),

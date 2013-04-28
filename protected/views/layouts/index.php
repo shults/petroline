@@ -30,8 +30,8 @@
                 <div class="width_table">
                     <div class="cl_both">
                         <div class="logo" style="height: 84px; ">
-                            <a href="#">
-                                <img src="images/logo.gif" border="0" />
+                            <a href="<?php echo CHtml::normalizeUrl(array('site/index')) ?>">
+                                <img src="/images/logo.gif" border="0" />
                             </a>
                         </div>
                         <div class="fl_right" align="right">
@@ -84,16 +84,11 @@
                     </table>
                 </div>
                 <div class="row_4">
-
                     <div class="width_table footer">
-
                         <div align="center">
                             <?php $this->renderPartial("application.views.layouts._carousel_footer") ?>
                             <?php $this->renderPartial("application.views.layouts._footer_menu") ?>
-                            <div class="footer2_td">
-                                Copyright &copy; <?php echo date('Y') ?> 
-                                <a href="#">petroline</a>
-                            </div>
+                            <?php $this->renderPartial("application.views.layouts._footer2_td") ?>
                         </div>
                     </div>
                 </div>
