@@ -8,6 +8,9 @@
 class UserController extends AdminController
 {
 
+    const ACTION_ADD = 'add';
+    const ACTION_EDIT = 'edit';
+
     public function accessRules()
     {
         return array(
@@ -26,6 +29,9 @@ class UserController extends AdminController
 
     public function actionIndex()
     {
+        $this->breadcrumbs = array(
+            Yii::t('user', 'Users')
+        );
         $this->render('index', array(
             'userModel' => User::model(),
         ));
@@ -67,6 +73,19 @@ class UserController extends AdminController
 
     public function actionEdit($user_id = null)
     {
+        $actionId = strtolower(Yii::app()->controller->action->id);
+        $this->breadcrumbs = array(
+            Yii::t('user', 'Users') => array('user/index')
+        );
+        if ($actionId === self::ACTION_ADD) {
+            $this->breadcrumbs += array(
+                Yii::t('user', 'Add user')
+            );
+        } else if ($actionId === self::ACTION_EDIT) {
+            $this->breadcrumbs += array(
+                Yii::t('user', 'Edit user')
+            );
+        }
         if ($user_id === null)
             $user = new User(User::SCENARIO_CREATE);
         else {
@@ -93,9 +112,13 @@ class UserController extends AdminController
         ));
     }
 
-    public function actionDelete()
+    public function actionDelete($user_id)
     {
-        
+        if (($user = User::model()->findByPk($user_id)) === null)
+            throw new CHttpException(404);
+        $user->delete();
+        if (!$_GET['ajax'])
+            $this->redirect(array('user/index'));
     }
 
 }

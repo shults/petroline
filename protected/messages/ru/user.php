@@ -17,4 +17,7 @@ return array(
     'Your profile updated succesfully.' => 'Профиль обновлен успешно.',
     'Create user' => 'Создать пользователя',
     'Field "{attribute}" must consist letters and numbers only.' => 'Поле "{attribute}" должно состоять только из цифр и букв.',
+    'Add user' => 'Новый пользователь',
+    'Edit user' => 'Редактировать пользователя',
+    'Users' => 'Пользователи',
 );
