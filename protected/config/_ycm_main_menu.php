@@ -37,6 +37,10 @@ return array(
                         'label' => 'Промо',
                         'url' => array('model/list', 'name' => 'Promo'),
                     ),
+                    array(
+                        'label' => 'Новые товары',
+                        'url' => array('newProduct/index'),
+                    )
                 )
             ),
             array(
