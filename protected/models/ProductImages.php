@@ -2,6 +2,8 @@
 
 class ProductImages extends CActiveRecord
 {
+
+    public static $MIME_TYPES = array('image/jpeg', 'image/png', 'image/gif', 'image/jpg');
     public $image;
     protected static $_adminNames;
 
@@ -57,6 +59,12 @@ class ProductImages extends CActiveRecord
     public static function t($message, $params = null, $source = null, $language = null)
     {
         return Yii::t('productImages', $message, $params, $source, $language);
+    }
+
+    public function afterDelete()
+    {
+        unlink(realpath(Yii::getPathOfAlias('root')) . $this->getFileUrl('filepath'));
+        parent::afterDelete();
     }
 
 }

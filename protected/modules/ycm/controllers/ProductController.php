@@ -6,14 +6,18 @@ class ProductController extends AdminController
     const ACTION_ADD = 'add';
     const ACTION_EDIT = 'edit';
 
-    public function actions()
+    public function actionUpload($product_id)
     {
-        return array(
-            'upload' => array(
-                'class' => 'application.modules.ycm.actions.UploadAction',
-                'folder' => md5(Yii::app()->params->salt . Yii::app()->request->getParam('product_id')),
-            ),
-        );
+        $productImagesModel = new ProductImages;
+        if (!$imageFile = CUploadedFile::getInstance($productImagesModel, 'filepath'))
+            throw new CHttpException(404);
+        $productImagesModel->filepath = $newFileName = sha1(microtime() . uniqid()) . '.' . $imageFile->getExtensionName();
+        $productImagesModel->product_id = $product_id;
+        if (!$productImagesModel->save(false))
+            throw new CException("Error write into db");
+        $imageFileName = realpath(Yii::getPathOfAlias('root')) . $productImagesModel->getFileUrl('filepath');
+        if (!$imageFile->saveAs($imageFileName))
+            throw new CException("File does not saved");
     }
 
     public function actionIndex()
@@ -36,6 +40,7 @@ class ProductController extends AdminController
 
     public function actionEdit($product_id = null)
     {
+        Yii::import("xupload.models.XUploadForm");
         switch (strtolower(Yii::app()->controller->action->id)) {
             case self::ACTION_ADD:
                 $this->breadcrumbs = array(
@@ -66,7 +71,7 @@ class ProductController extends AdminController
         }
 
         $this->render('edit', array(
-            'model' => $product
+            'tabs' => $this->getTabs($product)
         ));
     }
 
@@ -79,54 +84,31 @@ class ProductController extends AdminController
             $this->redirect(array('product/index'));
     }
 
-    public function actionDeleteImage()
+    public function actionDeleteImage($image_id)
     {
-        $image_id = Yii::app()->request->getParam('image_id');
-        if ($image_id) {
-            $image = ProductImages::model()->find('image_id=:image_id', array(':image_id' => $image_id));
-            $image->delete();
-            $imagestrore = Yii::app()->params->imagestore;
-            $path = realpath(Yii::app()->getBasePath() . "/../$imagestrore/{$image->folder}") . "/";
-            if (is_file($path . $image->filepath)) {
-                unlink($path . $image->filepath);
-            } else {
-                throw new Exception('No such file - ' . $path . $image->filepath);
-            }
-        } else {
+        if (($productImage = ProductImages::model()->findByPk($image_id)) === null)
             throw new CHttpException(404);
-        }
+        $productImage->delete();
     }
 
-    protected function getTabs($form, $model)
+    protected function getTabs(Products $productModel)
     {
-        $product_id = $model->product_id;
-
-        if ($product_id) {
-            Yii::import("xupload.models.XUploadForm");
-            $upload_photos = new XUploadForm;
-            $gallery_tab = array(
-                'label' => 'Галерея',
-                'content' => $this->renderPartial('product_images', array(
-                    'upload_photos' => $upload_photos,
-                    'model' => $model,
-                        ), true)
-            );
-        } else {
-            $gallery_tab = '';
-        }
-
-        $tabs = array(
+        return array(
             array(
                 'active' => true,
-                'label' => 'Основное',
-                'content' => $this->renderPartial('main_data', array(
-                    'model' => $model,
-                    'form' => $form,
+                'label' => Yii::t('catalog', 'Main data'),
+                'content' => $this->renderPartial('_tab_main', array(
+                    'productModel' => $productModel
                         ), true)
             ),
-            $gallery_tab
+            array(
+                'visible' => !$productModel->getIsNewRecord(),
+                'label' => Yii::t('catalog', 'Images'),
+                'content' => $this->renderPartial('_tab_images', array(
+                    'productModel' => $productModel
+                        ), true)
+            )
         );
-        return $tabs;
     }
 
 }

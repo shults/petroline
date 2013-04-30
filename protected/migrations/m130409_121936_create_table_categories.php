@@ -17,9 +17,12 @@ class m130409_121936_create_table_categories extends CDbMigration
             'meta_description' => 'TEXT',
             'meta_keywords' => 'TEXT',
             'description' => 'TEXT',
+            'prom_id' => 'INT UNSIGNED',
+            'prom_parent_id' => 'SMALLINT UNSIGNED',
         ));
         $this->createIndex('language_id', '{{categories}}', 'language_id');
-        $this->createIndex('language_id_url', '{{categories}}', 'language_id,url', true);
+        $this->createIndex('language_id;parent_category_id;url', '{{categories}}', 'language_id, parent_category_id, url', true);
+        $this->createIndex('language_id;prom_id', '{{categories}}', 'language_id, prom_id');
         $this->addForeignKey('categories_language_id_fk', '{{categories}}', 'language_id', '{{languages}}', 'language_id', 'CASCADE', 'CASCADE');
     }
 
