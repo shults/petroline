@@ -45,16 +45,13 @@ class FileBehavior extends CModelBehavior
         $modelName = strtolower(get_class($this->owner));
         if ($this->owner->hasAttribute($attribute) && !empty($this->owner->$attribute)) {
             $uploadPath = Yii::app()->params['imagestore'] ? Yii::app()->params['imagestore'] : 'uploads';
-            $filePath = $uploadPath . DIRECTORY_SEPARATOR . $modelName . DIRECTORY_SEPARATOR 
+            $filePath = $uploadPath . DIRECTORY_SEPARATOR . $modelName . DIRECTORY_SEPARATOR
                     . strtolower($attribute) . DIRECTORY_SEPARATOR . $this->owner->$attribute;
-            if (file_exists($filePath))
-                return $filePath;
-            else 
-                return $uploadPath . DIRECTORY_SEPARATOR . self::NO_PHOTO;
+            return $filePath;
         }
         return null;
     }
-    
+
     public function getAbsoluteFilePath($attribute)
     {
         if (($filePath = $this->getFilePath($attribute)) !== null) {
@@ -62,5 +59,4 @@ class FileBehavior extends CModelBehavior
         }
         return null;
     }
-
 }
