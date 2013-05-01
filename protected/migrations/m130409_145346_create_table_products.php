@@ -9,6 +9,7 @@ class m130409_145346_create_table_products extends CDbMigration
             'product_id' => 'INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'category_id' => 'SMALLINT UNSIGNED NOT NULL',
             'language_id' => 'SMALLINT UNSIGNED NOT NULL',
+            'order' => 'SMALLINT UNSIGNED NOT NULL DEFAULT 1',
             'url' => 'VARCHAR(150) NOT NULL',
             'title' => 'VARCHAR(100) NOT NULL',
             'status' => 'BOOLEAN NOT NULL DEFAULT 1',
@@ -26,6 +27,7 @@ class m130409_145346_create_table_products extends CDbMigration
             'updated_by' => 'INT UNSIGNED',
         ));
         $this->createIndex('category_id', '{{products}}', 'category_id');
+        $this->createIndex('order', '{{products}}', 'order');
         $this->createIndex('language_id_url', '{{products}}', 'language_id, url', true);
         $this->createIndex('price', '{{products}}', 'price');
         $this->createIndex('language_id', '{{products}}', 'language_id');

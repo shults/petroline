@@ -60,7 +60,7 @@ class NewProduct extends CActiveRecord
     {
         if ($this->getIsNewRecord())
             $this->language_id = Yii::app()->lang->language_id;
-        if ($this->getIsNewRecord() && $this->order == 0) {
+        if ($this->getIsNewRecord()) {
             $this->order = ++$this->maxOrder()->find()->order;
         }
         return parent::beforeSave();

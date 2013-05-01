@@ -32,7 +32,7 @@ class SeedCommand extends CConsoleCommand
      * 
      * @param String $csv path to export csv file
      */
-    public function actionImport($csv)
+    public function actionImport($csv, $withImages = false)
     {
         $currentDir = getcwd();
         $csvFilePath = $currentDir . DIRECTORY_SEPARATOR . $csv;
@@ -108,7 +108,7 @@ class SeedCommand extends CConsoleCommand
                     . DIRECTORY_SEPARATOR . 'productimages' . DIRECTORY_SEPARATOR . 'filepath';
             $this->createFolder($folderPath);
             $file = $data[11];
-            if ($productNumber > 0) {
+            if ($withImages) {
                 $files = explode(',', $file);
                 foreach ($files as $file) {
                     if ($file && $content = file_get_contents(trim($file))) {

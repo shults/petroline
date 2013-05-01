@@ -32,8 +32,8 @@ $this->widget('bootstrap.widgets.TbGridView', array(
                 'height' => '100',
             ),
             'value' => 'CHtml::link(
-                            CHtml::image($data->getFileUrl("filepath")),
-                            $data->getFileUrl("filepath"),
+                            CHtml::image(ImageModel::model()->preview($data->getFilePath("filepath"))),
+                            ImageModel::model()->big($data->getFilePath("filepath")),
                             array(
                                 "class"=>"colorbox"
                                 )

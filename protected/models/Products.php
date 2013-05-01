@@ -25,7 +25,27 @@ class Products extends CActiveRecord
 
     public function search()
     {
-        return new CActiveDataProvider($this);
+        $criteria = new CDbCriteria;
+        $criteria->params = array();
+        if (isset($_GET[__CLASS__])) {
+            $this->attributes = $_GET[__CLASS__];
+            
+            if ($this->product_id) {
+                $criteria->addCondition('product_id=:product_id');
+                $criteria->params = CMap::mergeArray($criteria->params, array(':product_id' => $this->product_id));
+            }
+            
+            if ($this->title)
+                $criteria->addSearchCondition('title', $this->title);
+            
+            if ($this->category_id) {
+                $criteria->addCondition('category_id=:category_id');
+                $criteria->params = CMap::mergeArray($criteria->params, array(':category_id' => $this->category_id));
+            }
+        }
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria
+        ));
     }
 
     public static function model($className = __CLASS__)
@@ -39,7 +59,7 @@ class Products extends CActiveRecord
             array('title, url, category_id, price', 'required'),
             array('url', 'unique'),
             array('url', 'url', 'pattern' => '/^[a-z0-9-_]+$/'),
-            array('status, store_status, description, trade_price, min_trade_order, meta_title, meta_keywords, meta_description', 'safe'),
+            array('product_id, status, store_status, description, trade_price, min_trade_order, meta_title, meta_keywords, meta_description', 'safe'),
             array('min_trade_order', 'numerical'),
             array('price, trade_price', 'length', 'max' => 8),
         );
@@ -48,6 +68,7 @@ class Products extends CActiveRecord
     public function attributeLabels()
     {
         return array(
+            'product_id' => 'ID',
             'category_id' => self::t('Сategory'),
             'status' => self::t('Active product'),
             'title' => self::t('Name'),
@@ -59,7 +80,8 @@ class Products extends CActiveRecord
             'min_trade_order' => self::t('Min trade order'),
             'meta_title' => self::t('Title'),
             'meta_keywords' => self::t('Meta keyowrds'),
-            'meta_description' => self::t('Meta description')
+            'meta_description' => self::t('Meta description'),
+            'order' => self::t('Display order')
         );
     }
 
@@ -178,10 +200,11 @@ class Products extends CActiveRecord
     public function defaultScope()
     {
         return array(
-            'condition' => 'language_id=:language_id',
+            'condition' => '`language_id`=:language_id',
             'params' => array(
                 ':language_id' => Yii::app()->lang->language_id
             ),
+            'order' => '`category_id` ASC, `order` ASC',
         );
     }
     
@@ -190,6 +213,42 @@ class Products extends CActiveRecord
         return new CActiveDataProvider('ProductImages', array(
             'data' => $this->images
         ));
+    }
+    
+    public function getFullCategoryTitle() {
+        if ($this->getIsNewRecord())
+            throw new CException("This is new ActiveRecord model");
+        return $this->category->getFullCategoryTitle();
+    }
+    
+    public function orderUp()
+    {
+        if ($this->getIsNewRecord())
+            throw new CException('You cannot order up not existance model');
+        $this->order -= 1;
+        if ($prevProduct = Products::model()->find('`order`=:order AND `category_id`=:category_id', array(
+            ':order' => $this->order,
+            ':category_id' => $this->category_id
+            ))) {
+            $prevProduct->order += 1;
+            $prevProduct->save(false);
+        }
+        $this->save(false);
+    }
+    
+    public function orderDown()
+    {
+        if ($this->getIsNewRecord())
+            throw new CException('You cannot order up not existance model');
+        $this->order += 1;
+        if ($nextProduct = Products::model()->find('`order`=:order AND `category_id`=:category_id', array(
+            ':order' => $this->order,
+            ':category_id' => $this->category_id
+            ))) {
+            $nextProduct->order -= 1;
+            $nextProduct->save(false);
+        }
+        $this->save(false);
     }
 
 }

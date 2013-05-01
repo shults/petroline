@@ -11,5 +11,6 @@ return array(
     'Meta description' => 'Описание (meta)',
     'Categories' => 'Категории',
     'category' => 'категорию',
-    'categories' => 'категории'
+    'categories' => 'категории',
+    'Display order' => 'Порядок',
 );

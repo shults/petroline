@@ -5,6 +5,7 @@ class ProductController extends AdminController
 
     const ACTION_ADD = 'add';
     const ACTION_EDIT = 'edit';
+    const ADMIN_WIDGET_GRID_VIEW_ID = 'products-grid-view';
 
     public function actionUpload($product_id)
     {
@@ -109,6 +110,26 @@ class ProductController extends AdminController
                         ), true)
             )
         );
+    }
+
+    public function actionOrderUp($product_id)
+    {
+        /* @var $product Products */
+        if (($product = Products::model()->findByPk($product_id)) === null)
+            throw new CHttpException(404);
+        $product->orderUp();
+        if (!isset($_GET['ajax']))
+            $this->redirect(array('product/index'));
+    }
+
+    public function actionOrderDown($product_id)
+    {
+        /* @var $product Products */
+        if (($product = Products::model()->findByPk($product_id)) === null)
+            throw new CHttpException(404);
+        $product->orderDown();
+        if (!isset($_GET['ajax']))
+            $this->redirect(array('product/index'));
     }
 
 }

@@ -1,5 +1,7 @@
 <?php
 
+Yii::import('ycm.controllers.CategoryController');
+
 class Categories extends CActiveRecord
 {
 
@@ -25,7 +27,23 @@ class Categories extends CActiveRecord
 
     public function search()
     {
-        return new CActiveDataProvider($this);
+        $criteria = new CDbCriteria;
+        if (isset($_GET[__CLASS__])) {
+            $this->attributes = $_GET[__CLASS__];
+
+            if (isset($this->title) && $this->title)
+                $criteria->addSearchCondition('title', $this->title);
+
+            if (isset($this->parent_category_id) && $this->parent_category_id !== '') {
+                $criteria->addCondition('parent_category_id=:parent_category_id');
+                $criteria->params = CMap::mergeArray($criteria->params, array(
+                            ':parent_category_id' => $this->parent_category_id
+                ));
+            }
+        }
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria
+        ));
     }
 
     public static function model($className = __CLASS__)
@@ -54,7 +72,8 @@ class Categories extends CActiveRecord
             'filename' => self::t('image'),
             'meta_title' => self::t('Title'),
             'meta_keywords' => self::t('Meta keyowrds'),
-            'meta_description' => self::t('Meta description')
+            'meta_description' => self::t('Meta description'),
+            'order' => self::t('Display order')
         );
     }
 
@@ -95,17 +114,66 @@ class Categories extends CActiveRecord
     public function adminSearch()
     {
         return array(
+            'enableSorting' => false,
+            'filter' => $this,
             'columns' => array(
-                array(
-                    'name' => 'image',
-                    'value' => 'CHtml::image($data->getFileUrl("filename"), "", array("width" => 150));',
-                    'type' => 'raw',
-                ),
                 'title',
-                'url',
                 array(
                     'name' => 'parent_category_id',
                     'value' => '$data->getParentTitle();',
+                    'filter' => CMap::mergeArray(array(0 => self::t('-= No parent category =-')), $this->parent_category_idChoices()),
+                ),
+                array(
+                    'name' => 'order',
+                    'filter' => false
+                ),
+                array(
+                    'class' => 'bootstrap.widgets.TbButtonColumn',
+                    'template' => '{up}{down}',
+                    'buttons' => array(
+                        'up' => array(
+                            'icon' => 'icon-arrow-up',
+                            'label' => 'Up',
+                            'url' => 'CHtml::normalizeUrl(array("category/orderUp", "category_id" => $data->category_id))',
+                            'click' => "js: function() {
+                                var th = this,
+                                    afterDelete = function(){};
+                                jQuery('#objects-grid').yiiGridView('update', {
+                                    type: 'POST',
+                                    url: jQuery(this).attr('href'),
+                                    success: function(data) {
+                                        jQuery('#objects-grid').yiiGridView('update');
+                                        afterDelete(th, true, data);
+                                    },
+                                    error: function(XHR) {
+                                        return afterDelete(th, false, XHR);
+                                    }
+                                });
+                                return false;
+                            }"
+                        ),
+                        'down' => array(
+                            'icon' => 'icon-arrow-down',
+                            'label' => 'Down',
+                            'url' => 'CHtml::normalizeUrl(array("category/orderDown", "category_id" => $data->category_id))',
+                            'click' => "js: function() {
+                                var th = this,
+                                    afterDelete = function(){};
+                                jQuery('#objects-grid').yiiGridView('update', {
+                                    type: 'POST',
+                                    url: jQuery(this).attr('href'),
+                                    success: function(data) {
+                                        jQuery('#objects-grid').yiiGridView('update');
+                                        afterDelete(th, true, data);
+                                    },
+                                    error: function(XHR) {
+                                        return afterDelete(th, false, XHR);
+                                    }
+                                });
+                                return false;
+                            }"
+                        )
+                    ),
                 ),
             ),
         );
@@ -134,10 +202,89 @@ class Categories extends CActiveRecord
     public function defaultScope()
     {
         return array(
-            'condition' => 'language_id=:language_id',
+            'condition' => 'language_id=:language_id AND status=1',
             'params' => array(
                 ':language_id' => Yii::app()->lang->language_id
             ),
+            'order' => '`parent_category_id` ASC, `order` ASC',
+        );
+    }
+
+    public function listCategoriesData()
+    {
+        $categories = $this->findAll('parent_category_id=:parent_category_id', array(':parent_category_id' => 0));
+        $categoriesList = array();
+        foreach ($categories as $category) {
+            $categoriesList[$category->category_id] = $category->title;
+            if ($category->children) {
+                $categoriesList[$category->title] = array();
+                foreach ($category->children as $childCategory) {
+                    $categoriesList[$category->title][$childCategory->category_id] = $childCategory->title;
+                }
+            }
+        }
+        return $categoriesList;
+    }
+
+    public function getFullCategoryTitle()
+    {
+        if ($this->getIsNewRecord())
+            throw new CException("This is new ActiveRecord model");
+        if ($this->parent) {
+            return $this->parent->title . ' >> ' . $this->title;
+        }
+        return $this->title;
+    }
+
+    public function orderUp()
+    {
+        if ($this->getIsNewRecord())
+            throw new CException('You cannot order up not existance model');
+        $this->order -= 1;
+        if ($prevCategory = Categories::model()->find('`order`=:order AND `parent_category_id`=:parent_category_id', array(
+            ':order' => $this->order,
+            ':parent_category_id' => $this->parent_category_id
+                ))) {
+            $prevCategory->order += 1;
+            $prevCategory->save(false);
+        }
+        $this->save(false);
+    }
+
+    public function orderDown()
+    {
+        if ($this->getIsNewRecord())
+            throw new CException('You cannot order down not existance model');
+        $this->order += 1;
+        if ($nextCategory = Categories::model()->find('`order`=:order AND `parent_category_id`=:parent_category_id', array(
+            ':order' => $this->order,
+            ':parent_category_id' => $this->parent_category_id
+                ))) {
+            $nextCategory->order -= 1;
+            $nextCategory->save(false);
+        }
+        $this->save(false);
+    }
+
+    public function beforeSave()
+    {
+        if ($this->getIsNewRecord()) {
+            //set language
+            $this->language_id = Yii::app()->lang->language_id;
+            
+            //set order
+            $this->order = ++$this->maxOrder()->find('parent_category_id=:parent_category_id',
+                    array(':parent_category_id' => $this->parent_category_id))->order;
+        }
+        return parent::beforeSave();
+    }
+    
+    public function scopes()
+    {
+        return array(
+            'maxOrder' => array(
+                'select' => 'MAX(`order`) AS `order`'
+            )
         );
     }
 
