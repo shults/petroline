@@ -183,7 +183,7 @@ class Order extends CActiveRecord
         $orderProduct->save(false);
         $this->save(false);
     }
-    
+
     /**
      * This method decrement product from order 
      * If number of products equals zero than the record will be deleted
@@ -221,6 +221,44 @@ class Order extends CActiveRecord
         return array(
             'order' => '`status` ASC'
         );
+    }
+
+    public function search()
+    {
+        $criteria = new CDbCriteria;
+        $this->status = null;
+        if (isset($_GET[__CLASS__])) {
+            $this->attributes = $_GET[__CLASS__];
+
+            if (isset($this->status) && $this->status) {
+                $criteria->addCondition('status=:status');
+                $criteria->params = CMap::mergeArray($criteria->params, array(':status' => $this->status));
+            }
+
+            if (isset($this->customer_full_name) && $this->customer_full_name) {
+                $criteria->addSearchCondition('customer_full_name', $this->customer_full_name);
+            }
+
+            if (isset($this->customer_phone) && $this->customer_phone) {
+                $criteria->addSearchCondition('customer_phone', $this->customer_phone);
+            }
+
+            if (isset($this->incoming_date) && $this->incoming_date) {
+                if (preg_match('/^(\d+)\.(\d+)\.(\d+)$/i', $this->incoming_date, $matches)) {
+                    $day = $matches[1];
+                    $month = $matches[2];
+                    $year = $matches[3];
+                    $date = $year . '-' . $month . '-' . $day;//mktime(0, 0, 0, $month, $day, $year);
+                    $criteria->addCondition('DATE(`incoming_date`)=:date');
+                    $criteria->params = CMap::mergeArray($criteria->params, array(
+                        ':date' => $date
+                    ));
+                }
+            }
+        }
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria
+        ));
     }
 
 }
