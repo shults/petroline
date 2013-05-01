@@ -22,7 +22,8 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'columns' => array(
         'item.title',
         array(
-            'name' => 'item.category.title',
+            //'name' => 'item.category.title',
+            'value' => '$data->item->category->getFullCategoryTitle();',
             'header' => Yii::t('catalog', 'Category')
         ),
         'order',
