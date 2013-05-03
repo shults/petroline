@@ -55,7 +55,7 @@ class CategoryRule extends CBaseUrlRule
             if ($url = $manager->createUrl(self::RULE_ROUTE, $params))
                 $request->redirect($url);
         }
-        if (preg_match('/([a-z]{2})?\/?c(\d+)-([a-z0-9_-]+)/i', $pathInfo, $matches)) {
+        if (preg_match('/^([a-z]{2})?\/?c(\d+)-([a-z0-9_-]+)$/i', $pathInfo, $matches)) {
             $languageCode = $matches[1];
             $category_id = $matches[2];
             $url = $matches[3];
