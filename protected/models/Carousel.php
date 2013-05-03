@@ -3,6 +3,9 @@
 class Carousel extends CActiveRecord
 {
 
+    const NEED_WIDTH = 676;
+    const NEED_HEIGHT = 310;
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -70,40 +73,20 @@ class Carousel extends CActiveRecord
     {
         if (!$this->url)
             $this->url = "#";
-        if ($this->isNewRecord)
+        if ($this->isNewRecord) {
             $this->order = ++$this->maxOrder()->find()->order;
+            $this->language_id = Yii::app()->lang->language_id;
+        }
         return parent::beforeSave();
     }
 
     public function rules()
     {
         return array(
-            array('order,enabled,url', 'safe'),
+            array('order, enabled, url, language_id', 'safe'),
             array('title,image', 'required'),
             array('image', 'file', 'allowEmpty' => true, 'types' => 'jpg,jpeg,png,gif'),
         );
-    }
-
-    public function afterSave()
-    {
-        $this->imageSizeValidate('image');
-        return parent::afterSave();
-    }
-
-    public function imageSizeValidate($attribute, $params = array('width' => 940, 'height' => 380))
-    {
-        $imagesize = getimagesize($this->getAbsoluteFileUrl($attribute));
-        $width = $imagesize[0];
-        $height = $imagesize[1];
-        if ($width != $params['width'] || $height != $params['height']) {
-            Yii::app()->user->setFlash(
-                    'error', Yii::t('carousel', 'Needed image size is {nwidth}x{nheight} px. Current uploaded file size is {width}x{height} px. Recomendation: Upload new file!', array(
-                        '{width}' => $width,
-                        '{height}' => $height,
-                        '{nwidth}' => $params['width'],
-                        '{nheight}' => $params['height']
-            )));
-        }
     }
 
     public function attributeLabels()
@@ -113,7 +96,7 @@ class Carousel extends CActiveRecord
             'title' => 'Название',
             'order' => 'Порядок отображения',
             'url' => 'URL',
-            'image' => 'Изображение'
+            'image' => 'Изображение' . ' <span style="color: #f00;">676x310</span>'
         );
     }
 
@@ -133,6 +116,11 @@ class Carousel extends CActiveRecord
             ),
             'maxOrder' => array(
                 'select' => 'MAX(`order`) AS `order`',
+            ),
+            'front' => array(
+                'condition' => 'enabled=1',
+                'limit' => 5,
+                'offset' => 0
             )
         );
     }
@@ -146,6 +134,37 @@ class Carousel extends CActiveRecord
             ),
             'order' => '`order` ASC',
         );
+    }
+
+    public function afterSave()
+    {
+        parent::afterSave();
+        if ($this->image) {
+            list($width, $height) = getimagesize($this->getFilePath('image'));
+            if ($width != self::NEED_WIDTH || $height != self::NEED_HEIGHT) {
+                Yii::app()->user->setFlash(
+                        'error', 
+                        Yii::t(
+                                'carousel', 
+                                'Needed image size is {nwidth}x{nheight} px. Current uploaded file size is {width}x{height} px. Recomendation: Upload new file!', 
+                                array(
+                                    '{nwidth}' => self::NEED_WIDTH,
+                                    '{nheight}' => self::NEED_HEIGHT,
+                                    '{width}' => $width,
+                                '{height}' => $height
+                )));
+            }
+        }
+    }
+    
+    
+    /**
+     * 
+     * @return String url of image
+     */
+    public function getImageUrl()
+    {
+        return ImageModel::model()->resize($this->getFilePath('image'), self::NEED_WIDTH, self::NEED_HEIGHT);
     }
 
 }

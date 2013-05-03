@@ -13,4 +13,5 @@ return array(
     'category' => 'категорию',
     'categories' => 'категории',
     'Display order' => 'Порядок',
+    'Subcategories' => 'Подкатегории'
 );

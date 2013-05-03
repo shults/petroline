@@ -12,5 +12,8 @@ return array(
     'Product' => 'Товар',
     ' Search entire store...' => ' Поиск...',
     'Shopping Cart' => 'Корзина',
-    'Add to cart' => 'В корзину'
+    'Add to cart' => 'В корзину',
+    'New products' => 'Новые товары',
+    'Main data' => 'Основные данные',
+    'Images' => 'Изображения',
 );

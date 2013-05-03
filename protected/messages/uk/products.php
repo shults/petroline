@@ -18,4 +18,5 @@ return array(
     'Edit product' => 'Редагувати товар',
     'Create product' => 'Створити товар',
     'Display order' => 'Порядок',
+    'Products' => 'Товари',
 );

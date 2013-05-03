@@ -9,7 +9,7 @@ $ceilWidth = floor(100 / $productsPerRow);
         <td class="content_wrapper_td">	
             <table border="0" width="100%" cellspacing="0" cellpadding="0"  class="cont_heading_table">
                 <tr>
-                    <td  class="cont_heading_td"><?php echo Yii::t('catalog', 'New products') ?></td>
+                    <td  class="infoBoxHeading_td infoBoxHeading_br"><?php echo Yii::t('catalog', 'New products') ?></td>
                 </tr>
             </table>
             <table cellpadding="0" cellspacing="0" border="0" class="content_wrapper3_table">
