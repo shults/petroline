@@ -10,6 +10,8 @@ Yii::import('system.test.CDbFixtureManager');
 class SeedCommand extends CConsoleCommand
 {
 
+    const YANDEX_TRANSLATE_API_KEY = 'trnsl.1.1.20130503T152435Z.e6b955314e9738d7.6ba88118bb23318727952203f5319ce55bc11181';
+
     private $defaultTables = array(
         '{{languages}}',
         '{{users}}',
@@ -17,7 +19,6 @@ class SeedCommand extends CConsoleCommand
         '{{deliveries}}',
         '{{payments}}',
     );
-    
     private $afterImportSeed = array(
         '{{new_products}}'
     );
@@ -87,11 +88,20 @@ class SeedCommand extends CConsoleCommand
             $productUrl = $this->getTranslitUrlRus($data[1]);
             if ($dublicateItem = Yii::app()->db->createCommand('SELECT * FROM {{products}} WHERE url=\'' . $productUrl . '\'')->queryRow())
                 $productUrl .= '-prom-id-' . $data[19];
+
             if (!$categoriesRow = Yii::app()->db->createCommand('SELECT * FROM {{categories}} WHERE `prom_id`=' . (int) $data[13] . ' AND `language_id`=1')->queryRow()) {
                 $this->usageError("Category with prom_id=" . $data[13] . " not found");
             }
+
+            if ($orderQuery = Yii::app()->db->createCommand('SELECT MAX(`order`) AS `order` FROM {{products}} WHERE `category_id`=' . (int) $categoriesRow['category_id'])->queryRow()) {
+                $order = $orderQuery['order'] ? $orderQuery['order'] + 1 : 1;
+            } else {
+                $order = 1;
+            }
+
             $command->insert('{{products}}', array(
                 'category_id' => $categoriesRow['category_id'],
+                'order' => $order,
                 'language_id' => 1,
                 'url' => $productUrl,
                 'title' => $data[1],
@@ -133,6 +143,76 @@ class SeedCommand extends CConsoleCommand
             $productNumber++;
         }
         fclose($csvFile);
+
+        //// Ukrainian
+        $csvFile = fopen($csvFilePath, 'r');
+        echo "Start product import ...\n";
+        $command = Yii::app()->db->createCommand();
+        $productNumber = 0;
+        while ($data = fgetcsv($csvFile, 5000, ",")) {
+            if ($productNumber == 0) {
+                $productNumber++;
+                continue;
+            }
+            $productUrl = $this->getTranslitUrlRus($data[1]);
+            if ($dublicateItem = Yii::app()->db->createCommand('SELECT * FROM {{products}} WHERE url=\'' . $productUrl . '\'')->queryRow())
+                $productUrl .= '-prom-id-' . $data[19];
+
+            if (!$categoriesRow = Yii::app()->db->createCommand('SELECT * FROM {{categories}} WHERE `prom_id`=' . (int) $data[13] . ' AND `language_id`=2')->queryRow()) {
+                $this->usageError("Category with prom_id=" . $data[13] . " not found");
+            }
+
+            if ($orderQuery = Yii::app()->db->createCommand('SELECT MAX(`order`) AS `order` FROM {{products}} WHERE `category_id`=' . (int) $categoriesRow['category_id'])->queryRow()) {
+                $order = $orderQuery['order'] ? $orderQuery['order'] + 1 : 1;
+            } else {
+                $order = 1;
+            }
+
+            $command->insert('{{products}}', array(
+                'category_id' => $categoriesRow['category_id'],
+                'order' => $order,
+                'language_id' => 2,
+                'url' => $productUrl,
+                'title' => $this->translate($data[1]),
+                'description' => $this->translate($data[14], self::FORMAT_HTML),
+                'price' => $data[5],
+                'trade_price' => $data[9],
+                'min_trade_order' => $data[10],
+                'meta_title' => $this->translate($data[1]),
+                'meta_description' => $this->translate($data[3]),
+                'meta_keywords' => $this->translate($data[2]),
+                'created_at' => new CDbExpression('NOW()'),
+                'updated_at' => new CDbExpression('NOW()'),
+                'created_by' => 1,
+                'updated_by' => 1,
+            ));
+            $product_id = Yii::app()->db->getLastInsertID();
+            $imagestore = 'uploads';
+            $folderPath = realpath(Yii::getPathOfAlias('root')) . DIRECTORY_SEPARATOR . 'uploads'
+                    . DIRECTORY_SEPARATOR . 'productimages' . DIRECTORY_SEPARATOR . 'filepath';
+            $this->createFolder($folderPath);
+            $file = $data[11];
+            if ($withImages) {
+                $files = explode(',', $file);
+                foreach ($files as $file) {
+                    if ($file && $content = file_get_contents(trim($file))) {
+                        $imageFileName = $this->getHash() . $this->getExtension($file);
+                        $newfile = $folderPath . DIRECTORY_SEPARATOR . $imageFileName;
+                        $imageFile = fopen($newfile, "w");
+                        fwrite($imageFile, $content);
+                        fclose($imageFile);
+                        $command->insert('{{product_images}}', array(
+                            'product_id' => $product_id,
+                            'filepath' => $imageFileName,
+                        ));
+                    }
+                }
+            }
+            echo "Product #{$productNumber} imported\n";
+            $productNumber++;
+        }
+        fclose($csvFile);
+
         $this->afterImportSeed();
         echo "Import finished\n";
     }
@@ -242,7 +322,7 @@ class SeedCommand extends CConsoleCommand
             $fixtureManager->loadFixture($tableName);
         }
     }
-    
+
     private function afterImportSeed()
     {
         $fixtureManager = new CDbFixtureManager();
@@ -272,6 +352,42 @@ class SeedCommand extends CConsoleCommand
         $fixtureManager->basePath = Yii::getPathOfAlias('application.seeds');
         $fixtureManager->loadFixture('{{categories}}');
         echo "Endcategories import...\n";
+    }
+
+    const FORMAT_PLAIN = 'plain';
+    const FORMAT_HTML = 'html';
+
+    private function translate($text, $format = self::FORMAT_PLAIN, $from = 'ru', $to = 'uk')
+    {
+        /*
+         * https://translate.yandex.net/api/v1.5/tr.json/translate?key=API-ключ&lang=en-ru&text=To+be,+or+not+to+be%3F&text=That+is+the+question.
+         */
+        $ch = curl_init('https://translate.yandex.net/api/v1.5/tr.json/translate');
+        curl_setopt_array($ch, array(
+            CURLOPT_AUTOREFERER => 1,
+            CURLOPT_POST => 1,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_POSTFIELDS => array(
+                'key' => self::YANDEX_TRANSLATE_API_KEY,
+                'lang' => $from . '-' . $to,
+                'format' => $format,
+                'text' => $text
+            )
+        ));
+        $data = json_decode(curl_exec($ch));
+        curl_close($ch);
+        return $data->text[0];
+    }
+    
+    public function actionTest()
+    {
+        $dataItems = array(
+            'Для POST- запросов максимальный размер передаваемого текста составляет 10000 символов',
+            'В GET-запросах ограничивается не размер передаваемого текста, а размер всей строки запроса, которая кроме текста может содержать и другие параметры. Максимальный размер строки запроса - 10Кб.'
+        );
+        foreach ($dataItems as $item) {
+            $this->translate($item);
+        }
     }
 
 }
