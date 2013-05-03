@@ -1,4 +1,4 @@
 <div class="footer2_td">
-    Copyright &copy; <?php echo date('Y') ?> 
-    <a href="<?php echo CHtml::normalizeUrl(array('site/index')) ?>">vlasnaazs.com.ua</a>
+    &copy; <?php echo date('Y') ?> <?php echo Yii::t("common", 'All rights reserved')?>
+    <a href="<?php echo Yii::app()->getBaseUrl(true)?>"><?php echo Yii::app()->request->hostInfo ?></a>
 </div>
