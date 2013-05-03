@@ -8,5 +8,6 @@ return array(
     'Search' => 'Искать',
     'Search...' => 'Поиск...',
     'Try these other suggestions:' => 'Попробуйте эти ссылки:',
-    'Search results on query "{q}"' => 'Результаты поиска по запросу "{q}"'
+    'Search results on query "{q}"' => 'Результаты поиска по запросу "{q}"',
+    'Language' => 'Язык'
 );

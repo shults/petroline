@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @property String $title Page title
+ * @property String $text Page text
+ * @property String $url Page url
+ */
 class Page extends CActiveRecord
 {
 
@@ -40,6 +44,13 @@ class Page extends CActiveRecord
 	{
 		return true;
 	}
+    
+    public function beforeSave()
+    {
+        if ($this->getIsNewRecord())
+            $this->language_id = Yii::app()->lang->language_id;
+        return parent::beforeSave();
+    }
 
 	public function rules()
 	{
@@ -47,7 +58,7 @@ class Page extends CActiveRecord
 			array('url', 'unique'),
 			array('title,url', 'required'),
 			array('url', 'url', 'pattern' => '/[a-z0-9-_\/]+/is'),
-			array('enabled,text,meta_title,meta_keywords,meta_description,created_at,updated_at', 'safe')
+			array('language_id, enabled, text, meta_title, meta_keywords, meta_description, created_at, updated_at', 'safe')
 		);
 	}
 
@@ -79,7 +90,7 @@ class Page extends CActiveRecord
 	public function attributeWidgets()
 	{
 		return array(
-			array('text', 'wysiwyg'),
+			array('text', 'tinymce'),
 			array('enabled', 'boolean'),
 			array('meta_keywords', 'textArea'),
 			array('meta_description', 'textArea'),
@@ -132,5 +143,27 @@ class Page extends CActiveRecord
 			)
 		);
 	}
+    
+    public function defaultScope()
+    {
+        return array(
+            'condition' => '`language_id`=:language_id',
+            'params' => array(
+                ':language_id' => Yii::app()->lang->language_id
+            ),
+        );
+    }
+    
+    public function scopes()
+    {
+        return array(
+            'enabled' => array(
+                'condition' => 'enabled=:enabled',
+                'params' => array(
+                    ':enabled' => 1
+                )
+            )
+        );
+    }
 
 }

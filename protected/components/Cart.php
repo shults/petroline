@@ -150,5 +150,14 @@ class Cart
             return false;
         }
     }
+    
+    /**
+     * 
+     * @return int
+     */
+    public function getNumberOfProduct()
+    {
+        return count($this->getProducts());
+    }
 
 }

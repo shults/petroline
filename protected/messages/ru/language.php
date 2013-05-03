@@ -7,5 +7,6 @@ return array(
     'languages' => 'языки',
     'Code' => 'Код (двухзначный)',
     'Enabled' => 'Включен',
-    'Default' => 'Язык по-умолчанию'
+    'Default' => 'Язык по-умолчанию',
+    'Language' => 'Язык'
 );

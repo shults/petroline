@@ -11,4 +11,7 @@ return array(
     'Make order' => 'Оформить заказ',
     'Resume' => 'Продолжить покупки',
     'Delivery price:' => 'Стоимость доставки:',
+    'You cart is empty' => 'Ваша корзина пуста',
+    'In your cart <strong>{n}</strong>' => 'В Вашей корзине <strong>{n}</strong>',
+    'n==1#item|n>1#items' => 'n==1#товар|n<5#товара|n>4#товаров'
 );

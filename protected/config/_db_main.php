@@ -4,7 +4,7 @@ return array(
     'connectionString' => 'mysql:host=localhost;dbname=petroline',
     'emulatePrepare' => true,
     'username' => 'root',
-    'password' => '1111',
+    'password' => '',
     'charset' => 'utf8',
     'tablePrefix' => 'tp_',
 );

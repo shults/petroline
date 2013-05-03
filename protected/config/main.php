@@ -58,6 +58,9 @@ return array(
                 '<language:(\w{2})>/<page:(delivery_payment|about_us|contacts)>' => 'site/<page>',
                 '<page:(delivery_payment|about_us|contacts)>' => 'site/<page>',
                 '<language:(\w{2})>/contact' => 'site/contact',
+                array(
+                    'class' => 'application.routes.PageRule'
+                ),
                 '<language:(\w{2})>/<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),

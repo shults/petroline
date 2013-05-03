@@ -19,7 +19,7 @@ return array(
         'enabled' => 1,
         'deleted' => 0
     ),
-    array(
+    /*array(
         'language_id' => 3,
         'code' => 'en',
         'title' => 'English',
@@ -27,5 +27,5 @@ return array(
         'default' => 0,
         'enabled' => 1,
         'deleted' => 0
-    )
+    )*/
 );

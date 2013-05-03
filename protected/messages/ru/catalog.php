@@ -11,5 +11,6 @@ return array(
     '-= Select product =-' => '-= Выберите товар =-',
     'Product' => 'Товар',
     ' Search entire store...' => ' Поиск...',
-    'Shopping Cart' => 'Корзина'
+    'Shopping Cart' => 'Корзина',
+    'Add to cart' => 'В корзину'
 );

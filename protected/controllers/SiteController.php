@@ -6,7 +6,6 @@ class SiteController extends FrontController
     public function actionIndex()
     {
         $this->layout = '//layouts/index';
-
         $this->render('index', array(
             'newProducts' => NewProduct::model()->findAll(array(
                 'limit' => 16,
@@ -20,9 +19,10 @@ class SiteController extends FrontController
      */
     public function actionContacts()
     {
-        //$this->setPageTitle();
-        //$this->setMetaDescription($description)
-        //$this->setMetaKeywords($keywords)
+        $this->setPageTitle(Config::get('contacts_title'));
+        $this->breadcrumbs = array(
+            $this->getPageTitle()
+        );
         $this->render('page', array(
             'content' => Config::get('contacts'),
         ));
@@ -30,6 +30,10 @@ class SiteController extends FrontController
 
     public function actionDelivery_payment()
     {
+        $this->setPageTitle(Config::get('delivery_payment_title'));
+        $this->breadcrumbs = array(
+            $this->getPageTitle()
+        );
         $this->render('page', array(
             'content' => Config::get('delivery_payment'),
         ));
@@ -37,6 +41,10 @@ class SiteController extends FrontController
 
     public function actionAbout_us()
     {
+        $this->setPageTitle(Config::get('about_us_title'));
+        $this->breadcrumbs = array(
+            $this->getPageTitle()
+        );
         $this->render('page', array(
             'content' => Config::get('about_us'),
         ));

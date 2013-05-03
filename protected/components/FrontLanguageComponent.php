@@ -42,7 +42,9 @@ class FrontLanguageComponent extends CComponent implements ILanguageComponent
         $defaultLanguage = Language::model()->default()->find();
         if (isset($_GET['language'])) {
             if (($language = Language::model()->find('code=:code', array(':code' => $_GET['language']))) === null) {
-                throw new CHttpException(404, Yii::t('common', 'Page not found'));
+                echo($_GET['language']);
+                die;
+                //throw new CHttpException(404, Yii::t('common', 'Page not found'));
             }
             if ($language->code === $defaultLanguage->code) {
                 $redirectUrl = substr(Yii::app()->request->getPathInfo(), 2);
