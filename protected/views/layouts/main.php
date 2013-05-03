@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>petroline</title>
-        <base href="http://petroline.loc/" />
+        <title><?php echo $this->getPageTitle(); ?></title>
+        <base href="<?php echo Yii::app()->request->getBaseUrl(true) ?>" />
         <link rel="stylesheet" type="text/css" href="css/constants.css">
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
         <link rel="stylesheet" type="text/css" href="css/stylesheet_boxes.css">
@@ -15,7 +15,6 @@
         <script type="text/javascript" src="/js/cufon-yui.js"></script>
         <script type="text/javascript" src="/js/cufon-replace.js"></script>
         <script type="text/javascript" src="/js/Myriad_Web_400.font.js"></script>
-        <script type="text/javascript" src="/js/jquery-1.3.2.min.js"></script>
         <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
@@ -35,12 +34,7 @@
                             </a>
                         </div>
                         <div class="fl_right" align="right">
-                            <div class="cart_bg" align="right">
-                                <div>
-                                    <b>Shopping Cart</b>  now in your cart 
-                                    <a href="#"><strong>0</strong>  items</a>
-                                </div>
-                            </div>
+                            <?php $this->renderPartial('application.views.layouts._cart') ?>
                             <?php $this->renderPartial("application.views.layouts._navigation") ?>
                         </div>
                     </div>
@@ -76,7 +70,8 @@
                                     </tr>
                                 </table>
                             </td>
-                            <td class="content_width_td">               
+                            <td class="content_width_td">
+                                <?php $this->renderPartial("application.views.layouts._breadcrumbs") ?>
                                 <?php echo $content ?>
                             </td>
                         </tr>
@@ -92,6 +87,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    <!--</div>-->
 </body>
 </html>

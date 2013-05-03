@@ -120,5 +120,19 @@ class NewProduct extends CActiveRecord
         }
         $this->save(false);
     }
+    
+    /**
+     * Return image url
+     * 
+     * @param int $width
+     * @param int $height
+     * @return String url path to 
+     */
+    public function getImageUrl($width, $height)
+    {
+        if ($this->getIsNewRecord())
+            throw CException("Cannot call " . __METHOD__ . " for not existence record");
+        return $this->item->getImageUrl($width, $height);
+    }
 
 }

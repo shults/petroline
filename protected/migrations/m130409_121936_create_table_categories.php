@@ -13,7 +13,7 @@ class m130409_121936_create_table_categories extends CDbMigration
             'title' => 'VARCHAR(100) NOT NULL',
             'url' => 'VARCHAR(100) NOT NULL',
             'status' => 'BOOLEAN NOT NULL DEFAULT 1',
-            'filename' => 'VARCHAR(100)',
+            'filename' => 'CHAR(45)',
             'meta_title' => 'VARCHAR(100)',
             'meta_description' => 'TEXT',
             'meta_keywords' => 'TEXT',

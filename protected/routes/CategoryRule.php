@@ -10,12 +10,23 @@ class CategoryRule extends CBaseUrlRule
 
     const RULE_ROUTE = 'catalog/category';
 
+    /**
+     * 
+     * @param UrlManager $manager
+     * @param CHttpRequest $request
+     * @param String $pathInfo
+     * @param String $rawPathInfo
+     * @return boolean
+     */
     public function createUrl($manager, $route, $params, $ampersand)
     {
         if ($route === self::RULE_ROUTE && $params['category_id']) {
             if (($category = Categories::model()->findByPk($params['category_id'])) !== null) {
                 $url = isset($params['language']) ? $params['language'] . '/' : '';
-                return $url . 'c' . $category->category_id . '-' . $category->url;
+                $url = $url . 'c' . $category->category_id . '-' . $category->url;
+                if (isset($params['page']) && $params['page'] != 1)
+                    $url .= '?page=' . $params['page'];
+                return $url;
             }
         }
         return false;
@@ -49,6 +60,8 @@ class CategoryRule extends CBaseUrlRule
             $category_id = $matches[2];
             $url = $matches[3];
             $_GET['category_id'] = $category_id;
+            if (isset($_GET['page']) && $_GET['page'] == 1)
+                $request->redirect($pathInfo);
             if ($languageCode != '')
                 $_GET['language'] = $languageCode;
             if (($category = Categories::model()->findByPk($category_id)) === null)

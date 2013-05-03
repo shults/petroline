@@ -6,6 +6,9 @@ class Categories extends CActiveRecord
 {
 
     protected static $_adminNames;
+    
+    private $_frontUrl;
+    private $_imageUrl;
 
     public function getAdminNames()
     {
@@ -57,7 +60,7 @@ class Categories extends CActiveRecord
             array('title, url', 'required'),
             array('url', 'unique'),
             array('url', 'url', 'pattern' => '/^[a-z0-9-_]+$/'),
-            array('status, parent_category_id, filename, meta_title, meta_keywords, meta_description', 'safe'),
+            array('status, parent_category_id, filename, meta_title, meta_keywords, meta_description, description', 'safe'),
             array('filename', 'file', 'allowEmpty' => true, 'types' => 'jpg,jpeg,png,gif'),
         );
     }
@@ -69,7 +72,8 @@ class Categories extends CActiveRecord
             'status' => self::t('Active category'),
             'title' => self::t('Name'),
             'url' => 'URL',
-            'filename' => self::t('image'),
+            'description' => self::t('Description'),
+            'filename' => self::t('Image'),
             'meta_title' => self::t('Title'),
             'meta_keywords' => self::t('Meta keyowrds'),
             'meta_description' => self::t('Meta description'),
@@ -85,6 +89,7 @@ class Categories extends CActiveRecord
             array('filename', 'image'),
             array('meta_keywords', 'textArea'),
             array('meta_description', 'textArea'),
+            array('description', 'tinymce')
         );
     }
 
@@ -202,7 +207,7 @@ class Categories extends CActiveRecord
     public function defaultScope()
     {
         return array(
-            'condition' => 'language_id=:language_id AND status=1',
+            'condition' => 'language_id=:language_id',
             'params' => array(
                 ':language_id' => Yii::app()->lang->language_id
             ),
@@ -284,8 +289,32 @@ class Categories extends CActiveRecord
         return array(
             'maxOrder' => array(
                 'select' => 'MAX(`order`) AS `order`'
+            ),
+            'enabled' => array(
+                'condition' => 'status=:status',
+                'params' => array(
+                    ':status' => 1
+                )
             )
         );
+    }
+    
+    public function getFrontUrl()
+    {
+        if ($this->getIsNewRecord())
+            throw new CException("You cannot call to " . __METHOD__ . " in not existance record");
+        if ($this->_frontUrl === null)
+            $this->_frontUrl = CHtml::normalizeUrl(array('catalog/category', 'category_id' => $this->category_id));
+        return $this->_frontUrl;
+    }
+    
+    public function getImageUrl($width, $height)
+    {
+        if ($this->getIsNewRecord())
+            throw new CException("You cannot call to " . __METHOD__ . " in not existance record");
+        if ($this->_imageUrl === null)
+            $this->_imageUrl = ImageModel::model()->resize($this->getFilePath('filename'), $width, $height);
+        return $this->_imageUrl;
     }
 
 }

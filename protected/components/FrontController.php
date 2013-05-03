@@ -87,9 +87,9 @@ class FrontController extends CController
         $this->setMetaKeywords(Config::get('meta_keywords'));
         $this->setPageTitle(Config::get('title'));
         $this->initLayoutPath();
-        //Yii::app()->clientScript->registerCoreScript('jquery');
+        Yii::app()->clientScript->registerCoreScript('jquery');
         //Yii::app()->clientScript->registerCssFile('/css/style.css');
-        //Yii::app()->clientScript->registerCssFile('/css/bootstrap.min.css');
+        Yii::app()->clientScript->registerCssFile('/css/bootstrap.min.css');
         //Yii::app()->clientScript->registerScriptFile('/js/bootstrap.min.js');
         return parent::init();
     }
@@ -109,7 +109,7 @@ class FrontController extends CController
 
     private function getDefaulMenuItems()
     {
-        $categories = Categories::model()->findAll('parent_category_id=:parent_category_id', array(
+        $categories = Categories::model()->enabled()->findAll('parent_category_id=:parent_category_id', array(
             ':parent_category_id' => 0
         ));
         $menuItems = array();
@@ -125,7 +125,7 @@ class FrontController extends CController
     private function getMenuItemsByCategoryId($category_id)
     {
         $activeCategory = Categories::model()->findByPk($category_id);
-        $rootCategories = Categories::model()->findAll('parent_category_id=:parent_category_id', array(
+        $rootCategories = Categories::model()->enabled()->findAll('parent_category_id=:parent_category_id', array(
             ':parent_category_id' => 0
         ));
         $menuItems = array();

@@ -48,6 +48,10 @@ return array(
                 '<language:(\w{2})>' => 'site/index',
                 '' => 'site/index',
                 '<language:(\w{2})>/' => 'site/index',
+                '<language:(\w{2})>/search' => 'catalog/search',
+                'search' => 'catalog/search',
+                '<language:(\w{2})>/cart/<action:\w+>' => 'cart/<action>',
+                'cart/<action:\w+>' => 'cart/<action>',
                 '<language:(\w{2})>/<page:(delivery_payment|about_us|contacts)>' => 'site/<page>',
                 '<page:(delivery_payment|about_us|contacts)>' => 'site/<page>',
                 '<language:(\w{2})>/contact' => 'site/contact',
@@ -73,6 +77,8 @@ return array(
     'params' => array(
         'adminEmail' => 'webmaster@example.com',
         'imagestore' => 'uploads',
-        'salt' => '[$8?k~Mfd=%',
+        'itemsPerPage' => 9,
+        'itemsPerLine' => 3,
+        'categoryItemsPerRow' => 5,
     ),
 );

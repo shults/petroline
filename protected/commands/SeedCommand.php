@@ -1,6 +1,7 @@
 <?php
 
 Yii::import('system.test.CDbFixtureManager');
+
 /**
  * Description of SeedCommand
  *
@@ -14,7 +15,11 @@ class SeedCommand extends CConsoleCommand
         '{{users}}',
         '{{config}}',
         '{{deliveries}}',
-        '{{payments}}'
+        '{{payments}}',
+    );
+    
+    private $afterImportSeed = array(
+        '{{new_products}}'
     );
 
     /**
@@ -128,6 +133,7 @@ class SeedCommand extends CConsoleCommand
             $productNumber++;
         }
         fclose($csvFile);
+        $this->afterImportSeed();
         echo "Import finished\n";
     }
 
@@ -161,14 +167,15 @@ class SeedCommand extends CConsoleCommand
      * 
      * @param String $fileName
      * @param boolean $withDot Description
-     * @return String or null if extension does not exists
+     * @return String file extension
      */
     private function getExtension($fileName, $withDot = true)
     {
-        if (preg_match('/^.*?\.([a-z0-9]{1,7})$/i', $fileName, $matches)) {
-            return $withDot ? '.' . $matches[1] : $matches[1];
+        $extension = CFileHelper::getExtension($fileName);
+        if ($extension === 'tiff' || $extension === 'bmp') {
+            $extension = 'jpg';
         }
-        return null;
+        return $withDot ? '.' . $extension : $extension;
     }
 
     /**
@@ -236,6 +243,19 @@ class SeedCommand extends CConsoleCommand
         }
     }
     
+    private function afterImportSeed()
+    {
+        $fixtureManager = new CDbFixtureManager();
+        $fixtureManager->basePath = Yii::getPathOfAlias('application.seeds');
+        foreach ($this->afterImportSeed as $tableName) {
+            echo Yii::t('console_seed', "Inserting data into table \"{tableName}\" ...\n", array(
+                '{tableName}' => Yii::app()->db->getSchema()->getTable($tableName)->name,
+            ));
+            $fixtureManager->resetTable($tableName);
+            $fixtureManager->loadFixture($tableName);
+        }
+    }
+
     private function clearUploadDir()
     {
         echo "Deleting product images...\n";
@@ -244,7 +264,7 @@ class SeedCommand extends CConsoleCommand
         system('rm -rf ' . $uploadDir);
         echo "Images deleted ...\n";
     }
-    
+
     private function importCategories()
     {
         echo "Begin categories import...\n";

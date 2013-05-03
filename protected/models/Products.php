@@ -3,6 +3,7 @@
 class Products extends CActiveRecord
 {
 
+    private $_frontUrl;
     protected static $_adminNames;
 
     public function getAdminNames()
@@ -29,15 +30,15 @@ class Products extends CActiveRecord
         $criteria->params = array();
         if (isset($_GET[__CLASS__])) {
             $this->attributes = $_GET[__CLASS__];
-            
+
             if ($this->product_id) {
                 $criteria->addCondition('product_id=:product_id');
                 $criteria->params = CMap::mergeArray($criteria->params, array(':product_id' => $this->product_id));
             }
-            
+
             if ($this->title)
                 $criteria->addSearchCondition('title', $this->title);
-            
+
             if ($this->category_id) {
                 $criteria->addCondition('category_id=:category_id');
                 $criteria->params = CMap::mergeArray($criteria->params, array(':category_id' => $this->category_id));
@@ -207,20 +208,36 @@ class Products extends CActiveRecord
             'order' => '`category_id` ASC, `order` ASC',
         );
     }
-    
+
+    public function scopes()
+    {
+        return array(
+            'maxOrder' => array(
+                'select' => 'MAX(`order`) AS `order`'
+            ),
+            'enabled' => array(
+                'condition' => 'status=:status',
+                'params' => array(
+                    ':status' => 1
+                )
+            )
+        );
+    }
+
     public function searchImages()
     {
         return new CActiveDataProvider('ProductImages', array(
             'data' => $this->images
         ));
     }
-    
-    public function getFullCategoryTitle() {
+
+    public function getFullCategoryTitle()
+    {
         if ($this->getIsNewRecord())
             throw new CException("This is new ActiveRecord model");
         return $this->category->getFullCategoryTitle();
     }
-    
+
     public function orderUp()
     {
         if ($this->getIsNewRecord())
@@ -229,13 +246,13 @@ class Products extends CActiveRecord
         if ($prevProduct = Products::model()->find('`order`=:order AND `category_id`=:category_id', array(
             ':order' => $this->order,
             ':category_id' => $this->category_id
-            ))) {
+                ))) {
             $prevProduct->order += 1;
             $prevProduct->save(false);
         }
         $this->save(false);
     }
-    
+
     public function orderDown()
     {
         if ($this->getIsNewRecord())
@@ -244,11 +261,45 @@ class Products extends CActiveRecord
         if ($nextProduct = Products::model()->find('`order`=:order AND `category_id`=:category_id', array(
             ':order' => $this->order,
             ':category_id' => $this->category_id
-            ))) {
+                ))) {
             $nextProduct->order -= 1;
             $nextProduct->save(false);
         }
         $this->save(false);
+    }
+
+    public function productSearch($q, $page = 1)
+    {
+        $criteria = new CDbCriteria;
+    }
+
+    public function getPrice()
+    {
+        return $this->price . ' ' . Yii::t('common', 'UAH');
+    }
+
+    /**
+     * 
+     * @return String
+     * @throws CException
+     */
+    public function getFrontUrl()
+    {
+        if ($this->getIsNewRecord())
+            throw new CException('Method ' . __METHOD__ . ' was called to not existence record');
+        if ($this->_frontUrl === null)
+            $this->_frontUrl = CHtml::normalizeUrl(array('catalog/product', 'product_id' => $this->product_id));
+        return $this->_frontUrl;
+    }
+
+    public function getImageUrl($width, $height)
+    {
+        if ($this->getIsNewRecord())
+            throw CException("Cannot call " . __METHOD__ . " for not existence record");
+        if ($this->images)
+            return $this->images[0]->getImageUrl($width, $height);
+        else
+            return ImageModel::model()->resize(null, $width, $height);
     }
 
 }

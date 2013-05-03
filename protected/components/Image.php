@@ -32,7 +32,11 @@ class Image {
 			return imagecreatefrompng($image);
 		} elseif ($mime == 'image/jpeg') {
 			return imagecreatefromjpeg($image);
-		}
+		} else if ($mime == 'image/bmp') {
+            return imagecreatefromwbmp($image);
+        } else {
+            return imagecreatefromjpeg($image);
+        }
     }	
 	
     public function save($file, $quality = 90) {

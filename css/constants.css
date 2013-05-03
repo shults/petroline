@@ -19,7 +19,7 @@ a						{outline:none}
 .fs_lh-100							{font-size:0px; line-height:0px;height: 100%;}
 /* ************************************************************************************* */
 /* ************************************************************************************* */
-CHECKBOX, INPUT, RADIO, SELECT 		{font-size: 11px; line-height:11px;font-family:Tahoma, Geneva, sans-serif;}
+/*CHECKBOX, INPUT, RADIO, SELECT 		{font-size: 11px; line-height:11px;font-family:Tahoma, Geneva, sans-serif;}*/
 
 TEXTAREA 							{width: 100%;font-size:12px;font-family:Tahoma, Geneva, sans-serif;}
 /* ************************************************************************************* */

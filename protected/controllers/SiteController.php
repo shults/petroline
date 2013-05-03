@@ -6,9 +6,12 @@ class SiteController extends FrontController
     public function actionIndex()
     {
         $this->layout = '//layouts/index';
-        //$categories = Categories::model()->findAll();
+
         $this->render('index', array(
-            //'categories' => $categories
+            'newProducts' => NewProduct::model()->findAll(array(
+                'limit' => 16,
+                'offset' => 0
+            ))
         ));
     }
 
@@ -17,17 +20,26 @@ class SiteController extends FrontController
      */
     public function actionContacts()
     {
-        
+        //$this->setPageTitle();
+        //$this->setMetaDescription($description)
+        //$this->setMetaKeywords($keywords)
+        $this->render('page', array(
+            'content' => Config::get('contacts'),
+        ));
     }
-    
+
     public function actionDelivery_payment()
     {
-        
+        $this->render('page', array(
+            'content' => Config::get('delivery_payment'),
+        ));
     }
-    
+
     public function actionAbout_us()
     {
-        
+        $this->render('page', array(
+            'content' => Config::get('about_us'),
+        ));
     }
 
 }

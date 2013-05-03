@@ -66,5 +66,17 @@ class ProductImages extends CActiveRecord
         unlink(realpath(Yii::getPathOfAlias('root')) . $this->getFileUrl('filepath'));
         parent::afterDelete();
     }
+    
+    /**
+     * This method resizes and return url path tu image
+     * 
+     * @param int $width
+     * @param int $height
+     * @return String url tu resized image
+     */
+    public function getImageUrl($width, $height)
+    {
+        return ImageModel::model()->resize($this->getFilePath('filepath'), $width, $height);
+    }
 
 }

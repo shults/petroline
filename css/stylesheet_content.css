@@ -161,7 +161,10 @@ td.main, p.main, div.main, .main td, .main p, .main b, .main .desc2 strong
 						{color:#111017; font-size:13px; line-height:15px; }
 
 .main .desc				{color:#111017; font-size:11px; line-height:17px; font-weight:normal; }
-.main .desc2			{color:#111017; font-size:11px; line-height:17px; font-weight:normal; }						
+.main .desc2			{color:#111017; font-size:11px; line-height:17px; font-weight:normal; }
+.main .desc2 p {
+    margin-bottom: 10px;
+}
 
 .main .name					{color:#817a7a; line-height:20px; }
 .main .s_cart_head			{color:#353535; font-size:13px;line-height:14px;font-weight:normal;}
@@ -244,12 +247,12 @@ table.listing td			{padding:1px 0px 1px 0px;background:url(../images/spacer.gif)
 .main .left .button_padd						{padding:7px 0px 0px 0px;}
 
 /*  *********  */
-.main .name2_padd							{padding:3px 16px 3px 16px;height:38px; vertical-align:top;}
+.main .name2_padd							{padding:3px 0px 3px 0px; height:38px; vertical-align:top;}
 .main .name_2_padd							{padding:13px 0px 3px 10px;height:53px; vertical-align:top;}
 .main .pic2_padd							{padding:0px 0px 0px 0px;}
 .main .desc2_padd							{padding:0px 16px 7px 16px;}
 .main .listing2_padd						{padding:0px 16px 10px 16px;}
-.main .price2_padd							{padding:1px 16px 13px 16px;vertical-align:middle; height:12px;}
+.main .price2_padd							{padding:1px 0px 13px 0px;vertical-align:middle; height:12px; text-align: center;}
 .main .price_2_padd							{padding:1px 0px 3px 10px;vertical-align:middle; height:12px;}
 
 

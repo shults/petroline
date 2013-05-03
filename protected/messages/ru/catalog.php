@@ -10,4 +10,6 @@ return array(
     'This product is already added' => 'Этот товар уже добавлен',
     '-= Select product =-' => '-= Выберите товар =-',
     'Product' => 'Товар',
+    ' Search entire store...' => ' Поиск...',
+    'Shopping Cart' => 'Корзина'
 );

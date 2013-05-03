@@ -92,4 +92,40 @@ return array(
         'value' => 'admin@exaple.com',
         'language_id' => 3,
     ),
+    array(
+        'key' => 'about_us',
+        'title' => 'Страница о нас',
+        'value' => '',
+        'language_id' => 1,
+    ),
+    array(
+        'key' => 'about_us',
+        'title' => 'Сторінка про нас',
+        'value' => '',
+        'language_id' => 2,
+    ),
+    array(
+        'key' => 'delivery_payment',
+        'title' => 'Оплата и доставка',
+        'value' => '',
+        'language_id' => 1,
+    ),
+    array(
+        'key' => 'delivery_payment',
+        'title' => 'Оплата та доставка',
+        'value' => '',
+        'language_id' => 2,
+    ),
+    array(
+        'key' => 'contacts',
+        'title' => 'Контакты',
+        'value' => '',
+        'language_id' => 1,
+    ),
+    array(
+        'key' => 'contacts',
+        'title' => 'Контакти',
+        'value' => '',
+        'language_id' => 2,
+    ),
 );
