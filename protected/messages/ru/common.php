@@ -7,5 +7,6 @@ return array(
     'Page not found' => 'Страница не найдена',
     'Search' => 'Искать',
     'Search...' => 'Поиск...',
-    'Try these other suggestions:' => 'Попробуйте эти ссылки:'
+    'Try these other suggestions:' => 'Попробуйте эти ссылки:',
+    'Search results on query "{q}"' => 'Результаты поиска по запросу "{q}"'
 );

@@ -12,7 +12,7 @@ class CatalogController extends FrontController
     {
         if (($product = Products::model()->findByPk($product_id)) === null)
             throw new CHttpException(404);
-        
+
         //meta data
         if ($product->meta_title)
             $this->setPageTitle($product->meta_title);
@@ -96,9 +96,37 @@ class CatalogController extends FrontController
         ));
     }
 
-    public function actionSearch($q)
+    public function actionSearch($q, $page = 1)
     {
-        $this->render('search');
+        //set title
+        $this->setPageTitle(Yii::t('common', 'Search results on query "{q}"', array('{q}' => $q)));
+        
+        //criteria
+        $criteria = new CDbCriteria;
+        $criteria->limit = Yii::app()->params['itemsPerPage'];
+        $criteria->offset = Yii::app()->params['itemsPerPage'] * ($page - 1);
+        $criteria->scopes = array('enabled');
+        $keywords = preg_split('/[\s]+/i', $q);
+        
+        foreach ($keywords as $keyword) {
+            $criteria->addSearchCondition('title', $keyword, 'OR');
+            $criteria->addSearchCondition('description', $keyword, 'OR');
+        }
+
+        $products = Products::model()->findAll($criteria);
+
+        //pagination
+        $totalProducts = Products::model()->count($criteria);
+        $pages = new CPagination($totalProducts);
+        $pages->pageSize = $criteria->limit;
+        $pages->applyLimit($criteria);
+        $pages->route = 'catalog/search';
+        $pages->pageVar = 'page';
+
+        $this->render('search', array(
+            'products' => $products,
+            'pages' => $pages
+        ));
     }
 
 }
