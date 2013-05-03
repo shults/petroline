@@ -23,6 +23,14 @@ class Products extends CActiveRecord
     {
         return 'product_id';
     }
+    
+    public function beforeSave()
+    {
+        if ($this->getIsNewRecord()) {
+            $this->order = ++$this->maxOrder()->find('category_id=:category_id', array(':category_id', $this->category_id))->order;
+        }
+        return parent::beforeSave();
+    }
 
     public function search()
     {
