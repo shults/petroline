@@ -45,6 +45,9 @@ return array(
                 array(
                     'class' => 'application.routes.CategoryRule'
                 ),
+                array(
+                    'class' => 'application.routes.ProductRule'
+                ),
                 '<language:(\w{2})>' => 'site/index',
                 '' => 'site/index',
                 '<language:(\w{2})>/' => 'site/index',
