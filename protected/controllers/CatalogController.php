@@ -101,6 +101,9 @@ class CatalogController extends FrontController
         //set title
         $this->setPageTitle(Yii::t('common', 'Search results on query "{q}"', array('{q}' => $q)));
         
+        //breadcrumbs
+        $this->breadcrumbs = array($this->getPageTitle());
+        
         //criteria
         $criteria = new CDbCriteria;
         $criteria->limit = Yii::app()->params['itemsPerPage'];
