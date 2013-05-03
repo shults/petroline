@@ -1,0 +1,31 @@
+<?php
+
+return array(
+    'not_processed' => 'Не опрацьований',
+    'rejected' => 'Відмова',
+    'executed' => 'Виконаний',
+    'performed' => 'В процесі виконання',
+    'Create order' => 'Створити замовлення',
+    'Full name' => 'П.І.Б',
+    'Customer phone' => 'Телефон',
+    'Delivery address' => 'Адрес доставки',
+    'Order status' => 'Статус замовлення',
+    'Incoming date' => 'Дата надходження',
+    'Total price' => 'Загальна ціна',
+    'Order not found' => 'Замовлення не знайдено',
+    'View order' => 'Подивитись замовлення',
+    'Orders' => 'Замовлення',
+    'Order is alreadey excuted. You cannot change it.' => 'Замовлення вже виконано. Ви не можете його змінювати.',
+    '-= Select category =-' => '-= Виберіть категорію =-',
+    'You cannot delete executed order' => 'Ви не можете видаляти виконане замовлення',
+    'Edit order' => 'Редагувати замовлення',
+    'Save and add products' => 'Зберегти та добавити товари',
+    'Add product to order' => 'Добавити товар до замовлення',
+    'Save' => 'Зберегти',
+    'Order products' => 'Товари',
+    'Number of products' => 'Кіл-ть',
+    'Product price' => 'Ціна',
+    'Subtotal price' => 'Сумма',
+    'Increment' => 'Зменшити',
+    'Decrement' => 'Збільшити'
+);
