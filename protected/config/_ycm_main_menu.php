@@ -33,9 +33,13 @@ return array(
                         'label' => 'Карусель',
                         'url' => array('model/list', 'name' => 'Carousel'),
                     ),
-                    array(
+                    /*array(
                         'label' => 'Промо',
                         'url' => array('model/list', 'name' => 'Promo'),
+                    ),*/
+                    array(
+                        'label' => 'Слайдер',
+                        'url' => array('model/list', 'name' => 'Slider'),
                     ),
                     array(
                         'label' => 'Новые товары',
