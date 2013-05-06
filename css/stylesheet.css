@@ -389,7 +389,7 @@ span.required {color: #f00;}
 }
 
 ul.breadcrumb {
-    padding-left: 0px;
+    /*padding-left: 0px;*/
 }
 
 ul.breadcrumb a {
