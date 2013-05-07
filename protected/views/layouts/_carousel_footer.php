@@ -2,10 +2,10 @@
 /* @var $item Slider */
 $sliderItems = Slider::model()->findAll();
 ?>
-<?php if (count($sliderItems) >= 5): ?>
+<?php if (Config::get('slider_enabled') && count($sliderItems) > 1): ?>
     <table border="0" width="100%" cellspacing="0" cellpadding="0"  class="infoBoxHeadingTitle_table">
         <tr>
-            <td class="infoBoxHeading_td infoBoxHeading_br">Our Spotlight</td>
+            <td class="infoBoxHeading_td infoBoxHeading_br"><?php echo Yii::t('carousel', 'Our Spotlight') ?></td>
         </tr>
     </table>
     <div class="carousel-box main">

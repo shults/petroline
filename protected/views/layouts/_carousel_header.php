@@ -2,7 +2,7 @@
 /* @var $item Carousel */
 $carouselItems = Carousel::model()->front()->findAll();
 ?>
-<?php if (count($carouselItems) > 0): ?>
+<?php if (Config::get('carousel_enabled') && count($carouselItems) > 0): ?>
 <div class="width_div">
     <div id="slides-box" class="slides-box-table">
         <div class="container">
