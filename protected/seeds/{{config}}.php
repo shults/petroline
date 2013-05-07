@@ -1053,4 +1053,18 @@ return array(
         'language_id' => 2,
         'widget' => 'boolean',
     ),
+    array(
+        'key' => 'order_compleate',
+        'title' => 'Станица "Заказ оформлен"',
+        'value' => '<p>Заказ оформлен</p>',
+        'language_id' => 1,
+        'widget' => 'tinymce',
+    ),
+    array(
+        'key' => 'order_compleate',
+        'title' => 'Станица "Замовлення виконано"',
+        'value' => '<p>Замовлення виконано</p>',
+        'language_id' => 2,
+        'widget' => 'tinymce',
+    )
 );

@@ -289,8 +289,12 @@ class SeedCommand extends CConsoleCommand
 
     private function getTranslitUrlRus($transate)
     {
-        $transate = strtolower($this->getTranslitRus($transate));
-        return trim(preg_replace('/[\s\#\$\,\/\`\—\-\.\\\'\+\(\)\\\\]+/i', '-', $transate));
+        $url = strtolower($this->getTranslitRus($transate));
+        $url = trim(preg_replace('/[\s\#\$\,\/\`\—\-\.\\\'\+\(\)\\\\\:\%]+/i', '-', $url));
+        $url = preg_replace('/\-[\-]+/i', '-', $url);
+        $url = preg_replace('/\-$/i', '', $url);
+        $url = preg_replace('/^\-/i', '', $url);
+        return $url;
     }
 
     /**

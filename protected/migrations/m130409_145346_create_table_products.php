@@ -31,6 +31,8 @@ class m130409_145346_create_table_products extends CDbMigration
         $this->createIndex('language_id_url', '{{products}}', 'language_id, url', true);
         $this->createIndex('price', '{{products}}', 'price');
         $this->createIndex('language_id', '{{products}}', 'language_id');
+        $this->addForeignKey('products_category_id_fk', '{{products}}', 'category_id', '{{categories}}', 'category_id');
+        $this->addForeignKey('products_language_id_fk', '{{products}}', 'language_id', '{{languages}}', 'language_id');
         $this->addForeignKey('products_created_by_fk', '{{products}}', 'created_by', '{{users}}', 'user_id', 'SET NULL', 'SET NULL');
         $this->addForeignKey('products_updated_by_fk', '{{products}}', 'updated_by', '{{users}}', 'user_id', 'SET NULL', 'SET NULL');
     }

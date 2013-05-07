@@ -11,6 +11,26 @@ BODY 								{color:#111017;margin:0px;background:#fff;min-width:940px;}
 html, body 							{height:100%;}
 /* ************************************************************************************* */
 *									{padding:0px; margin:0px; font-size:13px; line-height:normal; font-family: Arial, Helvetica, sans-serif;}
+.desc2 ul {
+	list-style-position: inside;
+	margin-left: 15px;
+}
+.desc2 ul li ul {
+	list-style-position: inside;
+	margin-left: 30px;
+}
+.desc2 ul li ul li ul{
+	list-style-position: inside;
+	margin-left: 45px;
+}
+.desc2 ul li ul li ul li ul{
+	list-style-position: inside;
+	margin-left: 60px;
+}
+.desc2 ul li ul li ul li ul li ul{
+	list-style-position: inside;
+	margin-left: 75px;
+}
 /* ************************************************************************************* */
 .width_div					{width:940px;margin:auto;}
 .width_table				{width:940px;position:relative; margin:auto;}

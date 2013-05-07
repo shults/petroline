@@ -37,6 +37,13 @@ class CartController extends FrontController
             'order' => $order
         ));
     }
+    
+    public function actionOrder_compleate()
+    {
+        $this->render('application.views.site.page', array(
+            'content' => Config::get('order_compleate')
+        ));
+    }
 
     public function actionAdd($product_id)
     {
