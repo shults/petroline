@@ -112,8 +112,8 @@ class CatalogController extends FrontController
         $keywords = preg_split('/[\s]+/i', $q);
         
         foreach ($keywords as $keyword) {
-            $criteria->addSearchCondition('title', $keyword, 'OR');
-            $criteria->addSearchCondition('description', $keyword, 'OR');
+            $criteria->addSearchCondition('title', $keyword, true, 'OR');
+            $criteria->addSearchCondition('description', $keyword, true, 'OR');
         }
 
         $products = Products::model()->findAll($criteria);
