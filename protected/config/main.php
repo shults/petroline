@@ -64,6 +64,9 @@ return array(
                 '<language:(\w{2})>/<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),
+        'cache'=>array(
+            'class' => 'CFileCache',//'CDbCache',
+        ),
         'db' => require(dirname(__FILE__) . '/_db_main.php'),
         'errorHandler' => array(
             'errorAction' => 'error/error',
