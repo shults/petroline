@@ -48,5 +48,14 @@ class DefaultController extends AdminController
         Yii::app()->user->logout(false);
         $this->redirect(Yii::app()->createUrl($this->module->name));
     }
+    
+    public function actionFlushCache()
+    {
+        Yii::app()->cache->flush();
+        if ($referrer = Yii::app()->request->urlReferrer) {
+            $this->redirect($referrer);
+        }
+        $this->redirect('/' . $this->module->id);
+    }
 
 }
