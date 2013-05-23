@@ -328,5 +328,23 @@ class Products extends CActiveRecord
         }
         return $producsts;
     }
+    
+    public function getMetaTitle()
+    {
+        if ($this->getIsNewRecord())
+            throw new CException('Yu cannot call ' . __METHOD__ . ' this is new record');
+        if ($this->meta_title)
+            return $this->meta_title;
+        return str_replace('%title%', $this->title, Yii::t('seo', 'product_meta_title'));
+    }
+    
+    public function getMetaDescription()
+    {
+        if ($this->getIsNewRecord())
+            throw new CException('Yu cannot call ' . __METHOD__ . ' this is new record');
+        if ($this->meta_description)
+            return $this->meta_description;
+        return str_replace('%title%', $this->title, Yii::t('seo', 'product_meta_description'));
+    }
 
 }

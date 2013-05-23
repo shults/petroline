@@ -14,14 +14,8 @@ class CatalogController extends FrontController
             throw new CHttpException(404);
 
         //meta data
-        if ($product->meta_title)
-            $this->setPageTitle($product->meta_title);
-        else if ($product->title)
-            $this->setPageTitle($product->title);
-        if ($product->meta_description)
-            $this->setMetaDescription($product->meta_description);
-        if ($product->meta_keywords)
-            $this->setMetaKeywords($product->meta_keywords);
+        $this->setPageTitle($product->getMetaTitle());
+        $this->setMetaDescription($product->getMetaDescription());
 
         //breadcrumbs
         if ($product->category->parent) {
@@ -33,7 +27,7 @@ class CatalogController extends FrontController
                     $product->category->title => $product->category->getFrontUrl(),
                     $product->title
         ));
-        
+
         Yii::app()->clientScript->registerScript('product-ajax', '
             jQuery(document).ready(function() {
                 jQuery.getJSON("' . CHtml::normalizeUrl(array('catalog/getproduct', 'product_id' => $product->product_id)) . '", function(data){
@@ -61,13 +55,10 @@ class CatalogController extends FrontController
         $this->breadcrumbs = CMap::mergeArray($this->breadcrumbs, array(
                     $category->title
         ));
+        
         //meta data
-        if ($category->meta_title)
-            $this->setPageTitle($category->meta_title);
-        if ($category->meta_description)
-            $this->setMetaDescription($category->meta_description);
-        if ($category->meta_keywords)
-            $this->setMetaKeywords($category->meta_keywords);
+        $this->setPageTitle($category->getMetaTitle());
+        $this->setMetaDescription($category->getMetaDescription());
 
         if ($page > 1) {
             Yii::app()->clientScript->registerLinkTag('canonical', null, CHtml::normalizeUrl(array('catalog/category',

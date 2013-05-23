@@ -116,7 +116,7 @@ class FrontController extends CController
         foreach ($categories as $category) {
             $menuItems[] = array(
                 'label' => $category->title,
-                'url' => array('catalog/category', 'category_id' => $category->category_id)
+                'url' => $category->getFrontUrl()
             );
         }
         return $menuItems;
@@ -136,14 +136,16 @@ class FrontController extends CController
                 foreach ($category->children as $childCategory) {
                     $subItems[] = array(
                         'label' => $childCategory->title,
-                        'url' => array('catalog/category', 'category_id' => $childCategory->category_id)
+                        'url' => $childCategory->getFrontUrl(),
+                        'active' => $childCategory->category_id == $category_id
                     );
                 }
             }
             $menuItems[] = array(
                 'label' => $category->title,
-                'url' => array('catalog/category', 'category_id' => $category->category_id),
-                'items' => $subItems
+                'url' => $category->getFrontUrl(),
+                'items' => $subItems,
+                'active' => ($category->category_id == $category_id) || $subItems
             );
         }
         return $menuItems;

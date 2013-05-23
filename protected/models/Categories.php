@@ -330,5 +330,39 @@ class Categories extends CActiveRecord
         }
         return $categories;
     }
+    
+    public function getMetaTitle()
+    {
+        if ($this->meta_title) {
+            return $this->meta_title;
+        }
+        
+        if ($this->parent) {
+            return str_replace(
+                        array('%category_title%', '%subcategory_title%'), 
+                        array($this->parent->title, $this->title), 
+                        Yii::t('seo', 'subcategory_meta_title')
+                   );
+        } else {
+            return str_replace('%title%', $this->title, Yii::t('seo', 'category_meta_title'));
+        }
+    }
+    
+    public function getMetaDescription()
+    {
+        if ($this->meta_description) {
+            return $this->meta_description;
+        }
+        
+        if ($this->parent) {
+            return str_replace(
+                        array('%category_title%', '%subcategory_title%'), 
+                        array($this->parent->title, $this->title), 
+                        Yii::t('seo', 'subcategory_meta_description')
+                   );
+        } else {
+            return str_replace('%title%', $this->title, Yii::t('seo', 'category_meta_description'));
+        }
+    }
 
 }
