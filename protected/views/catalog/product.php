@@ -19,7 +19,7 @@ $colorbox->addInstance('a.colorbox', array('rel' => 'products'));
                                             <tr>
                                                 <td class="wrapper_pic_td">
                                                     <a href="<?php echo $product->getImageUrl(500, 500); ?>" class="colorbox" rel="products">
-                                                        <img width="140" border="0" height="130" title=" Product #203 " alt="Product #203" src="<?php echo $product->getImageUrl(140, 130); ?>">
+                                                        <img width="140" border="0" height="130" title="<?php echo CHtml::encode($product->title) ?>" alt="<?php echo CHtml::encode($product->title) ?>" src="<?php echo $product->getImageUrl(140, 130); ?>">
                                                     </a>
                                                     <?php foreach ($product->images as $key => $image): ?>
                                                         <?php if ($key > 0): ?>
@@ -32,7 +32,7 @@ $colorbox->addInstance('a.colorbox', array('rel' => 'products'));
                                                     </div>
                                                     <br>
                                                     <div>
-                                                        <a href="<?php echo CHtml::normalizeUrl(array('cart/add', 'product_id' => $product->product_id))?>" rel="nofollow" id="add-to-cart-button" class="btn btn-small btn-success"><?php echo Yii::t('catalog', 'Add to cart') ?></a>
+                                                        <span id="add-to-cart-button" class="btn btn-small btn-success" onclick="window.location='<?php echo CHtml::normalizeUrl(array('cart/add', 'product_id' => $product->product_id))?>';"><?php echo Yii::t('catalog', 'Add to cart') ?></span>
                                                     </div>
                                                     <br>
                                                 </td>
@@ -41,8 +41,8 @@ $colorbox->addInstance('a.colorbox', array('rel' => 'products'));
                                     </table>
                                 </div>	
                                 <div class="main">
-                                    <div class="desc2">
-                                        <?php echo $product->description ?>
+                                    <div class="desc2" id="product_description">
+                                        <?php // echo $product->description ?>
                                     </div>
                                 </div>
                                 <div style="clear:both;"></div>
@@ -50,7 +50,7 @@ $colorbox->addInstance('a.colorbox', array('rel' => 'products'));
                         </tr>
                     </tbody>
                 </table>		
-                <!--<div class="cart_line_x padd2_gg"><img width="1" border="0" height="2" alt="" src="/images/spacer.gif"></div>-->
+                <? /*<div class="cart_line_x padd2_gg"><img width="1" border="0" height="2" alt="" src="/images/spacer.gif"></div> */ ?>
             </td>
         </tr>
     </tbody>

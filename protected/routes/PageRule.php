@@ -39,7 +39,7 @@ class PageRule extends CBaseUrlRule
                 $params['page_id'] = $_GET['page_id'];
             }
             if ($url = $manager->createUrl(self::RULE_ROUTE, $params))
-                $request->redirect($url);
+                $request->redirect($url, true, 301);
         }
 
         if (preg_match('/^(?:([a-z]{2})\/)?([a-z0-9_-]+)$/i', $pathInfo, $matches)) {

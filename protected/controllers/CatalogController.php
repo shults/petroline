@@ -33,6 +33,14 @@ class CatalogController extends FrontController
                     $product->category->title => $product->category->getFrontUrl(),
                     $product->title
         ));
+        
+        Yii::app()->clientScript->registerScript('product-ajax', '
+            jQuery(document).ready(function() {
+                jQuery.getJSON("' . CHtml::normalizeUrl(array('catalog/getproduct', 'product_id' => $product->product_id)) . '", function(data){
+                    jQuery("#product_description").html(data["description"]);
+                });
+            });
+        ');
 
         $this->render('product', array(
             'product' => $product
@@ -60,6 +68,11 @@ class CatalogController extends FrontController
             $this->setMetaDescription($category->meta_description);
         if ($category->meta_keywords)
             $this->setMetaKeywords($category->meta_keywords);
+
+        if ($page > 1) {
+            Yii::app()->clientScript->registerLinkTag('canonical', null, CHtml::normalizeUrl(array('catalog/category',
+                        'category_id' => $category->category_id)));
+        }
 
         // products search
         $categoriesInValues = array();
@@ -100,17 +113,17 @@ class CatalogController extends FrontController
     {
         //set title
         $this->setPageTitle(Yii::t('common', 'Search results on query "{q}"', array('{q}' => $q)));
-        
+
         //breadcrumbs
         $this->breadcrumbs = array($this->getPageTitle());
-        
+
         //criteria
         $criteria = new CDbCriteria;
         $criteria->limit = Yii::app()->params['itemsPerPage'];
         $criteria->offset = Yii::app()->params['itemsPerPage'] * ($page - 1);
         $criteria->scopes = array('enabled');
         $keywords = preg_split('/[\s]+/i', $q);
-        
+
         foreach ($keywords as $keyword) {
             $criteria->addSearchCondition('title', $keyword, true, 'OR');
             $criteria->addSearchCondition('description', $keyword, true, 'OR');
@@ -130,6 +143,15 @@ class CatalogController extends FrontController
             'products' => $products,
             'pages' => $pages
         ));
+    }
+
+    public function actionGetProduct($product_id)
+    {
+        if (($product = Products::model()->resetScope()->findByPk($product_id)) === null)
+            throw new CHttpException(404);
+        header('Content-type: application/json');
+        echo CJSON::encode($product->attributes);
+        Yii::app()->end();
     }
 
 }

@@ -2,9 +2,13 @@
 
 Yii::import('ycm.controllers.CategoryController');
 
+/**
+ * @property Language $language Language of current category
+ */
 class Categories extends CActiveRecord
 {
 
+    const ALL_CATEGORIES_CACHE_ID = 'all_categories';
     protected static $_adminNames;
     
     private $_frontUrl;
@@ -188,7 +192,8 @@ class Categories extends CActiveRecord
     {
         return array(
             'parent' => array(self::HAS_ONE, 'Categories', array('category_id' => 'parent_category_id')),
-            'children' => array(self::HAS_MANY, 'Categories', array('parent_category_id' => 'category_id'))
+            'children' => array(self::HAS_MANY, 'Categories', array('parent_category_id' => 'category_id')),
+            'language' => array(self::BELONGS_TO, 'Language', array('language_id' => 'language_id')),
         );
     }
 
@@ -304,7 +309,7 @@ class Categories extends CActiveRecord
         if ($this->getIsNewRecord())
             throw new CException("You cannot call to " . __METHOD__ . " in not existance record");
         if ($this->_frontUrl === null)
-            $this->_frontUrl = CHtml::normalizeUrl(array('catalog/category', 'category_id' => $this->category_id));
+            $this->_frontUrl = CHtml::normalizeUrl(array('catalog/category', 'category' => $this));
         return $this->_frontUrl;
     }
     
@@ -315,6 +320,15 @@ class Categories extends CActiveRecord
         if ($this->_imageUrl === null)
             $this->_imageUrl = ImageModel::model()->resize($this->getFilePath('filename'), $width, $height);
         return $this->_imageUrl;
+    }
+    
+    public function getAllCategories()
+    {
+        if (!($categories = Yii::app()->cache->get(self::ALL_CATEGORIES_CACHE_ID))) {
+            $categories = Categories::model()->resetScope()->enabled()->with('language')->findAll();
+            Yii::app()->cache->set(self::ALL_CATEGORIES_CACHE_ID, $categories, 3600 * 24);
+        }
+        return $categories;
     }
 
 }

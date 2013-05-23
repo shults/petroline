@@ -22,9 +22,16 @@ class TbBreadcrumbs extends CWidget
             $counter = 0;
             foreach ($this->links as $title => $url) {
                 if ($counter < $numberOfLinks - 1) {
-                    echo '<li><a href="' . CHtml::normalizeUrl($url) . '">' . $title . '</a><span class="divider">' . $this->separator . '</span></li>';
+                    echo '<li>'
+                            . '<div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">' 
+                                . '<a href="' . CHtml::normalizeUrl($url) . '" itemprop="url" title="' . $title . '" >' 
+                                    . '<span itemprop="title">' . $title . '</span>' 
+                                . '</a>' 
+                            . '</div>'
+                            . '<span class="divider">' . $this->separator . '</span>' 
+                       . '</li>';
                 } else {
-                    echo '<li class="active">' . $url . '</li>';
+                    echo '<li class="active"><h1>' . $url . '</h1></li>';
                 }
                 $counter++;
             }

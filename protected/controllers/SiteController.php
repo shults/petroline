@@ -49,5 +49,22 @@ class SiteController extends FrontController
             'content' => Config::get('about_us'),
         ));
     }
+    
+    public function actionSitemap()
+    {
+        header('Content-type: application/xml');
+        $this->renderPartial('sitemap', array(
+            'products' => Products::model()->getAllProducts(),
+            'categories' => Categories::model()->getAllCategories(),
+            'staticPages' => array(
+                '/contacts',
+                '/uk/contacts',
+                '/about_us',
+                '/uk/about_us',
+                '/delivery_payment',
+                '/uk/delivery_payment'
+            )
+        ));
+    }
 
 }

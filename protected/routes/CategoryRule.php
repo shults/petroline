@@ -20,14 +20,14 @@ class CategoryRule extends CBaseUrlRule
      */
     public function createUrl($manager, $route, $params, $ampersand)
     {
-        if ($route === self::RULE_ROUTE && $params['category_id']) {
-            if (($category = Categories::model()->findByPk($params['category_id'])) !== null) {
-                $url = isset($params['language']) ? $params['language'] . '/' : '';
-                $url = $url . 'c' . $category->category_id . '-' . $category->url;
-                if (isset($params['page']) && $params['page'] != 1)
-                    $url .= '?page=' . $params['page'];
-                return $url;
-            }
+        if ($route === self::RULE_ROUTE && $params['category'] && $params['category'] instanceof Categories) {
+            /* @var $category Categories */
+            $category = $params['category'];
+            $url = $category->language->default == 1 ? '' : $category->language->code . '/';
+            $url .= 'c' . $category->category_id . '-' . $category->url;
+            if (isset($params['page']) && $params['page'] != 1)
+                $url .= '?page=' . $params['page'];
+            return $url;
         }
         return false;
     }
@@ -53,7 +53,7 @@ class CategoryRule extends CBaseUrlRule
                 $params['category_id'] = $_GET['category_id'];
             }
             if ($url = $manager->createUrl(self::RULE_ROUTE, $params))
-                $request->redirect($url);
+                $request->redirect($url, true, 301);
         }
         if (preg_match('/^([a-z]{2})?\/?c(\d+)-([a-z0-9_-]+)$/i', $pathInfo, $matches)) {
             $languageCode = $matches[1];
@@ -69,7 +69,7 @@ class CategoryRule extends CBaseUrlRule
             if ($category->url != $url) {
                 $request->redirect($this->createUrl($manager, self::RULE_ROUTE, array(
                             'category_id' => $category_id
-                                ), '&'));
+                                ), '&'), true, 301);
             }
             return self::RULE_ROUTE;
         }

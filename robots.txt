@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /
+Disallow: /en
+Disallow: /fr
+Disallow: /search*
+Disallow: /cart*
+Sitemap: http://vlasnaazs.com.ua/sitemap.xml
+User-agent: Yandex
+Disallow: /
+Disallow: /en
+Disallow: /fr
+Disallow: /search*
+Disallow: /cart*
+Host: vlasnaazs.com.ua

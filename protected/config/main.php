@@ -37,11 +37,15 @@ return array(
         'lang' => array(
             'class' => 'FrontLanguageComponent',
         ),
+        'cache' => array(
+            'class' => 'CFileCache'
+        ),
         'urlManager' => array(
             'class' => 'UrlManager',
             'urlFormat' => 'path',
             'showScriptName' => false,
             'rules' => array(
+                'sitemap.xml' => 'site/sitemap',
                 array(
                     'class' => 'application.routes.CategoryRule'
                 ),

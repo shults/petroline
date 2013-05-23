@@ -22,6 +22,7 @@
             });
         </script>
         <script type="text/javascript" src="/js/jzcarousellite.js"></script>
+        <?php $this->renderPartial('application.views.layouts._counter_ga') ?>
     </head>
     <body>
         <div class="bg2_body" align="center">

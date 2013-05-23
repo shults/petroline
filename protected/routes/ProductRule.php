@@ -12,11 +12,11 @@ class ProductRule extends CBaseUrlRule
 
     public function createUrl($manager, $route, $params, $ampersand)
     {
-        if ($route === self::RULE_ROUTE && $params['product_id']) {
-            if (($product = Products::model()->findByPk($params['product_id']) ) !== null) {
-                $url = isset($params['language']) ? $params['language'] . '/' : '';
-                return $url . 'p' . $product->product_id . '-' . $product->url;
-            }
+        if ($route === self::RULE_ROUTE && $params['product'] && $params['product'] instanceof Products) {
+            /* @var $product Products */
+            $product = $params['product'];
+            $url = $product->language->default ? '' : $product->language->code . '/';
+            return $url . 'p' . $product->product_id . '-' . $product->url;   
         }
         return false;
     }
@@ -34,7 +34,7 @@ class ProductRule extends CBaseUrlRule
                 $params['product_id'] = $_GET['product_id'];
             }
             if ($url = $manager->createUrl(self::RULE_ROUTE, $params))
-                $request->redirect($url);
+                $request->redirect($url, true, 301);
         }
         
         if (preg_match('/^([a-z]{2})?\/?p(\d+)-([a-z0-9_-]+)$/i', $pathInfo, $matches)) {
@@ -53,7 +53,7 @@ class ProductRule extends CBaseUrlRule
             if ($product->url != $url) {
                 $request->redirect($this->createUrl($manager, self::RULE_ROUTE, array(
                             'product_id' => $product_id
-                                ), '&'));
+                                ), '&'), true, 301);
             }
             return self::RULE_ROUTE;
         }

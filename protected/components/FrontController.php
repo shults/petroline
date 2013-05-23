@@ -54,7 +54,7 @@ class FrontController extends CController
 
     public function setMetaKeywords($keywords)
     {
-        Yii::app()->clientScript->registerMetaTag($keywords, 'keywords', null, array(), 'meta_keywords');
+        //Yii::app()->clientScript->registerMetaTag($keywords, 'keywords', null, array(), 'meta_keywords');
     }
 
     public function setMetaDescription($description)
@@ -84,7 +84,7 @@ class FrontController extends CController
     {
         $this->setCompanyName(Config::get('company'));
         $this->setMetaDescription(Config::get('meta_description'));
-        $this->setMetaKeywords(Config::get('meta_keywords'));
+        //$this->setMetaKeywords(Config::get('meta_keywords'));
         $this->setPageTitle(Config::get('title'));
         $this->initLayoutPath();
         Yii::app()->clientScript->registerCoreScript('jquery');

@@ -152,3 +152,7 @@ li.ui-tabs-selected a span strong	{
 
 
 /*--- carousel end ---*/
+
+.breadcrumb li div {
+    display: inline;
+}

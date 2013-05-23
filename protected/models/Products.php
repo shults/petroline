@@ -1,8 +1,12 @@
 <?php
-
+/**
+ * 
+ * @property Language $language languaage of current product
+ */
 class Products extends CActiveRecord
 {
-
+    
+    const ALL_PRODUCT_CACHE_ID = 'all_products';
     private $_frontUrl;
     protected static $_adminNames;
 
@@ -57,6 +61,11 @@ class Products extends CActiveRecord
         ));
     }
 
+    /**
+     * 
+     * @param String $className
+     * @return Products
+     */
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -160,8 +169,9 @@ class Products extends CActiveRecord
     public function relations()
     {
         return array(
-            'category' => array(self::HAS_ONE, 'Categories', array('category_id' => 'category_id')),
-            'images' => array(self::HAS_MANY, 'ProductImages', array('product_id' => 'product_id'))
+            'category' => array(self::BELONGS_TO, 'Categories', array('category_id' => 'category_id')),
+            'images' => array(self::HAS_MANY, 'ProductImages', array('product_id' => 'product_id')),
+            'language' => array(self::BELONGS_TO, 'Language', array('language_id' => 'language_id')),
         );
     }
 
@@ -296,7 +306,7 @@ class Products extends CActiveRecord
         if ($this->getIsNewRecord())
             throw new CException('Method ' . __METHOD__ . ' was called to not existence record');
         if ($this->_frontUrl === null)
-            $this->_frontUrl = CHtml::normalizeUrl(array('catalog/product', 'product_id' => $this->product_id));
+            $this->_frontUrl = CHtml::normalizeUrl(array('catalog/product', 'product' => $this));
         return $this->_frontUrl;
     }
 
@@ -308,6 +318,15 @@ class Products extends CActiveRecord
             return $this->images[0]->getImageUrl($width, $height);
         else
             return ImageModel::model()->resize(null, $width, $height);
+    }
+    
+    public function getAllProducts()
+    {
+        if (!($producsts = Yii::app()->cache->get(self::ALL_PRODUCT_CACHE_ID))) {
+            $producsts = $this->resetScope()->enabled()->with('language')->findAll();
+            Yii::app()->cache->set(self::ALL_PRODUCT_CACHE_ID, $producsts, 3600 * 24);
+        }
+        return $producsts;
     }
 
 }
