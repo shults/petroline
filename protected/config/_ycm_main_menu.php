@@ -70,6 +70,10 @@ return array(
                         'label' => 'Конфигурация',
                         'url' => array('model/list', 'name' => 'Config'),
                     ),
+                    array(
+                        'label' => 'Очистить кеш',
+                        'url' => array('default/flushCache')
+                    )
                 )
             ),
         )

@@ -7,4 +7,5 @@ return array(
     'password' => '',
     'charset' => 'utf8',
     'tablePrefix' => 'tp_',
+    'schemaCachingDuration' => 3600 * 24
 );

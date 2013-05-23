@@ -38,8 +38,10 @@ class Order extends CActiveRecord
 
     public function beforeSave()
     {
-        if ($this->getIsNewRecord())
+        if ($this->getIsNewRecord()) {
+            $this->language_id = Yii::app()->lang->language_id;
             $this->incoming_date = new CDbExpression('NOW()');
+        }
 
         if (!$this->getIsNewRecord())
             $this->recalculate();
@@ -97,7 +99,7 @@ class Order extends CActiveRecord
     {
         return array(
             array('payment_id, delivery_id, customer_full_name, customer_phone', 'required'),
-            array('incoming_date, status', 'safe'),
+            array('language_id, incoming_date, status', 'safe'),
             array('customer_phone', 'match', 'pattern' => '/[\+]?[0-9]{12,14}/')
         );
     }
@@ -219,7 +221,11 @@ class Order extends CActiveRecord
     public function defaultScope()
     {
         return array(
-            'order' => '`status` ASC'
+            'condition' => 'language_id=:language_id',
+            'order' => '`status` ASC',
+            'params' => array(
+                ':language_id' => Yii::app()->lang->language_id
+            )
         );
     }
 

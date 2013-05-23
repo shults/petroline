@@ -29,11 +29,7 @@
             <div class="row_1">
                 <div class="width_table">
                     <div class="cl_both">
-                        <div class="logo" style="height: 84px; ">
-                            <a href="<?php echo CHtml::normalizeUrl(array('site/index')) ?>">
-                                <img src="/images/logo.gif" border="0" />
-                            </a>
-                        </div>
+                        <?php $this->renderPartial('application.views.layouts._logo') ?>
                         <div class="fl_right" align="right">
                             <?php $this->renderPartial('application.views.layouts._cart') ?>
                             <?php $this->renderPartial("application.views.layouts._navigation") ?>
