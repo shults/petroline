@@ -42,8 +42,7 @@ class FrontLanguageComponent extends CComponent implements ILanguageComponent
         $defaultLanguage = Language::model()->default()->find();
         if (isset($_GET['language'])) {
             if (($language = Language::model()->find('code=:code', array(':code' => $_GET['language']))) === null) {
-                //echo($_GET['language']);
-                //die;
+                $language = $defaultLanguage;
                 //throw new CHttpException(404, Yii::t('common', 'Page not found'));
             }
             if ($language->code === $defaultLanguage->code) {
