@@ -5,27 +5,6 @@ $categoryItemsPerRow = Yii::app()->params['categoryItemsPerRow'];
 $subCategoryRows = ceil(count($category->children) / $categoryItemsPerRow);
 $rowWidth = 100 / $categoryItemsPerRow;
 ?>
-<?php if ($category->description): ?>
-    <table border="0" align="center" cellspacing="0" cellpadding="0" class="content_wrapper_table">
-        <tbody>
-            <tr>
-                <td class="content_wrapper_td">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="cont_heading_table">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="desc2">
-                                        <?php echo $category->description ?>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-<?php endif; ?>
 <?php if ($category->children): ?>
     <table border="0" align="center" cellspacing="0" cellpadding="0" class="content_wrapper_table">
         <tbody>
@@ -218,6 +197,28 @@ $ceilWidth = floor(100 / $productsPerRow);
                     ));
                     ?>
                 </div>
+                <?php if ($category->description): ?>
+                    <table border="0" align="center" cellspacing="0" cellpadding="0" class="content_wrapper_table" style="margin-bottom: 10px;">
+                        <tbody>
+                            <tr>
+                                <td class="content_wrapper_td">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="cont_heading_table">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="desc2">
+                                                        <?php echo $category->description ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <?php endif; ?>
+                <div class="clear"></div>
             </td>
         </tr>
     </table>
