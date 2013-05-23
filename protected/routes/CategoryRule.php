@@ -29,6 +29,16 @@ class CategoryRule extends CBaseUrlRule
                 $url .= '?page=' . $params['page'];
             return $url;
         }
+
+        if ($route === self::RULE_ROUTE && $params['category_id']) {
+            if (($category = Categories::model()->findByPk($params['category_id'])) === null)
+                return false;
+            $url = $_GET['language'] ? $_GET['language'] . '/' : '';
+            $url .= 'c' . $category->category_id . '-' .  $category->url;
+            if (isset($params['page']) && $params['page'] != 1)
+                $url .= '?page=' . $params['page'];
+            return $url;
+        }
         return false;
     }
 
@@ -68,7 +78,7 @@ class CategoryRule extends CBaseUrlRule
                 return false;
             if ($category->url != $url) {
                 $request->redirect($this->createUrl($manager, self::RULE_ROUTE, array(
-                            'category_id' => $category_id
+                            'category' => $category
                                 ), '&'), true, 301);
             }
             return self::RULE_ROUTE;

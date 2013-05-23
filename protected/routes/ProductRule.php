@@ -52,7 +52,7 @@ class ProductRule extends CBaseUrlRule
 
             if ($product->url != $url) {
                 $request->redirect($this->createUrl($manager, self::RULE_ROUTE, array(
-                            'product_id' => $product_id
+                            'product' => $product
                                 ), '&'), true, 301);
             }
             return self::RULE_ROUTE;
