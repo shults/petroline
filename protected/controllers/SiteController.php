@@ -20,6 +20,7 @@ class SiteController extends FrontController
     public function actionContacts()
     {
         $this->setPageTitle(Config::get('contacts_title'));
+        $this->setMetaDescription(Config::get('contacts_meta_description'));
         $this->breadcrumbs = array(
             $this->getPageTitle()
         );
@@ -31,6 +32,7 @@ class SiteController extends FrontController
     public function actionDelivery_payment()
     {
         $this->setPageTitle(Config::get('delivery_payment_title'));
+        $this->setMetaDescription(Config::get('delivery_payment_meta_description'));
         $this->breadcrumbs = array(
             $this->getPageTitle()
         );
@@ -42,6 +44,7 @@ class SiteController extends FrontController
     public function actionAbout_us()
     {
         $this->setPageTitle(Config::get('about_us_title'));
+        $this->setMetaDescription(Config::get('about_us_meta_description'));
         $this->breadcrumbs = array(
             $this->getPageTitle()
         );

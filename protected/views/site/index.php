@@ -81,3 +81,25 @@ $ceilWidth = floor(100 / $productsPerRow);
         </td>
     </tr>
 </table>
+<table border="0" align="center" cellspacing="0" cellpadding="0" class="content_wrapper4_table">
+    <tbody>
+        <tr>
+            <td class="content_wrapper4_td">
+                <table border="0" cellspacing="0" cellpadding="0" class="content_wrapper2_table">
+                    <tbody>
+                        <tr>
+                            <td class="content_wrapper2_td">
+                                <div class="main">
+                                    <div id="product_description" class="desc2">
+                                        <?php echo Config::get('main_page_content') ?>
+                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>		
+            </td>
+        </tr>
+    </tbody>
+</table>
