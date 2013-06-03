@@ -19,4 +19,5 @@ return array(
     'Create product' => 'Создать товар',
     'Display order' => 'Порядок',
     'Products' => 'Товары',
+    'Display AJAX' => 'Отображать через AJAX',
 );

@@ -28,13 +28,15 @@ class CatalogController extends FrontController
                     $product->title
         ));
 
-        Yii::app()->clientScript->registerScript('product-ajax', '
-            jQuery(document).ready(function() {
-                jQuery.getJSON("' . CHtml::normalizeUrl(array('catalog/getproduct', 'product_id' => $product->product_id)) . '", function(data){
-                    jQuery("#product_description").html(data["description"]);
+        if ($product->display_ajax == 1) {
+            Yii::app()->clientScript->registerScript('product-ajax', '
+                jQuery(document).ready(function() {
+                    jQuery.getJSON("' . CHtml::normalizeUrl(array('catalog/getproduct', 'product_id' => $product->product_id)) . '", function(data){
+                        jQuery("#product_description").html(data["description"]);
+                    });
                 });
-            });
-        ');
+            ');
+        }
 
         $this->render('product', array(
             'product' => $product

@@ -2,7 +2,7 @@
 
 return array(
     'Catalog' => 'Каталог',
-    'Categories' => 'Ктегорії',
+    'Categories' => 'Категорії',
     'Category' => 'Категорія',
     'Products' => 'Товари',
     'Orders' => 'Замовлення',

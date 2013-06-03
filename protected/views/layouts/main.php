@@ -30,6 +30,7 @@
                 <div class="width_table">
                     <div class="cl_both">
                         <?php $this->renderPartial('application.views.layouts._logo') ?>
+                        <?php $this->renderPartial('application.views.layouts._header_contacts') ?>
                         <div class="fl_right" align="right">
                             <?php $this->renderPartial('application.views.layouts._cart') ?>
                             <?php $this->renderPartial("application.views.layouts._navigation") ?>

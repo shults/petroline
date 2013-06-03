@@ -42,7 +42,7 @@ $colorbox->addInstance('a.colorbox', array('rel' => 'products'));
                                 </div>	
                                 <div class="main">
                                     <div class="desc2" id="product_description">
-                                        <?php // echo $product->description ?>
+                                        <?php echo $product->display_ajax == 0 ? $product->description : null ?>
                                     </div>
                                 </div>
                                 <div style="clear:both;"></div>

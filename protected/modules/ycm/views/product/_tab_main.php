@@ -12,6 +12,7 @@
 
         $this->module->createWidget($form, $productModel, 'category_id');
         $this->module->createWidget($form, $productModel, 'status');
+        $this->module->createWidget($form, $productModel, 'display_ajax');
         $this->module->createWidget($form, $productModel, 'title');
         $this->module->createWidget($form, $productModel, 'url');
         $this->module->createWidget($form, $productModel, 'price');

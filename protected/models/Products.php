@@ -77,7 +77,7 @@ class Products extends CActiveRecord
             array('title, url, category_id, price', 'required'),
             array('url', 'unique'),
             array('url', 'url', 'pattern' => '/^[a-z0-9-_]+$/'),
-            array('product_id, status, store_status, description, trade_price, min_trade_order, meta_title, meta_keywords, meta_description', 'safe'),
+            array('product_id, status, store_status, description, trade_price, min_trade_order, meta_title, meta_keywords, meta_description, display_ajax', 'safe'),
             array('min_trade_order', 'numerical'),
             array('price, trade_price', 'length', 'max' => 8),
         );
@@ -99,7 +99,8 @@ class Products extends CActiveRecord
             'meta_title' => self::t('Title'),
             'meta_keywords' => self::t('Meta keyowrds'),
             'meta_description' => self::t('Meta description'),
-            'order' => self::t('Display order')
+            'order' => self::t('Display order'),
+            'display_ajax' => self::t('Display AJAX')
         );
     }
 
@@ -109,6 +110,7 @@ class Products extends CActiveRecord
             array('category_id', 'dropDown'),
             array('status', 'boolean'),
             array('store_status', 'boolean'),
+            array('display_ajax', 'boolean'),
             array('description', 'tinymce'),
             array('meta_keywords', 'textArea'),
             array('meta_description', 'textArea'),
