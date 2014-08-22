@@ -37,9 +37,6 @@ return array(
         'lang' => array(
             'class' => 'FrontLanguageComponent',
         ),
-        'cache' => array(
-            'class' => 'CFileCache'
-        ),
         'urlManager' => array(
             'class' => 'UrlManager',
             'urlFormat' => 'path',

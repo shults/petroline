@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d79593c2-fc00-48e0-88cd-e9228c05c85e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/assets/css/chosen-sprite.png" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/assets/css/chosen-sprite.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/img/glyphicons-halflings-white.png" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/img/glyphicons-halflings-white.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/img/glyphicons-halflings-white.png" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/img/glyphicons-halflings-white.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/img/glyphicons-halflings.png" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/img/glyphicons-halflings.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/img/glyphicons-halflings.png" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/img/glyphicons-halflings.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/img/loading.gif" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/img/loading.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/.htaccess" afterPath="$PROJECT_DIR$/framework/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/cli/views/webapp/protected/.htaccess" afterPath="$PROJECT_DIR$/framework/cli/views/webapp/protected/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/cli/views/webapp/themes/classic/views/.htaccess" afterPath="$PROJECT_DIR$/framework/cli/views/webapp/themes/classic/views/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/.htaccess" afterPath="$PROJECT_DIR$/protected/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/.jshintrc" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/.jshintrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/ABAP.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/ABAP.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/Array.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/Array.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedClasses.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedClasses.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedFrameTargets.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedFrameTargets.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRel.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRel.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRev.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRev.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.ClassUseCDATA.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.ClassUseCDATA.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultImageAlt.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultImageAlt.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImage.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImage.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImageAlt.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImageAlt.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultTextDir.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.DefaultTextDir.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.EnableID.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.EnableID.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.ForbiddenClasses.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.ForbiddenClasses.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklist.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklist.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklistRegexp.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklistRegexp.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefix.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefix.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefixLocal.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefixLocal.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.AutoParagraph.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.AutoParagraph.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.Custom.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.Custom.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.DisplayLinkURI.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.DisplayLinkURI.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.Linkify.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.Linkify.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.DocURL.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.DocURL.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.Exceptions.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.Exceptions.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveSpansWithoutAttributes.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveSpansWithoutAttributes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/BB.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/BB.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/components/Bootstrap.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/components/Bootstrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/BootstrapCode.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/BootstrapCode.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/BootstrapGenerator.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/BootstrapGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/console/CConsoleCommandBehavior.php" afterPath="$PROJECT_DIR$/framework/console/CConsoleCommandBehavior.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/zii/widgets/jui/CJuiDraggable.php" afterPath="$PROJECT_DIR$/framework/zii/widgets/jui/CJuiDraggable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/zii/widgets/jui/CJuiDroppable.php" afterPath="$PROJECT_DIR$/framework/zii/widgets/jui/CJuiDroppable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/CPP.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/CPP.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowImportant.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowImportant.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowTricky.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowTricky.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowedProperties.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.AllowedProperties.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.DefinitionRev.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.DefinitionRev.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.MaxImgLength.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.MaxImgLength.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.Proprietary.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/CSS.Proprietary.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/CSS.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/CSS.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer/CSSDefinition.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer/CSSDefinition.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Cache.DefinitionImpl.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Cache.DefinitionImpl.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPath.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPath.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer/ConfigForm.css" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer/ConfigForm.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer/ConfigForm.js" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer/ConfigForm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer/ConfigForm.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer/ConfigForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Builder/ConfigSchema.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Builder/ConfigSchema.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/Console.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/Console.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.AggressivelyFixLt.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.AggressivelyFixLt.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.CollectErrors.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.CollectErrors.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.ColorKeywords.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.ColorKeywords.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.ConvertDocumentToFragment.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.ConvertDocumentToFragment.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.DirectLexLineNumberSyncInterval.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.DirectLexLineNumberSyncInterval.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.Encoding.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.Encoding.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidChildren.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidChildren.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidTags.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidTags.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeNonASCIICharacters.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.EscapeNonASCIICharacters.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.HiddenElements.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.HiddenElements.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.Language.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.Language.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.LexerImpl.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.LexerImpl.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.MaintainLineNumbers.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.MaintainLineNumbers.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.RemoveInvalidImg.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.RemoveInvalidImg.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.RemoveScriptContents.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Core.RemoveScriptContents.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/DIFF.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/DIFF.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/DTD.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/DTD.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff3.php" afterPath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff3.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Interchange/Directive.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Interchange/Directive.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/EChosenWidget.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/EChosenWidget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/EJuiDateTimePicker.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/EJuiDateTimePicker.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/redactor/ERedactorWidget.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/redactor/ERedactorWidget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Exception.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Exception.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Filter/ExtractStyleBlocks.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Filter/ExtractStyleBlocks.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.Custom.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.Custom.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Escaping.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Escaping.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Scope.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Scope.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.TidyImpl.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.TidyImpl.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.YouTube.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Filter.YouTube.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Generator.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Generator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Allowed.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Allowed.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedAttributes.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedAttributes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedElements.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedElements.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedModules.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.AllowedModules.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Attr.Name.UseCDATA.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Attr.Name.UseCDATA.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.BlockWrapper.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.BlockWrapper.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.CoreModules.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.CoreModules.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.CustomDoctype.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.CustomDoctype.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionID.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionID.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionRev.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionRev.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Doctype.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Doctype.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenAttributes.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenAttributes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenElements.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenElements.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.MaxImgLength.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.MaxImgLength.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Parent.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Parent.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Proprietary.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Proprietary.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.SafeEmbed.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.SafeEmbed.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.SafeObject.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.SafeObject.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Strict.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Strict.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.TidyAdd.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.TidyAdd.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.TidyLevel.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.TidyLevel.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.TidyRemove.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.TidyRemove.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Trusted.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.Trusted.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.XHTML.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/HTML.XHTML.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/HTML.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/HTML.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer/HTMLDefinition.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer/HTMLDefinition.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/HTMLPurifier.standalone.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/HTMLPurifier.standalone.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/Html.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/Html.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/HtmlTags.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/HtmlTags.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Interchange/Id.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Interchange/Id.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Interchange.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Interchange.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/InterchangeBuilder.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/InterchangeBuilder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/JAVA.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/JAVA.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/JAVASCRIPT.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/JAVASCRIPT.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/colorpowered/JColorBox.php" afterPath="$PROJECT_DIR$/protected/extensions/colorpowered/JColorBox.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/JSON.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/JSON.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/adodb/LICENSE.txt" afterPath="$PROJECT_DIR$/framework/vendors/adodb/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/cldr/LICENSE.txt" afterPath="$PROJECT_DIR$/framework/vendors/cldr/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/jquery/LICENSE.txt" afterPath="$PROJECT_DIR$/framework/vendors/jquery/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/jquery/autocomplete/LICENSE.txt" afterPath="$PROJECT_DIR$/framework/vendors/jquery/autocomplete/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/jquery/maskedinput/LICENSE.txt" afterPath="$PROJECT_DIR$/framework/vendors/jquery/maskedinput/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/jquery/treeview/LICENSE.txt" afterPath="$PROJECT_DIR$/framework/vendors/jquery/treeview/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/json/LICENSE.txt" afterPath="$PROJECT_DIR$/framework/vendors/json/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/LICENSE.txt" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/LICENSE" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/MYSQL.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/MYSQL.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Mapped.php" afterPath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Mapped.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Output.CommentScriptContents.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Output.CommentScriptContents.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Output.FlashCompat.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Output.FlashCompat.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Output.Newline.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Output.Newline.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Output.SortAttr.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Output.SortAttr.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Output.TidyFormat.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Output.TidyFormat.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/PERL.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/PERL.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Lexer/PH5P.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Lexer/PH5P.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/PHP.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/PHP.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/PYTHON.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/PYTHON.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Printer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/README.md" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/README.md" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/README.md" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/redactor/README.md" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/redactor/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/i18n/data/README.txt" afterPath="$PROJECT_DIR$/framework/i18n/data/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/README" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/README" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/redactor/assets/css/README" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/redactor/assets/css/README" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/redactor/assets/js/README" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/redactor/assets/js/README" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/redactor/assets/js/lang/README" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/redactor/assets/js/lang/README" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/RUBY.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/RUBY.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/SQL.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/SQL.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/TODO" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/TODO" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbActiveForm.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbActiveForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbAlert.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbAlert.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbBadge.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbBadge.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbBaseMenu.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbBaseMenu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbBreadcrumbs.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbBreadcrumbs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbButton.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbButton.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbButtonColumn.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbButtonColumn.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbButtonGroup.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbButtonGroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbCarousel.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbCarousel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbCollapse.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbCollapse.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbDataColumn.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbDataColumn.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbDetailView.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbDetailView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbDropdown.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbDropdown.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbGridView.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbGridView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbHeroUnit.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbHeroUnit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/input/TbInput.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/input/TbInput.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/input/TbInputHorizontal.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/input/TbInputHorizontal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/input/TbInputInline.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/input/TbInputInline.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/input/TbInputSearch.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/input/TbInputSearch.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/input/TbInputVertical.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/input/TbInputVertical.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbLabel.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbLabel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbListView.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbListView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbMenu.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbMenu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbModal.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbModal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbNavbar.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbNavbar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbPager.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbPager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbProgress.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbProgress.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbScrollSpy.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbScrollSpy.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbTabs.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbTabs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbThumbnails.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbThumbnails.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbTypeahead.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/widgets/TbTypeahead.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Test.ForceNoIconv.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/Test.ForceNoIconv.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/ThreeWay.php" afterPath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/ThreeWay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.AllowedSchemes.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.AllowedSchemes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.Base.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.Base.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DefaultScheme.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DefaultScheme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DefinitionID.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DefinitionID.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DefinitionRev.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DefinitionRev.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.Disable.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.Disable.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DisableExternal.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DisableExternal.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DisableExternalResources.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DisableExternalResources.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DisableResources.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.DisableResources.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.Host.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.Host.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.HostBlacklist.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.HostBlacklist.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.MakeAbsolute.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.MakeAbsolute.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.Munge.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.Munge.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.MungeResources.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.MungeResources.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.MungeSecretKey.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.MungeSecretKey.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.OverrideAllowedSchemes.txt" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/schema/URI.OverrideAllowedSchemes.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Validator.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Validator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/ValidatorAtom.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/ValidatorAtom.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/XML.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/XML.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/XML.php" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/Highlighter/Renderer/XML.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Builder/Xml.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/ConfigSchema/Builder/Xml.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/YcmModule.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/YcmModule.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Filter/YouTube.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Filter/YouTube.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/_db_main.php" afterPath="$PROJECT_DIR$/protected/config/_db_main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/_form.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/_search.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/_search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/_view.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/abap.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/abap.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/accordion.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/accordion.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/admin.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/alerts.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/alerts.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-affix.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-affix.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-affix.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-affix.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-alert.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-alert.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-alert.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-alert.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-button.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-button.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-button.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-button.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-carousel.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-carousel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-carousel.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-carousel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-collapse.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-collapse.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-collapse.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-collapse.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-dropdown.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-dropdown.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-dropdown.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-dropdown.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-modal.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-modal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-modal.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-modal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-phantom.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-phantom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-popover.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-popover.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-popover.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-popover.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/css/bootstrap-responsive.css" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/css/bootstrap-responsive.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/css/bootstrap-responsive.min.css" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/css/bootstrap-responsive.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-scrollspy.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-scrollspy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-scrollspy.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-scrollspy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-tab.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-tab.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-tab.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-tab.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-tooltip.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-tooltip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-tooltip.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-tooltip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-transition.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-transition.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-transition.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-transition.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-typeahead.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/bootstrap-typeahead.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-typeahead.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/unit/bootstrap-typeahead.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/css/bootstrap-yii.css" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/css/bootstrap-yii.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/less/bootstrap-yii.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/less/bootstrap-yii.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/css/bootstrap.css" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/css/bootstrap.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/js/bootstrap.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/js/bootstrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/bootstrap.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/bootstrap.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/css/bootstrap.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/assets/js/bootstrap.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/breadcrumbs.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/breadcrumbs.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/button-groups.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/button-groups.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/buttons.html" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/buttons.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/buttons.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/buttons.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/carousel.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/carousel.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/assets/css/chosen.css" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/assets/css/chosen.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/assets/js/chosen.jquery.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/assets/js/chosen.jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/assets/js/chosen.jquery.min.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/chosen/assets/js/chosen.jquery.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/close.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/close.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/code.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/code.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/colorpowered/assets/colorbox.css" afterPath="$PROJECT_DIR$/protected/extensions/colorpowered/assets/colorbox.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/component-animations.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/component-animations.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/constants.css" afterPath="$PROJECT_DIR$/css/constants.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Renderer/context.php" afterPath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Renderer/context.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/controller.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/cpp.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/cpp.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/create.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/create.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/css-tests.css" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/css-tests.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/css-tests.html" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/css-tests.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/css.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/css.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/cufon-replace.js" afterPath="$PROJECT_DIR$/js/cufon-replace.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/diff.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/diff.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/dropdowns.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/dropdowns.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/dtd.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/dtd.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Language/classes/en-x-test.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Language/classes/en-x-test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Language/messages/en-x-test.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Language/messages/en-x-test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Language/messages/en-x-testmini.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Language/messages/en-x-testmini.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Language/messages/en.php" afterPath="$PROJECT_DIR$/framework/vendors/htmlpurifier/standalone/HTMLPurifier/Language/messages/en.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/error.php" afterPath="$PROJECT_DIR$/framework/views/ca/error.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/error.php" afterPath="$PROJECT_DIR$/framework/views/fr/error.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/error400.php" afterPath="$PROJECT_DIR$/framework/views/ca/error400.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/error400.php" afterPath="$PROJECT_DIR$/framework/views/fr/error400.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/error403.php" afterPath="$PROJECT_DIR$/framework/views/ca/error403.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/error403.php" afterPath="$PROJECT_DIR$/framework/views/fr/error403.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/error404.php" afterPath="$PROJECT_DIR$/framework/views/ca/error404.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/error404.php" afterPath="$PROJECT_DIR$/framework/views/fr/error404.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/error500.php" afterPath="$PROJECT_DIR$/framework/views/ca/error500.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/error500.php" afterPath="$PROJECT_DIR$/framework/views/fr/error500.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/error503.php" afterPath="$PROJECT_DIR$/framework/views/ca/error503.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/error503.php" afterPath="$PROJECT_DIR$/framework/views/fr/error503.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/forms-responsive.html" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/forms-responsive.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/forms.html" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/forms.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/forms.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/forms.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/generate.bat" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/generate.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/generate" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/generate" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/grid.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/grid.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/hero-unit.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/hero-unit.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/cli/views/webapp/hg-hgignore" afterPath="$PROJECT_DIR$/framework/cli/views/webapp/hg-hgignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/highlight.css" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/highlight.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/html.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/html.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/ie_stylesheet.css" afterPath="$PROJECT_DIR$/css/ie_stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/index.html" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/index.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/views/index.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/views/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Renderer/inline.php" afterPath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Renderer/inline.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/java.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/java.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/javascript.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/javascript.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/jquery-ui-timepicker-addon.css" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/jquery-ui-timepicker-addon.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/jquery-ui-timepicker-addon.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/jquery-ui-timepicker-addon.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/jquery-ui-timepicker-addon.min.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/jquery-ui-timepicker-addon.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-af.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-af.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-bg.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-bg.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-ca.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-ca.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-cs.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-cs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-de.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-de.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-el.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-el.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-es.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-es.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-et.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-et.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-fi.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-fi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-fr.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-fr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-gl.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-gl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-he.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-he.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-hu.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-hu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-id.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-id.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-it.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-it.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-ja.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-ja.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-ko.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-ko.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-lt.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-lt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-nl.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-nl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-no.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-no.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-pl.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-pl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-pt-BR.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-pt-BR.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-pt.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-pt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-ro.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-ro.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-ru.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-ru.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-sk.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-sk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-sv.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-sv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-tr.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-tr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-uk.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-uk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-vi.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-vi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-zh-CN.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-zh-CN.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-zh-TW.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/jui/assets/localization/jquery-ui-timepicker-zh-TW.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jquery-ui.min.js" afterPath="$PROJECT_DIR$/js/jquery-ui.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/web/js/source/jquery.ajaxqueue.js" afterPath="$PROJECT_DIR$/framework/web/js/source/jquery.ajaxqueue.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/colorpowered/assets/js/jquery.colorbox-min.js" afterPath="$PROJECT_DIR$/protected/extensions/colorpowered/assets/js/jquery.colorbox-min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/extensions/colorpowered/assets/js/jquery.colorbox.js" afterPath="$PROJECT_DIR$/protected/extensions/colorpowered/assets/js/jquery.colorbox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/gii/assets/js/fancybox/jquery.fancybox-1.3.1.css" afterPath="$PROJECT_DIR$/framework/gii/assets/js/fancybox/jquery.fancybox-1.3.1.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/vendor/jquery.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/vendor/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/web/js/source/jquery.multifile.js" afterPath="$PROJECT_DIR$/framework/web/js/source/jquery.multifile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/web/js/source/rating/jquery.rating.css" afterPath="$PROJECT_DIR$/framework/web/js/source/rating/jquery.rating.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/web/js/source/jquery.rating.js" afterPath="$PROJECT_DIR$/framework/web/js/source/jquery.rating.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/web/js/source/jquery.treeview.async.js" afterPath="$PROJECT_DIR$/framework/web/js/source/jquery.treeview.async.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/web/js/source/treeview/jquery.treeview.css" afterPath="$PROJECT_DIR$/framework/web/js/source/treeview/jquery.treeview.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jzcarousellite.js" afterPath="$PROJECT_DIR$/js/jzcarousellite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/labels-badges.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/labels-badges.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/layouts.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/layouts.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/log-firebug.php" afterPath="$PROJECT_DIR$/framework/views/ca/log-firebug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/log-firebug.php" afterPath="$PROJECT_DIR$/framework/views/fr/log-firebug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/log.php" afterPath="$PROJECT_DIR$/framework/views/ca/log.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/log.php" afterPath="$PROJECT_DIR$/framework/views/fr/log.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/sk/log.php" afterPath="$PROJECT_DIR$/framework/views/sk/log.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/config/main.php" afterPath="$PROJECT_DIR$/protected/config/main.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/media.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/media.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/mixins.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/mixins.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/modals.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/modals.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/mysql.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/mysql.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/navbar-fixed-top.html" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/navbar-fixed-top.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/navbar-static-top.html" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/navbar-static-top.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/navbar.html" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tests/navbar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/navbar.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/navbar.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/navs.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/navs.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/package.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/package.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/pager.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/pager.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/pagination.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/pagination.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/perl.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/perl.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/phantom.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/phantom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/php.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/php.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/popovers.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/popovers.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/profile-callstack-firebug.php" afterPath="$PROJECT_DIR$/framework/views/ca/profile-callstack-firebug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/profile-callstack-firebug.php" afterPath="$PROJECT_DIR$/framework/views/fr/profile-callstack-firebug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/profile-callstack.php" afterPath="$PROJECT_DIR$/framework/views/ca/profile-callstack.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/profile-callstack.php" afterPath="$PROJECT_DIR$/framework/views/fr/profile-callstack.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/zh_cn/profile-callstack.php" afterPath="$PROJECT_DIR$/framework/views/zh_cn/profile-callstack.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/profile-summary-firebug.php" afterPath="$PROJECT_DIR$/framework/views/ca/profile-summary-firebug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/profile-summary-firebug.php" afterPath="$PROJECT_DIR$/framework/views/fr/profile-summary-firebug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/nl/profile-summary-firebug.php" afterPath="$PROJECT_DIR$/framework/views/nl/profile-summary-firebug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/ca/profile-summary.php" afterPath="$PROJECT_DIR$/framework/views/ca/profile-summary.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/fr/profile-summary.php" afterPath="$PROJECT_DIR$/framework/views/fr/profile-summary.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/views/nl/profile-summary.php" afterPath="$PROJECT_DIR$/framework/views/nl/profile-summary.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/progress-bars.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/progress-bars.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/python.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/python.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/vendor/qunit.css" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/vendor/qunit.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/vendor/qunit.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/vendor/qunit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/reset.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/reset.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive-1200px-min.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive-1200px-min.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive-767px-max.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive-767px-max.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive-768px-979px.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive-768px-979px.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive-navbar.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive-navbar.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive-utilities.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive-utilities.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/responsive.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/ruby.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/ruby.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/sample.css" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/sample.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/scaffolding.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/scaffolding.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/server.js" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/js/tests/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Engine/shell.php" afterPath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Engine/shell.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/sprites.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/sprites.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/sql.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/sql.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Engine/string.php" afterPath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Engine/string.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/stylesheet_boxes.css" afterPath="$PROJECT_DIR$/css/stylesheet_boxes.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/stylesheet_content.css" afterPath="$PROJECT_DIR$/css/stylesheet_content.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tables.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tables.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/thumbnails.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/thumbnails.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tooltip.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/tooltip.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/type.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/type.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Renderer/unified.php" afterPath="$PROJECT_DIR$/framework/gii/components/Pear/Text/Diff/Renderer/unified.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/update.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/update.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/utilities.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/utilities.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/variables.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/variables.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/view.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/gii/bootstrap/templates/default/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/wells.less" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/bootstrap/lib/bootstrap/less/wells.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/modules/ycm/extensions/xupload/messages/ru/widget.php" afterPath="$PROJECT_DIR$/protected/modules/ycm/extensions/xupload/messages/ru/widget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/xml.xml" afterPath="$PROJECT_DIR$/framework/vendors/TextHighlighter/Text/xml.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/messages/th/yii.php" afterPath="$PROJECT_DIR$/framework/messages/th/yii.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/yiic" afterPath="$PROJECT_DIR$/framework/yiic" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/yiic" afterPath="$PROJECT_DIR$/protected/yiic" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/messages/it/zii.php" afterPath="$PROJECT_DIR$/framework/messages/it/zii.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/messages/lv/zii.php" afterPath="$PROJECT_DIR$/framework/messages/lv/zii.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/framework/messages/uk/zii.php" afterPath="$PROJECT_DIR$/framework/messages/uk/zii.php" />
+    </list>
+    <ignored path="htdocs.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="htdocs" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-2" />
+    <option name="y" value="24" />
+    <option name="width" value="1370" />
+    <option name="height" value="746" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d79593c2-fc00-48e0-88cd-e9228c05c85e" name="Default" comment="" />
+      <created>1408720502190</created>
+      <updated>1408720502190</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-2" y="24" width="1370" height="746" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2489019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+</project>
+

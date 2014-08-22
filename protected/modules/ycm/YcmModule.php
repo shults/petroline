@@ -107,6 +107,8 @@ class YcmModule extends CWebModule
                 'class' => 'LanguageComponent',
             )
                 ), true);
+
+        Yii::app()->urlManager->urlFormat = CUrlManager::GET_FORMAT;
     }
 
     /**
