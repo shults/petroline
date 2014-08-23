@@ -132,4 +132,26 @@ class ProductController extends AdminController
             $this->redirect(array('product/index'));
     }
 
+    /**
+     * Change global price of products.
+     * Example: rise up price for all products in 15% $rate = 0.15
+     *
+     * @param $rate float
+     */
+    public function actionGlobalPriceChange()
+    {
+        $globalPriceChangeForm = new GlobalPriceChangeForm;
+
+        if (isset($_POST['GlobalPriceChangeForm'])) {
+            $globalPriceChangeForm->setAttributes($_POST['GlobalPriceChangeForm']);
+
+            if ($globalPriceChangeForm->validate()) {
+                $globalPriceChangeForm->changePrices();
+                $this->redirect(array('order/index'));
+            }
+        }
+
+        $this->render('global_price_change', array('globalPriceChangeForm' => $globalPriceChangeForm));
+    }
+
 }

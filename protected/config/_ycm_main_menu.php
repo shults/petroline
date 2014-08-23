@@ -12,13 +12,17 @@ return array(
                 'label' => Yii::t('catalog', 'Catalog'),
                 'items' => array(
                     array(
-                        'label' => 'Категории',
+                        'label' => Yii::t('core', 'Categories'),
                         'url' => array('model/list', 'name' => 'Categories'),
                     ),
                     array(
                         'label' => Yii::t('catalog', 'Products'),
                         'url' => array('product/index'),
                     ),
+                    array(
+                        'label' => Yii::t('core', 'Global Price Change'),
+                        'url' => array('product/globalPriceChange')
+                    )
                 )
             ),
             array(

@@ -50,7 +50,6 @@ $colorbox->addInstance('a.colorbox', array('rel' => 'products'));
                         </tr>
                     </tbody>
                 </table>		
-                <? /*<div class="cart_line_x padd2_gg"><img width="1" border="0" height="2" alt="" src="/images/spacer.gif"></div> */ ?>
             </td>
         </tr>
     </tbody>

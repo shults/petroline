@@ -58,11 +58,11 @@
         }
         ?>
         <div class="form-actions">
-            <?
-            $this->widget('bootstrap.widgets.TbButtonGroup', array(
-                'type' => '',
-                'buttons' => $buttons
-            ));
+            <?php
+                $this->widget('bootstrap.widgets.TbButtonGroup', array(
+                    'type' => '',
+                    'buttons' => $buttons
+                ));
             ?>
         </div>
         <?php $this->endWidget() ?>

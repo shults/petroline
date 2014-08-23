@@ -17,19 +17,11 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
-  'Add product' => 'Добавсить товар',
-  'Edit product' => 'Редактировать товар',
-  'Modules' => 'Модули',
-  ' Search entire store...' => ' Поиск...',
-  '-= Select product =-' => '-= Выберите товар =-',
-  'Add to cart' => 'В корзину',
-  'Catalog' => 'Каталог',
+  'Set the percent quantity from -100 to +infinity.' => 'Установите размер изменения цен. В диапазоне от -100% до +бесконечность %.',
   'Categories' => 'Категории',
-  'Category' => 'Категория',
-  'Images' => 'Изображения',
-  'Main data' => 'Основные данные',
-  'New products' => 'Новые товары',
-  'Orders' => 'Заказы',
-  'Products' => 'Товары',
-  'This product is already added' => 'Этот товар уже добавлен',
+  'Do u sure that u want yo change global price?' => 'Вы уверены что хотите изменить цены глобально?',
+  'Global Price Change' => 'Глобальное измениение цен',
+  'Percents' => 'Проценты',
+  'Update all prices' => 'Изменить все цены',
+  'You cannot reduce price more than -100%' => 'Вы не можете изменить цену более чем на -100%',
 );

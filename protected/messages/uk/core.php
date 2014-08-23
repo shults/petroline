@@ -17,5 +17,11 @@
  * NOTE, this file must be saved in UTF-8 encoding.
  */
 return array (
-  'Subcategories' => 'Підкатегорії',
+  'Categories' => '',
+  'Do u sure that u want yo change global price?' => '',
+  'Global Price Change' => '',
+  'Percents' => '',
+  'Set the percent quantity from -100 to +infinity.' => '',
+  'Update all prices' => '',
+  'You cannot reduce price more than -100%' => '',
 );

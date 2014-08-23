@@ -1,11 +1,11 @@
 <?php
 
 return array(
-    'connectionString' => 'mysql:host=vlasnaaz.mysql.ukraine.com.ua;dbname=vlasnaaz_db',
+    'connectionString' => 'mysql:host=127.0.0.1;dbname=vlasnaazs',
     'emulatePrepare' => true,
-    'username' => 'vlasnaaz_db',
-    'password' => 'Dl3RXSVD',
+    'username' => 'root',
+    'password' => '',
     'charset' => 'utf8',
     'tablePrefix' => 'tp_',
-    'schemaCachingDuration' => 3600 * 24
+//    'schemaCachingDuration' => 3600 * 24
 );
