@@ -1,0 +1,12 @@
+{
+    "name": "shults/vlasna-azs-site",
+    "require": {
+        "yiisoft/yii": "~1.1.16"
+    },
+    "authors": [
+        {
+            "name": "Yaroslav Kotsur",
+            "email": "yarikkotsur@gmail.com"
+        }
+    ]
+}
