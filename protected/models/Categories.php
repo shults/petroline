@@ -7,39 +7,52 @@ Yii::import('ycm.controllers.CategoryController');
  */
 class Categories extends CActiveRecord
 {
-
     const ALL_CATEGORIES_CACHE_ID = 'all_categories';
-    protected static $_adminNames;
-    
+
     private $_frontUrl;
     private $_imageUrl;
 
+    /**
+     * @return array
+     */
     public function getAdminNames()
     {
-        if (self::$_adminNames === null) {
-            self::$_adminNames = array(self::t('Categories'), self::t('category'), self::t('categories'));
-        }
-        return self::$_adminNames;
+        return [
+            Yii::t('app', 'Categories'),
+            Yii::t('app', 'category'),
+            Yii::t('app', 'categories')
+        ];
     }
 
+    /**
+     * @return string
+     */
     public function tableName()
     {
         return '{{categories}}';
     }
 
+    /**
+     * @return string
+     */
     public function primaryKey()
     {
         return 'category_id';
     }
 
+    /**
+     * @return CActiveDataProvider
+     */
     public function search()
     {
-        $criteria = new CDbCriteria;
+        $criteria = new CDbCriteria();
+
         if (isset($_GET[__CLASS__])) {
             $this->attributes = $_GET[__CLASS__];
 
-            if (isset($this->title) && $this->title)
+            if (isset($this->title) && $this->title) {
                 $criteria->addSearchCondition('title', $this->title);
+            }
 
             if (isset($this->parent_category_id) && $this->parent_category_id !== '') {
                 $criteria->addCondition('parent_category_id=:parent_category_id');
@@ -48,16 +61,24 @@ class Categories extends CActiveRecord
                 ));
             }
         }
+
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria
         ));
     }
 
+    /**
+     * @param string $className
+     * @return Categories
+     */
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
 
+    /**
+     * @return array
+     */
     public function rules()
     {
         return array(
@@ -69,22 +90,28 @@ class Categories extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
-            'parent_category_id' => self::t('Parent category'),
-            'status' => self::t('Active category'),
-            'title' => self::t('Name'),
+            'parent_category_id' => Yii::t('app', 'Parent category'),
+            'status' => Yii::t('app', 'Active category'),
+            'title' => Yii::t('app', 'Name'),
             'url' => 'URL',
-            'description' => self::t('Description'),
-            'filename' => self::t('Image'),
-            'meta_title' => self::t('Title'),
-            'meta_keywords' => self::t('Meta keyowrds'),
-            'meta_description' => self::t('Meta description'),
-            'order' => self::t('Display order')
+            'description' => Yii::t('app', 'Description'),
+            'filename' => Yii::t('app', 'Image'),
+            'meta_title' => Yii::t('app', 'Title'),
+            'meta_keywords' => Yii::t('app', 'Meta keyowrds'),
+            'meta_description' => Yii::t('app', 'Meta description'),
+            'order' => Yii::t('app', 'Display order')
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeWidgets()
     {
         return array(
@@ -97,26 +124,34 @@ class Categories extends CActiveRecord
         );
     }
 
+    /**
+     * @return string
+     */
     public function getParentTitle()
     {
         if ($this->parent) {
             return $this->parent->title;
         }
-        return self::t('-= No parent category =-');
+        return Yii::t('app', '-= No parent category =-');
     }
 
+    /**
+     * @return array
+     */
     public function parent_category_idChoices()
     {
         if ($this->getIsNewRecord()) {
             return CHtml::listData(
-                            self::model()->findAll(
-                                    'parent_category_id=:parent_category_id', array(':parent_category_id' => 0)), 'category_id', 'title');
+                self::model()->findAll('parent_category_id=:parent_category_id', array(':parent_category_id' => 0)),
+                'category_id',
+                'title'
+            );
         } else {
             return CHtml::listData(self::model()->findAll(
-                                    'parent_category_id=:parent_category_id AND category_id!=:current_category_id', array(
-                                ':parent_category_id' => 0,
-                                ':current_category_id' => $this->category_id
-                            )), 'category_id', 'title');
+                'parent_category_id=:parent_category_id AND category_id!=:current_category_id', array(
+                ':parent_category_id' => 0,
+                ':current_category_id' => $this->category_id
+            )), 'category_id', 'title');
         }
     }
 
@@ -126,11 +161,15 @@ class Categories extends CActiveRecord
             'enableSorting' => false,
             'filter' => $this,
             'columns' => array(
-                'title',
+                array(
+                    'name' => 'title',
+                ),
                 array(
                     'name' => 'parent_category_id',
-                    'value' => '$data->getParentTitle();',
-                    'filter' => CMap::mergeArray(array(0 => self::t('-= No parent category =-')), $this->parent_category_idChoices()),
+                    'value' => function($data) {
+                        return $data->getParentTitle();
+                    },
+                    'filter' => CMap::mergeArray(array(0 => Yii::t('app', '-= No parent category =-')), $this->parent_category_idChoices()),
                 ),
                 array(
                     'name' => 'order',
@@ -142,8 +181,10 @@ class Categories extends CActiveRecord
                     'buttons' => array(
                         'up' => array(
                             'icon' => 'icon-arrow-up',
-                            'label' => 'Up',
-                            'url' => 'CHtml::normalizeUrl(array("category/orderUp", "category_id" => $data->category_id))',
+                            'label' => Yii::t('app', 'Up'),
+                            'url' => function($data) {
+                                return CHtml::normalizeUrl(array("category/orderUp", "category_id" => $data->category_id));
+                            },
                             'click' => "js: function() {
                                 var th = this,
                                     afterDelete = function(){};
@@ -163,8 +204,10 @@ class Categories extends CActiveRecord
                         ),
                         'down' => array(
                             'icon' => 'icon-arrow-down',
-                            'label' => 'Down',
-                            'url' => 'CHtml::normalizeUrl(array("category/orderDown", "category_id" => $data->category_id))',
+                            'label' => Yii::t('app', 'Down'),
+                            'url' => function($data) {
+                                return CHtml::normalizeUrl(array("category/orderDown", "category_id" => $data->category_id));
+                            },
                             'click' => "js: function() {
                                 var th = this,
                                     afterDelete = function(){};
@@ -188,6 +231,9 @@ class Categories extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function relations()
     {
         return array(
@@ -197,6 +243,9 @@ class Categories extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function behaviors()
     {
         return array(
@@ -204,11 +253,9 @@ class Categories extends CActiveRecord
         );
     }
 
-    public static function t($message, $params = null, $source = null, $language = null)
-    {
-        return Yii::t('categories', $message, $params, $source, $language);
-    }
-
+    /**
+     * @return array
+     */
     public function defaultScope()
     {
         return array(
@@ -220,12 +267,19 @@ class Categories extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function listCategoriesData()
     {
+        /** @var Categories[] $categories */
         $categories = $this->findAll('parent_category_id=:parent_category_id', array(':parent_category_id' => 0));
-        $categoriesList = array();
+
+        $categoriesList = [];
+
         foreach ($categories as $category) {
             $categoriesList[$category->category_id] = $category->title;
+
             if ($category->children) {
                 $categoriesList[$category->title] = array();
                 foreach ($category->children as $childCategory) {
@@ -233,46 +287,57 @@ class Categories extends CActiveRecord
                 }
             }
         }
+
         return $categoriesList;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getFullCategoryTitle()
     {
-        if ($this->getIsNewRecord())
-            throw new CException("This is new ActiveRecord model");
         if ($this->parent) {
             return $this->parent->title . ' >> ' . $this->title;
         }
         return $this->title;
     }
 
+    /**
+     * @throws CException
+     */
     public function orderUp()
     {
-        if ($this->getIsNewRecord())
-            throw new CException('You cannot order up not existance model');
         $this->order -= 1;
-        if ($prevCategory = Categories::model()->find('`order`=:order AND `parent_category_id`=:parent_category_id', array(
+        $prevCategory = Categories::model()->find('`order`=:order AND `parent_category_id`=:parent_category_id', array(
             ':order' => $this->order,
             ':parent_category_id' => $this->parent_category_id
-                ))) {
+        ));
+
+        if ($prevCategory !== null) {
             $prevCategory->order += 1;
             $prevCategory->save(false);
         }
+
         $this->save(false);
     }
 
+    /**
+     * @return void
+     */
     public function orderDown()
     {
-        if ($this->getIsNewRecord())
-            throw new CException('You cannot order down not existance model');
         $this->order += 1;
-        if ($nextCategory = Categories::model()->find('`order`=:order AND `parent_category_id`=:parent_category_id', array(
+
+        $nextCategory = Categories::model()->find('`order`=:order AND `parent_category_id`=:parent_category_id', array(
             ':order' => $this->order,
             ':parent_category_id' => $this->parent_category_id
-                ))) {
+        ));
+
+        if ($nextCategory) {
             $nextCategory->order -= 1;
             $nextCategory->save(false);
         }
+
         $this->save(false);
     }
 
@@ -283,10 +348,21 @@ class Categories extends CActiveRecord
     {
         if ($this->getIsNewRecord()) {
             $this->language_id = Yii::app()->lang->language_id;
-            $this->order = ++$this->maxOrder()->find('parent_category_id=:parent_category_id',
-                    array(':parent_category_id' => $this->parent_category_id))->order;
+            $this->order = $this->getMaxOrder();
         }
         return parent::beforeSave();
+    }
+
+    /**
+     * @return int
+     */
+    public function getMaxOrder()
+    {
+        $record = $this->maxOrder()->findByAttributes([
+            'parent_category_id' => $this->parent_category_id
+        ]);
+
+        return $record !== null ? $record->order + 1 : 1;
     }
 
     /**
@@ -316,29 +392,32 @@ class Categories extends CActiveRecord
 
     /**
      * @return string
-     * @throws CException
      */
     public function getFrontUrl()
     {
-        if ($this->getIsNewRecord()) {
-            throw new CException("You cannot call to " . __METHOD__ . " in not existance record");
-        }
-
         if ($this->_frontUrl === null) {
             $this->_frontUrl = CHtml::normalizeUrl(array('catalog/category', 'category' => $this));
         }
         return $this->_frontUrl;
     }
-    
+
+    /**
+     * @param $width
+     * @param $height
+     * @return String
+     * @throws CException
+     */
     public function getImageUrl($width, $height)
     {
-        if ($this->getIsNewRecord())
-            throw new CException("You cannot call to " . __METHOD__ . " in not existance record");
-        if ($this->_imageUrl === null)
+        if ($this->_imageUrl === null) {
             $this->_imageUrl = ImageModel::model()->resize($this->getFilePath('filename'), $width, $height);
+        }
         return $this->_imageUrl;
     }
-    
+
+    /**
+     * @return mixed
+     */
     public function getAllCategories()
     {
         if (!($categories = Yii::app()->cache->get(self::ALL_CATEGORIES_CACHE_ID))) {
@@ -347,7 +426,10 @@ class Categories extends CActiveRecord
         }
         return $categories;
     }
-    
+
+    /**
+     * @return string
+     */
     public function getMetaTitle()
     {
         if ($this->meta_title) {
@@ -356,15 +438,18 @@ class Categories extends CActiveRecord
         
         if ($this->parent) {
             return str_replace(
-                        array('%category_title%', '%subcategory_title%'), 
-                        array($this->parent->title, $this->title), 
-                        Yii::t('seo', 'subcategory_meta_title')
-                   );
+                array('%category_title%', '%subcategory_title%'),
+                array($this->parent->title, $this->title),
+                Yii::t('seo', 'subcategory_meta_title')
+            );
         } else {
             return str_replace('%title%', $this->title, Yii::t('seo', 'category_meta_title'));
         }
     }
-    
+
+    /**
+     * @return string
+     */
     public function getMetaDescription()
     {
         if ($this->meta_description) {
@@ -373,10 +458,10 @@ class Categories extends CActiveRecord
         
         if ($this->parent) {
             return str_replace(
-                        array('%category_title%', '%subcategory_title%'), 
-                        array($this->parent->title, $this->title), 
-                        Yii::t('seo', 'subcategory_meta_description')
-                   );
+                array('%category_title%', '%subcategory_title%'),
+                array($this->parent->title, $this->title),
+                Yii::t('seo', 'subcategory_meta_description')
+            );
         } else {
             return str_replace('%title%', $this->title, Yii::t('seo', 'category_meta_description'));
         }

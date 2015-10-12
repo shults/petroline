@@ -13,12 +13,12 @@ class ImageModel
     const NORMAL = 250;
     const BIG = 500;
     const NO_PHOTO = 'no-photo.jpg';
+    const CACHE_DIR = 'cache';
 
-    private $_imageDir;
-    private $_cacheDir = 'cache';
+    /** @var string|null if not defined */
+    private static $_imageDir;
 
     /**
-     * 
      * @return ImageModel
      */
     public static function model()
@@ -26,70 +26,111 @@ class ImageModel
         return new ImageModel;
     }
 
-    public function __construct()
+    /**
+     * @return mixed
+     */
+    private static function imageDir()
     {
-        $this->_imageDir = Yii::app()->params['imagestore'];
+        if (self::$_imageDir === null) {
+            self::$_imageDir = Yii::app()->params['imagestore'];
+        }
+        return self::$_imageDir;
     }
 
     /**
-     * 
-     * @param type $filename
-     * @param type $width
-     * @param type $height
-     * @param type $type
+     * @return string
+     */
+    private function getNotPhotoPath()
+    {
+        return Yii::getPathOfAlias('application') . '/' . self::NO_PHOTO;
+    }
+
+    /**
+     * @param $filename
+     * @param $width
+     * @param $height
+     * @param $type
+     * @return string
+     */
+    private static function getNewFileName($filename, $width, $height, $type)
+    {
+        $info = pathinfo($filename);
+
+        $extension = $info['extension'];
+        $newImage = self::imageDir() . '/' . self::CACHE_DIR . '/'
+            . substr($filename, strlen(self::imageDir()) + 1, strpos($filename, '.') - (strlen(self::imageDir()) + 1))
+            . '-' . $width . 'x' . $height . $type . '.' . $extension;
+
+        return $newImage;
+    }
+
+    /**
+     * @param string $filename
+     * @param int $width
+     * @param int $height
+     * @param string $type
      * @return String or null if file not found
      */
     public function resize($filename, $width, $height, $type = "")
     {
-
         if (!file_exists($filename) || !is_file($filename)) {
-            $filename = $this->_imageDir . '/' . self::NO_PHOTO;
+            $filename = $this->getNotPhotoPath();
         }
 
-        $info = pathinfo($filename);
+        $oldImage = $filename;
+        $newImage = self::getNewFileName($filename, $width, $height, $type);
 
-        $extension = $info['extension'];
-        $old_image = $filename;
-        $new_image = $this->_imageDir . '/' . $this->_cacheDir . '/'
-                . substr($filename, strlen($this->_imageDir) + 1, strpos($filename, '.') - (strlen($this->_imageDir) + 1))
-                . '-' . $width . 'x' . $height . $type . '.' . $extension;
+        if (!file_exists($newImage) || (filemtime($oldImage) > filemtime($newImage))) {
 
-        if (!file_exists($new_image) || (filemtime($old_image) > filemtime($new_image))) {
-            $path = '';
-
-            if (!file_exists($dirnname = dirname(str_replace('../', '', $new_image)))) {
-                mkdir($dirnname, 0777, true);
+            if (!file_exists($dirnname = dirname(str_replace('../', '', $newImage)))) {
+                mkdir($dirnname, 0755, true);
             }
 
-            list($width_orig, $height_orig) = getimagesize($old_image);
+            list($originalWidth, $originalHeight) = getimagesize($oldImage);
 
-            if ($width_orig != $width || $height_orig != $height) {
-                $image = new Image($old_image);
+            if ($originalWidth != $width || $originalHeight != $height) {
+                $image = new Image($oldImage);
                 $image->resize($width, $height, $type);
-                $image->save($new_image);
+                $image->save($newImage);
             } else {
-                copy($old_image, $new_image);
+                copy($oldImage, $newImage);
             }
         }
 
-        return Yii::app()->getBaseUrl(true) . DIRECTORY_SEPARATOR . $new_image;
+        return Yii::app()->getBaseUrl(true) . DIRECTORY_SEPARATOR . $newImage;
     }
 
+    /**
+     * @param $filename
+     * @return String
+     */
     public function preview($filename)
     {
         return $this->resize($filename, self::PREVIEW, self::PREVIEW);
     }
 
+    /**
+     * @param $filename
+     * @return String
+     */
     public function small($filename)
     {
         return $this->resize($filename, self::SMALL, self::SMALL);
     }
 
+    /**
+     * @param $filename
+     * @return String
+     */
     public function normal($filename)
     {
         return $this->resize($filename, self::NORMAL, self::NORMAL);
     }
 
+    /**
+     * @param $filename
+     * @return String
+     */
     public function big($filename)
     {
         return $this->resize($filename, self::BIG, self::BIG);
