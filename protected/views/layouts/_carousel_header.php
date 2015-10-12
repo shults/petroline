@@ -20,7 +20,7 @@ $carouselItems = Carousel::model()->front()->findAll();
                     <?php foreach($carouselItems as $key => $item):?>
                     <div id="fragment-<?=$key?>" class="ui-tabs-panel">
                         <a href="<?php echo $item->url ?>" target="_self">
-                            <img src="<?php echo $item->getImageUrl() ?>" border="0" alt="<?php echo $item->title ?>" title="<?php echo $item->title ?>">
+                            <img src="<?php echo $item->getImageUrl() ?>" border="0" alt="<?php echo CHtml::encode($item->title) ?>" title="<?php echo CHtml::encode($item->title) ?>">
                         </a>
                     </div>
                     <?php endforeach; ?>
