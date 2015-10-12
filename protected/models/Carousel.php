@@ -1,16 +1,28 @@
 <?php
 
+/**
+ * Class Carousel
+ */
 class Carousel extends CActiveRecord
 {
 
     const NEED_WIDTH = 676;
     const NEED_HEIGHT = 310;
 
+    public $adminNames = array('Модуль карусель', 'слайд', 'слайд');
+
+    /**
+     * @param string $className
+     * @return Carousel
+     */
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
 
+    /**
+     * @return array
+     */
     public function behaviors()
     {
         return array(
@@ -18,41 +30,55 @@ class Carousel extends CActiveRecord
         );
     }
 
-    public $adminNames = array('Модуль карусель', 'слайд', 'слайд');
-
+    /**
+     * @return string
+     */
     public function tableName()
     {
         return '{{carousel}}';
     }
 
+    /**
+     * @return string
+     */
     public function primaryKey()
     {
         return 'id';
     }
 
+    /**
+     * @return CActiveDataProvider
+     */
     public function search()
     {
         return new CActiveDataProvider($this);
     }
 
+    /**
+     * @return array
+     */
     public function adminSearch()
     {
         return array(
             'columns' => array(
                 array(
                     'name' => 'image',
-                    'value' => 'CHtml::image($data->getFileUrl("image"), "", array("width" => 150));',
                     'type' => 'raw',
-                    'filter' => false
+                    'filter' => false,
+                    'value' => function($data) {
+                        return CHtml::image($data->getFileUrl("image"), "", array("width" => 150));
+                    }
                 ),
                 array(
                     'name' => 'title',
                 ),
                 array(
                     'name' => 'url',
-                    'value' => 'CHtml::link($data->getCarouselItemUrl(), $data->getCarouselItemUrl(), array("target" => "_blank"));',
                     'type' => 'raw',
-                    'filter' => false
+                    'filter' => false,
+                    'value' => function($data) {
+                        return CHtml::link($data->getCarouselItemUrl(), $data->getCarouselItemUrl(), array("target" => "_blank"));
+                    }
                 ),
                 array(
                     'name' => 'order',
@@ -62,6 +88,9 @@ class Carousel extends CActiveRecord
         );
     }
 
+    /**
+     * @return string
+     */
     public function getCarouselItemUrl()
     {
         if ($this->url == '#')
@@ -69,6 +98,9 @@ class Carousel extends CActiveRecord
         return Yii::app()->request->getBaseUrl(true) . '/' . $this->url;
     }
 
+    /**
+     * @return bool
+     */
     public function beforeSave()
     {
         if (!$this->url)
@@ -80,26 +112,35 @@ class Carousel extends CActiveRecord
         return parent::beforeSave();
     }
 
+    /**
+     * @return array
+     */
     public function rules()
     {
         return array(
             array('order, enabled, url, language_id', 'safe'),
-            array('title,image', 'required'),
+            array('title, image', 'required'),
             array('image', 'file', 'allowEmpty' => true, 'types' => 'jpg,jpeg,png,gif'),
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
-            'enabled' => 'Включен',
-            'title' => 'Название',
-            'order' => 'Порядок отображения',
-            'url' => 'URL',
-            'image' => 'Изображение' . ' <span style="color: #f00;">676x310</span>'
+            'enabled' => \Yii::t('app', 'Enabled'),
+            'title' => \Yii::t('app', 'Name'),
+            'order' => \Yii::t('app', 'Sort order'),
+            'url' => \Yii::t('app', 'URL'),
+            'image' => \Yii::t('app', 'Image <span style="color: #f00;">676x310</span>')
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeWidgets()
     {
         return array(
@@ -108,23 +149,44 @@ class Carousel extends CActiveRecord
         );
     }
 
-    public function scopes()
+    /**
+     * @return $this
+     */
+    public function maxOrder()
     {
-        return array(
-            'enabled' => array(
-                'condition' => 'enabled=1'
-            ),
-            'maxOrder' => array(
-                'select' => 'MAX(`order`) AS `order`',
-            ),
-            'front' => array(
-                'condition' => 'enabled=1',
-                'limit' => 5,
-                'offset' => 0
-            )
-        );
+        $this->getDbCriteria()->mergeWith([
+            'select' => 'MAX(`order`) AS `order`',
+        ]);
+        return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function enabled()
+    {
+        $this->getDbCriteria()->mergeWith([
+            'condition' => 'enabled=1'
+        ]);
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function front()
+    {
+        $this->getDbCriteria()->mergeWith([
+            'condition' => 'enabled=1',
+            'limit' => 5,
+            'offset' => 0
+        ]);
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
     public function defaultScope()
     {
         return array(
@@ -141,25 +203,26 @@ class Carousel extends CActiveRecord
         parent::afterSave();
         if ($this->image) {
             list($width, $height) = getimagesize($this->getFilePath('image'));
+
             if ($width != self::NEED_WIDTH || $height != self::NEED_HEIGHT) {
                 Yii::app()->user->setFlash(
-                        'error', 
-                        Yii::t(
-                                'carousel', 
-                                'Needed image size is {nwidth}x{nheight} px. Current uploaded file size is {width}x{height} px. Recomendation: Upload new file!', 
-                                array(
-                                    '{nwidth}' => self::NEED_WIDTH,
-                                    '{nheight}' => self::NEED_HEIGHT,
-                                    '{width}' => $width,
-                                '{height}' => $height
-                )));
+                    'error',
+                    Yii::t(
+                        'app',
+                        'Needed image size is {nwidth}x{nheight} px. Current uploaded file size is {width}x{height} px. Recomendation: Upload new file!',
+                        array(
+                            '{nwidth}' => self::NEED_WIDTH,
+                            '{nheight}' => self::NEED_HEIGHT,
+                            '{width}' => $width,
+                            '{height}' => $height
+                        )
+                    )
+                );
             }
         }
     }
     
-    
     /**
-     * 
      * @return String url of image
      */
     public function getImageUrl()

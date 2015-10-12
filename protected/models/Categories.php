@@ -276,40 +276,57 @@ class Categories extends CActiveRecord
         $this->save(false);
     }
 
+    /**
+     * @return bool
+     */
     public function beforeSave()
     {
         if ($this->getIsNewRecord()) {
-            //set language
             $this->language_id = Yii::app()->lang->language_id;
-            
-            //set order
             $this->order = ++$this->maxOrder()->find('parent_category_id=:parent_category_id',
                     array(':parent_category_id' => $this->parent_category_id))->order;
         }
         return parent::beforeSave();
     }
-    
-    public function scopes()
+
+    /**
+     * @return $this
+     */
+    public function maxOrder()
     {
-        return array(
-            'maxOrder' => array(
-                'select' => 'MAX(`order`) AS `order`'
-            ),
-            'enabled' => array(
-                'condition' => 'status=:status',
-                'params' => array(
-                    ':status' => 1
-                )
-            )
-        );
+        $this->getDbCriteria()->mergeWith([
+            'select' => 'MAX(`order`) AS `order`'
+        ]);
+        return $this;
     }
-    
+
+    /**
+     * @return $this
+     */
+    public function enabled()
+    {
+        $this->getDbCriteria()->mergeWith([
+            'condition' => 'status=:status',
+            'params' => array(
+                ':status' => 1
+            )
+        ]);
+        return $this;
+    }
+
+    /**
+     * @return string
+     * @throws CException
+     */
     public function getFrontUrl()
     {
-        if ($this->getIsNewRecord())
+        if ($this->getIsNewRecord()) {
             throw new CException("You cannot call to " . __METHOD__ . " in not existance record");
-        if ($this->_frontUrl === null)
+        }
+
+        if ($this->_frontUrl === null) {
             $this->_frontUrl = CHtml::normalizeUrl(array('catalog/category', 'category' => $this));
+        }
         return $this->_frontUrl;
     }
     

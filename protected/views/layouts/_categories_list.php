@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var FrontController $this
+ */
+?>
 <table border="0" width="100%" cellspacing="0" cellpadding="0"  class="infoBoxHeading_table">
     <tr>
         <td  class="infoBoxHeading_b">
@@ -31,7 +36,7 @@
                     <td  class="boxText">
                         <?php
                         $this->widget('zii.widgets.CMenu', array(
-                            'items' => $this->categoryItems,
+                            'items' => $this->getCategoryItems(),
                             'itemCssClass' => 'bg_list',
                             'activateParents' => true,
                             'htmlOptions' => array(

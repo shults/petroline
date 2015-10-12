@@ -9,7 +9,6 @@ class FrontController extends CController
 
     public $layoutPath;
     public $layout = '//layouts/main';
-    private $categoryItems;
     private $mainMenuItems;
 
     /**
@@ -94,14 +93,12 @@ class FrontController extends CController
         return parent::init();
     }
 
+    /**
+     * @return array
+     */
     public function getCategoryItems()
     {
-        $product_id = $_GET['product_id'] ? (int) $_GET['product_id'] : null;
-        $category_id = $_GET['category_id'] ? (int) $_GET['category_id'] : null;
-        if ($product_id) {
-            
-        }
-        if ($category_id) {
+        if (($category_id = isset($_GET['category_id']) ? (int) $_GET['category_id'] : null) !== null) {
             return $this->getMenuItemsByCategoryId($category_id);
         }
         return $this->getDefaulMenuItems();
@@ -122,17 +119,23 @@ class FrontController extends CController
         return $menuItems;
     }
 
+    /**
+     * @param int|string $category_id
+     * @return array
+     */
     private function getMenuItemsByCategoryId($category_id)
     {
         $activeCategory = Categories::model()->findByPk($category_id);
+
         $rootCategories = Categories::model()->enabled()->findAll('parent_category_id=:parent_category_id', array(
             ':parent_category_id' => 0
         ));
+
         $menuItems = array();
+
         foreach ($rootCategories as $category) {
             $subItems = array();
-            if ($category->category_id == $category_id ||
-                    $category->category_id == $activeCategory->parent->category_id) {
+            if ($category->category_id == $category_id || ($activeCategory->parent && $category->category_id == $activeCategory->parent->category_id)) {
                 foreach ($category->children as $childCategory) {
                     $subItems[] = array(
                         'label' => $childCategory->title,
@@ -148,6 +151,7 @@ class FrontController extends CController
                 'active' => ($category->category_id == $category_id) || $subItems
             );
         }
+
         return $menuItems;
     }
 
