@@ -45,7 +45,7 @@ class Categories extends CActiveRecord
      */
     public function search()
     {
-        $criteria = new CDbCriteria();
+        $criteria = $this->getDbCriteria();
 
         if (isset($_GET[__CLASS__])) {
             $this->attributes = $_GET[__CLASS__];
@@ -57,14 +57,12 @@ class Categories extends CActiveRecord
             if (isset($this->parent_category_id) && $this->parent_category_id !== '') {
                 $criteria->addCondition('parent_category_id=:parent_category_id');
                 $criteria->params = CMap::mergeArray($criteria->params, array(
-                            ':parent_category_id' => $this->parent_category_id
+                    ':parent_category_id' => $this->parent_category_id
                 ));
             }
         }
 
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria
-        ));
+        return new CActiveDataProvider($this);
     }
 
     /**
@@ -77,6 +75,7 @@ class Categories extends CActiveRecord
     }
 
     /**
+     * Defines validation rules
      * @return array
      */
     public function rules()
@@ -129,10 +128,7 @@ class Categories extends CActiveRecord
      */
     public function getParentTitle()
     {
-        if ($this->parent) {
-            return $this->parent->title;
-        }
-        return Yii::t('app', '-= No parent category =-');
+        return $this->parent !== null? $this->parent->title : Yii::t('app', '-= No parent category =-');
     }
 
     /**
@@ -155,6 +151,10 @@ class Categories extends CActiveRecord
         }
     }
 
+    /**
+     * Defined columns at YCM
+     * @return array
+     */
     public function adminSearch()
     {
         return array(

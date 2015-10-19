@@ -1,7 +1,10 @@
 <?php
 /**
- * 
- * @property Language $language languaage of current product
+ *
+ * Relations:
+ * @property Language $language language of current product
+ * @property Categories $category
+ * @property ProductImages[] $images
  */
 class Products extends CActiveRecord
 {
@@ -10,24 +13,36 @@ class Products extends CActiveRecord
     private $_frontUrl;
     protected static $_adminNames;
 
+    /**
+     * @return array
+     */
     public function getAdminNames()
     {
         if (self::$_adminNames === null) {
-            self::$_adminNames = array(self::t('Products'), self::t('product'), self::t('products'));
+            self::$_adminNames = array(Yii::t('app', 'Products'), Yii::t('app', 'product'), Yii::t('app', 'products'));
         }
         return self::$_adminNames;
     }
 
+    /**
+     * @return string
+     */
     public function tableName()
     {
         return '{{products}}';
     }
 
+    /**
+     * @return string
+     */
     public function primaryKey()
     {
         return 'product_id';
     }
-    
+
+    /**
+     * @return bool
+     */
     public function beforeSave()
     {
         if ($this->getIsNewRecord()) {
@@ -36,10 +51,13 @@ class Products extends CActiveRecord
         return parent::beforeSave();
     }
 
+    /**
+     * @return CActiveDataProvider
+     */
     public function search()
     {
-        $criteria = new CDbCriteria;
-        $criteria->params = array();
+        $criteria = $this->getDbCriteria();
+
         if (isset($_GET[__CLASS__])) {
             $this->attributes = $_GET[__CLASS__];
 
@@ -48,17 +66,17 @@ class Products extends CActiveRecord
                 $criteria->params = CMap::mergeArray($criteria->params, array(':product_id' => $this->product_id));
             }
 
-            if ($this->title)
+            if ($this->title) {
                 $criteria->addSearchCondition('title', $this->title);
+            }
 
             if ($this->category_id) {
                 $criteria->addCondition('category_id=:category_id');
                 $criteria->params = CMap::mergeArray($criteria->params, array(':category_id' => $this->category_id));
             }
         }
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria
-        ));
+
+        return new CActiveDataProvider($this);
     }
 
     /**
@@ -71,6 +89,9 @@ class Products extends CActiveRecord
         return parent::model($className);
     }
 
+    /**
+     * @return array
+     */
     public function rules()
     {
         return array(
@@ -83,27 +104,33 @@ class Products extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
             'product_id' => 'ID',
-            'category_id' => self::t('Сategory'),
-            'status' => self::t('Active product'),
-            'title' => self::t('Name'),
-            'url' => 'URL',
-            'price' => self::t('Price'),
-            'store_status' => self::t('Store status'),
-            'description' => self::t('Description'),
-            'trade_price' => self::t('Trade price'),
-            'min_trade_order' => self::t('Min trade order'),
-            'meta_title' => self::t('Title'),
-            'meta_keywords' => self::t('Meta keyowrds'),
-            'meta_description' => self::t('Meta description'),
-            'order' => self::t('Display order'),
-            'display_ajax' => self::t('Display AJAX')
+            'category_id' => Yii::t('app', 'Сategory'),
+            'status' => Yii::t('app', 'Active product'),
+            'title' => Yii::t('app', 'Name'),
+            'url' => Yii::t('app', 'URL'),
+            'price' => Yii::t('app', 'Price'),
+            'store_status' => Yii::t('app', 'Store status'),
+            'description' => Yii::t('app', 'Description'),
+            'trade_price' => Yii::t('app', 'Trade price'),
+            'min_trade_order' => Yii::t('app', 'Min trade order'),
+            'meta_title' => Yii::t('app', 'Title'),
+            'meta_keywords' => Yii::t('app', 'Meta keyowrds'),
+            'meta_description' => Yii::t('app', 'Meta description'),
+            'order' => Yii::t('app', 'Display order'),
+            'display_ajax' => Yii::t('app', 'Display AJAX')
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeWidgets()
     {
         return array(
@@ -117,10 +144,15 @@ class Products extends CActiveRecord
         );
     }
 
+    /**
+     * Todo: move to helper
+     * @return array
+     */
     public function category_idChoices()
     {
         $parents = Categories::model()->findAll('parent_category_id = 0');
         $data = array();
+
         foreach ($parents as $parent) {
             $data[$parent->category_id] = $parent->title;
             $children = Categories::model()->findAll('parent_category_id = ' . $parent->category_id);
@@ -128,9 +160,13 @@ class Products extends CActiveRecord
                 $data[$child->category_id] = ' - ' . $child->title;
             }
         }
+
         return $data;
     }
 
+    /**
+     * @return string
+     */
     public function getCategoryTitle()
     {
         if ($this->category) {
@@ -138,18 +174,28 @@ class Products extends CActiveRecord
         }
     }
 
+    /**
+     * @return array
+     */
     public function getAllSubitems()
     {
-        if (!$this->children)
+        if (!$this->children) {
             return array();
+        }
+
         $subitems = array();
+
         foreach ($this->children as $subitem) {
             $subitems[] = $subitem->page_id;
             $subitems = array_merge($subitems, $subitem->getAllSubitems());
         }
+
         return array_unique($subitems);
     }
 
+    /**
+     * @return array
+     */
     public function adminSearch()
     {
         return array(
@@ -158,16 +204,24 @@ class Products extends CActiveRecord
                 'url',
                 array(
                     'name' => 'category_id',
-                    'value' => '$data->getCategoryTitle();',
+                    'value' => function(Products $model) {
+                        return $model->getCategoryTitle();
+                    },
                 ),
                 array(
                     'name' => 'store_status',
-                    'value' => '$data->store_status == 1 ? "Есть" : "Нет"',
-                ),
+                    'value' => function($data) {
+                        return $data->store_status == 1 ? Yii::t('app', 'Presents') : Yii::t('app', 'Does not present');
+                    },
+               ),
             ),
         );
     }
 
+    /**
+     * @inheritdoc
+     * @return array
+     */
     public function relations()
     {
         return array(
@@ -177,6 +231,10 @@ class Products extends CActiveRecord
         );
     }
 
+    /**
+     * @inheritdoc
+     * @return array
+     */
     public function behaviors()
     {
         return array(
@@ -192,19 +250,20 @@ class Products extends CActiveRecord
         );
     }
 
-    public static function t($message, $params = null, $source = null, $language = null)
-    {
-        return Yii::t('products', $message, $params, $source, $language);
-    }
-
+    /**
+     * @return CActiveDataProvider
+     */
     public function addProductSearch()
     {
-        $criteria = new CDbCriteria;
+        $criteria = $this->getDbCriteria();
+
         if ($_GET[__CLASS__]) {
+
             $this->attributes = $_GET[__CLASS__];
 
-            if (isset($this->title) && $this->title !== '')
+            if (isset($this->title) && $this->title !== '') {
                 $criteria->addSearchCondition('title', $this->title);
+            }
 
             if (isset($this->category_id) && $this->category_id != null) {
                 $criteria->addCondition('category_id=:category_id');
@@ -213,11 +272,13 @@ class Products extends CActiveRecord
                 ));
             }
         }
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria
-        ));
+
+        return new CActiveDataProvider($this);
     }
 
+    /**
+     * @return array
+     */
     public function defaultScope()
     {
         return array(
@@ -229,21 +290,34 @@ class Products extends CActiveRecord
         );
     }
 
-    public function scopes()
+    /**
+     * @return $this
+     */
+    public function maxOrder()
     {
-        return array(
-            'maxOrder' => array(
-                'select' => 'MAX(`order`) AS `order`'
-            ),
-            'enabled' => array(
-                'condition' => 'status=:status',
-                'params' => array(
-                    ':status' => 1
-                )
-            )
-        );
+        $this->getDbCriteria()->mergeWith([
+            'select' => 'MAX(`order`) AS `order`'
+        ]);
+        return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function enabled()
+    {
+        $this->getDbCriteria()->mergeWith([
+            'condition' => 'status=:status',
+            'params' => array(
+                ':status' => 1
+            )
+        ]);
+        return $this;
+    }
+
+    /**
+     * @return CActiveDataProvider
+     */
     public function searchImages()
     {
         return new CActiveDataProvider('ProductImages', array(
@@ -251,18 +325,21 @@ class Products extends CActiveRecord
         ));
     }
 
+    /**
+     * @return mixed
+     */
     public function getFullCategoryTitle()
     {
-        if ($this->getIsNewRecord())
-            throw new CException("This is new ActiveRecord model");
-        return $this->category->getFullCategoryTitle();
+        return $this->category ? $this->category->getFullCategoryTitle() : 'null';
     }
 
+    /**
+     * Increments `order` property and saves record
+     */
     public function orderUp()
     {
-        if ($this->getIsNewRecord())
-            throw new CException('You cannot order up not existance model');
         $this->order -= 1;
+
         if ($prevProduct = Products::model()->find('`order`=:order AND `category_id`=:category_id', array(
             ':order' => $this->order,
             ':category_id' => $this->category_id
@@ -270,82 +347,103 @@ class Products extends CActiveRecord
             $prevProduct->order += 1;
             $prevProduct->save(false);
         }
+
         $this->save(false);
     }
 
+    /**
+     * Decrements `order` property and saves record
+     */
     public function orderDown()
     {
-        if ($this->getIsNewRecord())
-            throw new CException('You cannot order up not existance model');
         $this->order += 1;
-        if ($nextProduct = Products::model()->find('`order`=:order AND `category_id`=:category_id', array(
+
+        $nextProduct = Products::model()->find('`order`=:order AND `category_id`=:category_id', array(
             ':order' => $this->order,
             ':category_id' => $this->category_id
-                ))) {
+        ));
+
+        if ($nextProduct !== null) {
             $nextProduct->order -= 1;
             $nextProduct->save(false);
         }
+
         $this->save(false);
     }
 
-    public function productSearch($q, $page = 1)
-    {
-        $criteria = new CDbCriteria;
-    }
-
+    /**
+     * @return string
+     */
     public function getPrice()
     {
         return $this->price . ' ' . Yii::t('common', 'UAH');
     }
 
     /**
-     * 
+     * Returns url
      * @return String
      * @throws CException
      */
     public function getFrontUrl()
     {
-        if ($this->getIsNewRecord())
-            throw new CException('Method ' . __METHOD__ . ' was called to not existence record');
-        if ($this->_frontUrl === null)
+        if ($this->_frontUrl === null) {
             $this->_frontUrl = CHtml::normalizeUrl(array('catalog/product', 'product' => $this));
+        }
         return $this->_frontUrl;
     }
 
+    /**
+     * Returns (and resizes if needed) image url.
+     * If there not images, dummy image url will be returned.
+     *
+     * @param $width
+     * @param $height
+     * @return String
+     * @throws
+     */
     public function getImageUrl($width, $height)
     {
-        if ($this->getIsNewRecord())
-            throw CException("Cannot call " . __METHOD__ . " for not existence record");
-        if ($this->images)
+        if ($this->images) {
             return $this->images[0]->getImageUrl($width, $height);
-        else
-            return ImageModel::model()->resize(null, $width, $height);
+        }
+
+        return ImageModel::model()->resize(null, $width, $height);
     }
-    
+
+    /**
+     * @return Products[]
+     */
     public function getAllProducts()
     {
         if (!($producsts = Yii::app()->cache->get(self::ALL_PRODUCT_CACHE_ID))) {
             $producsts = $this->resetScope()->enabled()->with('language')->findAll();
             Yii::app()->cache->set(self::ALL_PRODUCT_CACHE_ID, $producsts, 3600 * 24);
         }
+
         return $producsts;
     }
-    
+
+    /**
+     * @return string
+     */
     public function getMetaTitle()
     {
-        if ($this->getIsNewRecord())
-            throw new CException('Yu cannot call ' . __METHOD__ . ' this is new record');
-        if ($this->meta_title)
+        if ($this->meta_title) {
             return $this->meta_title;
+        }
+
         return str_replace('%title%', $this->title, Yii::t('seo', 'product_meta_title'));
     }
-    
+
+    /**
+     * @return mixed
+     */
     public function getMetaDescription()
     {
-        if ($this->getIsNewRecord())
-            throw new CException('Yu cannot call ' . __METHOD__ . ' this is new record');
-        if ($this->meta_description)
+        if ($this->meta_description) {
             return $this->meta_description;
+        }
+
         return str_replace('%title%', $this->title, Yii::t('seo', 'product_meta_description'));
     }
 

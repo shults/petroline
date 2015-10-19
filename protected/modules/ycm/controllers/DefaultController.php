@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class DefaultController
+ */
 class DefaultController extends AdminController
 {
 
@@ -48,7 +51,10 @@ class DefaultController extends AdminController
         Yii::app()->user->logout(false);
         $this->redirect(Yii::app()->createUrl($this->module->name));
     }
-    
+
+    /**
+     * Flushes cache
+     */
     public function actionFlushCache()
     {
         Yii::app()->cache->flush();

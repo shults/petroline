@@ -1,21 +1,44 @@
 <?php
 
+/**
+ * Class Config
+ */
 class Config extends CActiveRecord
 {
 
-    public $adminNames = array('Настроки', 'настройку', 'настройка');
+    /**
+     * @return array
+     */
+    public function getAdminNames()
+    {
+        return [
+            Yii::t('app', 'Configs'),
+            Yii::t('app', 'Config item'),
+            Yii::t('app', 'config intem')
+        ];
+    }
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function tableName()
     {
         return '{{config}}';
     }
 
+    /**
+     * @inheritdoc
+     */
     public function beforeDelete()
     {
-        Yii::app()->user->setFlash('error', 'Удаление невозможно');
+        Yii::app()->user->setFlash('error', Yii::t('app', 'Unable to delete'));
         return false;
     }
 
+    /**
+     * @return bool
+     */
     public function beforeSave()
     {
         if (!$this->isNewRecord && $this->key) {
@@ -24,29 +47,36 @@ class Config extends CActiveRecord
         return parent::beforeSave();
     }
 
-    public function primaryKey()
-    {
-        return 'id';
-    }
-
+    /**
+     * @param string $className
+     * @return Config
+     */
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
 
+    /**
+     * @param $key
+     * @return string|mixed
+     */
     public static function get($key)
     {
         return self::model()->find('`key`=:key', array(':key' => $key))->value;
     }
 
+    /**
+     * @return CActiveDataProvider
+     */
     public function search()
     {
-        $criteria = new CDbCriteria;
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria
-        ));
+        return new CActiveDataProvider($this);
     }
 
+    /**
+     * Defines validate rules
+     * @return array
+     */
     public function rules()
     {
         return array(
@@ -55,15 +85,22 @@ class Config extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
-            'key' => 'Ключ',
-            'title' => 'Название ключа',
-            'value' => 'Значение'
+            'key' => Yii::t('app', 'Key'),
+            'title' => Yii::t('app', 'Key name'),
+            'value' => Yii::t('app', 'value')
         );
     }
 
+    /**
+     * Defines YCM widgets
+     * @return array
+     */
     public function attributeWidgets()
     {
         return array(
@@ -71,6 +108,9 @@ class Config extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function adminSearch()
     {
         return array(
@@ -87,6 +127,9 @@ class Config extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function defaultScope()
     {
         return array(

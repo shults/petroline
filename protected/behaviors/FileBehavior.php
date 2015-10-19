@@ -13,7 +13,7 @@ class FileBehavior extends CModelBehavior
         $name = get_class($this->owner);
         if ($this->owner->hasAttribute($attribute) && !empty($this->owner->$attribute)) {
             $file = $this->owner->$attribute;
-            $uploadUrl = Yii::app()->modules['ycm']['uploadUrl'] ? Yii::app()->modules['ycm']['uploadUrl'] : Yii::app()->request->baseUrl . '/uploads';
+            $uploadUrl = isset(Yii::app()->modules['ycm']['uploadUrl']) ? Yii::app()->modules['ycm']['uploadUrl'] : Yii::app()->request->baseUrl . '/uploads';
             return $uploadUrl . '/' . strtolower($name) . '/' . strtolower($attribute) . '/' . $file;
         }
         return false;

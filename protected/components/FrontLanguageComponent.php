@@ -39,7 +39,7 @@ class FrontLanguageComponent extends CComponent implements ILanguageComponent
 
     public function init()
     {
-        $defaultLanguage = Language::model()->default()->find();
+        $defaultLanguage = Language::model()->byDefault()->find();
         if (isset($_GET['language'])) {
             if (($language = Language::model()->find('code=:code', array(':code' => $_GET['language']))) === null) {
                 $language = $defaultLanguage;

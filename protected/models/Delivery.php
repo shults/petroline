@@ -8,13 +8,24 @@
 class Delivery extends CActiveRecord
 {
 
+    /**
+     * @var
+     */
     private static $_adminNames;
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function tableName()
     {
         return '{{deliveries}}';
     }
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function primaryKey()
     {
         return 'delivery_id';
@@ -23,7 +34,7 @@ class Delivery extends CActiveRecord
     /**
      * @see CActiveRecord
      * 
-     * @param strint $className
+     * @param string $className
      * @return Delivery 
      */
     public static function model($className = __CLASS__)
@@ -31,14 +42,24 @@ class Delivery extends CActiveRecord
         return parent::model($className);
     }
 
+    /**
+     * @return array
+     */
     public function getAdminNames()
     {
         if (self::$_adminNames === null) {
-            self::$_adminNames = array(self::t('Deliveries'), self::t('delivery'), self::t('deliveries'));
+            self::$_adminNames = array(
+                Yii::t('app', 'Deliveries'),
+                Yii::t('app', 'delivery'),
+                Yii::t('app', 'deliveries')
+            );
         }
         return self::$_adminNames;
     }
 
+    /**
+     * @return array
+     */
     public function rules()
     {
         return array(
@@ -48,28 +69,33 @@ class Delivery extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
-            'title' => self::t('Delivery title'),
-            'consider_price' => self::t('Consider price'),
-            'price' => self::t('Price'),
-            'show_order_comment' => self::t('Show order comment'),
-            'order_comment' => self::t('Order comment'),
-            'description' => self::t('Delivery description')
+            'title' => Yii::t('app', 'Delivery title'),
+            'consider_price' => Yii::t('app', 'Consider price'),
+            'price' => Yii::t('app', 'Price'),
+            'show_order_comment' => Yii::t('app', 'Show order comment'),
+            'order_comment' => Yii::t('app', 'Order comment'),
+            'description' => Yii::t('app', 'Delivery description')
         );
     }
 
-    public static function t($message, $params = null, $source = null, $language = null)
-    {
-        return Yii::t('delivery', $message, $params, $source, $language);
-    }
-
+    /**
+     * @return CActiveDataProvider
+     */
     public function search()
     {
         return new CActiveDataProvider($this);
     }
 
+    /**
+     * Defines YCM search columnts
+     * @return array
+     */
     public function adminSearch()
     {
         return array(
@@ -79,6 +105,10 @@ class Delivery extends CActiveRecord
         );
     }
 
+    /**
+     * Defines YCM widgets
+     * @return array
+     */
     public function attributeWidgets()
     {
         return array(
@@ -88,6 +118,9 @@ class Delivery extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function defaultScope()
     {
         return array(
@@ -99,6 +132,9 @@ class Delivery extends CActiveRecord
         );
     }
 
+    /**
+     * @return bool
+     */
     public function beforeDelete()
     {
         $this->deleted = 1;

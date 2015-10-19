@@ -8,13 +8,22 @@
 class Payment extends CActiveRecord
 {
 
+    /** @var array */
     private static $_adminNames;
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function tableName()
     {
         return '{{payments}}';
     }
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function primaryKey()
     {
         return 'payment_id';
@@ -23,7 +32,7 @@ class Payment extends CActiveRecord
     /**
      * @see CActiveRecord
      * 
-     * @param strint $className
+     * @param string $className
      * @return Delivery 
      */
     public static function model($className = __CLASS__)
@@ -31,14 +40,24 @@ class Payment extends CActiveRecord
         return parent::model($className);
     }
 
+    /**
+     * @return array
+     */
     public function getAdminNames()
     {
         if (self::$_adminNames === null) {
-            self::$_adminNames = array(self::t('Payments'), self::t('payment'), self::t('payments'));
+            self::$_adminNames = array(
+                Yii::t('app', 'Payments'),
+                Yii::t('app', 'payment'),
+                Yii::t('app', 'payments')
+            );
         }
         return self::$_adminNames;
     }
 
+    /**
+     * @return array
+     */
     public function rules()
     {
         return array(
@@ -47,24 +66,28 @@ class Payment extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
-            'title' => self::t('Payment title'),
-            'description' => self::t('Payment description')
+            'title' => Yii::t('app', 'Payment title'),
+            'description' => Yii::t('app', 'Payment description')
         );
     }
 
-    public static function t($message, $params = null, $source = null, $language = null)
-    {
-        return Yii::t('payment', $message, $params, $source, $language);
-    }
-
+    /**
+     * @return CActiveDataProvider
+     */
     public function search()
     {
         return new CActiveDataProvider($this);
     }
 
+    /**
+     * @return array
+     */
     public function adminSearch()
     {
         return array(
@@ -74,6 +97,9 @@ class Payment extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeWidgets()
     {
         return array(
@@ -81,6 +107,9 @@ class Payment extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function defaultScope()
     {
         return array(
@@ -92,10 +121,14 @@ class Payment extends CActiveRecord
         );
     }
 
+    /**
+     * @return bool
+     */
     public function beforeDelete()
     {
-        $this->deleted = 1;
-        $this->save(false);
+        $this->saveAttributes([
+            'deleted' => 1
+        ]);
         return false;
     }
 

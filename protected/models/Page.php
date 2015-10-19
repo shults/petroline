@@ -1,13 +1,23 @@
 <?php
 /**
- * @property String $title Page title
- * @property String $text Page text
- * @property String $url Page url
+ * @property string $title Page title
+ * @property string $text Page text
+ * @property string $url Page url
  */
 class Page extends CActiveRecord
 {
 
-	public $adminNames = array('Страницы', 'страницу', 'страницы');
+    /**
+     * @return array
+     */
+    public function getAdminNames()
+    {
+        return [
+            Yii::t('app', 'Pages'),
+            Yii::t('app', 'Page'),
+            Yii::t('app', 'pages')
+        ];
+    }
 
 	public function tableName()
 	{
@@ -19,39 +29,50 @@ class Page extends CActiveRecord
 		return 'page_id';
 	}
 
+    /**
+     * @return CActiveDataProvider
+     */
 	public function search()
 	{
-		$criteria = new CDbCriteria(array(
-			
-		));
-		if ($_GET['Page']) {
-			$this->attributes = $_GET['Page'];
-			if ($_GET['Page']['meta_title']) {
-				$criteria->addSearchCondition('meta_title', $_GET['Page']['meta_title']);
+        $data = isset($_GET['Page']) ? $_GET['Page'] : [];
+		$criteria = $this->getDbCriteria();
+
+		if (!empty($data )) {
+			$this->attributes = $data;
+
+			if (isset($data['meta_title'])) {
+				$criteria->addSearchCondition('meta_title', $data['meta_title']);
 			}
 		}
-		return new CActiveDataProvider($this, array(
-			'criteria' => $criteria
-		));
+
+		return new CActiveDataProvider($this);
 	}
 
+    /**
+     * @param string $className
+     * @return Page
+     */
 	public static function model($className = __CLASS__)
 	{
 		return parent::model($className);
 	}
 
-	public function beforeValidate()
-	{
-		return true;
-	}
-    
+    /**
+     * @return bool
+     */
     public function beforeSave()
     {
-        if ($this->getIsNewRecord())
+        if ($this->getIsNewRecord()) {
             $this->language_id = Yii::app()->lang->language_id;
+        }
+
         return parent::beforeSave();
     }
 
+    /**
+     * Sets validation rules
+     * @return array
+     */
 	public function rules()
 	{
 		return array(
@@ -62,31 +83,45 @@ class Page extends CActiveRecord
 		);
 	}
 
+    /**
+     * @return array
+     */
 	public function attributeLabels()
 	{
 		return array(
-			'enabled' => 'Страница включена',
-			'title' => 'Название',
-			'url' => 'URL',
-			'text' => 'Текст',
-			'meta_title' => 'Заголовок',
-			'meta_keywords' => 'Ключевые сдлова',
-			'meta_description' => 'Описание (meta)'
+			'enabled' => Yii::t('app', 'Page enabled'),
+			'title' => Yii::t('app', 'Page name'),
+			'url' => Yii::t('app', 'URL'),
+			'text' => Yii::t('app', 'Text'),
+			'meta_title' => Yii::t('app', 'Meta title'),
+			'meta_keywords' => Yii::t('app', 'Meta keywords'),
+			'meta_description' => Yii::t('app', 'Description meta')
 		);
 	}
 
+    /**
+     * @return array
+     */
 	public function getAllSubitems()
 	{
-		if (!$this->children)
-			return array();
-		$subitems = array();
+		if (!$this->children) {
+            return [];
+        }
+
+		$subitems = [];
+
 		foreach ($this->children as $subitem) {
 			$subitems[] = $subitem->page_id;
 			$subitems = array_merge($subitems, $subitem->getAllSubitems());
 		}
+
 		return array_unique($subitems);
 	}
 
+    /**
+     * Defined widgets for YCM module
+     * @return array
+     */
 	public function attributeWidgets()
 	{
 		return array(
@@ -97,42 +132,53 @@ class Page extends CActiveRecord
 		);
 	}
 
+    /**
+     * @return String
+     */
 	public function getFullTitle()
 	{
 		return $this->title;
 	}
 
+    /**
+     * @return string
+     */
 	public function getFullUrl()
 	{
 		return Yii::app()->request->getBaseUrl(true) . '/' . $this->url;
 	}
 
+    /**
+     * Defines admin YCM columns
+     * @return array
+     */
 	public function adminSearch()
 	{
 		return array(
 			'columns' => array(
 				array(
 					'name' => 'title',
-					'value' => '$data->getFullTitle();'
+					'value' => function(Page $model) {
+                        return $model->getFullTitle();
+                    }
 				),
 				'meta_title',
 				array(
 					'name' => 'url',
-					'value' => 'CHtml::link($data->getFullUrl(), $data->getFullUrl(), array("target" => "_blank"))',
+					'value' => function(Page $model) {
+                        return CHtml::link($model->getFullUrl(), $model->getFullUrl(), [
+                            'target' => '_blank'
+                        ]);
+                    },
 					'type' => 'raw',
 				)
 			),
 		);
 	}
 
-	public function relations()
-	{
-		return array(
-				//'parent' => array(self::HAS_ONE, 'Page', array('page_id' => 'parent_page_id')),
-				//'children' => array(self::HAS_MANY, 'Page', array('parent_page_id' => 'page_id'))
-		);
-	}
-
+    /**
+     * @return array
+     */
 	public function behaviors()
 	{
 		return array(
@@ -143,7 +189,11 @@ class Page extends CActiveRecord
 			)
 		);
 	}
-    
+
+    /**
+     * Defined default scope
+     * @return array
+     */
     public function defaultScope()
     {
         return array(
@@ -153,17 +203,19 @@ class Page extends CActiveRecord
             ),
         );
     }
-    
-    public function scopes()
+
+    /**
+     * @return $this
+     */
+    public function enabled()
     {
-        return array(
-            'enabled' => array(
-                'condition' => 'enabled=:enabled',
-                'params' => array(
-                    ':enabled' => 1
-                )
+        $this->getDbCriteria()->mergeWith([
+            'condition' => 'enabled=:enabled',
+            'params' => array(
+                ':enabled' => 1
             )
-        );
+        ]);
+        return $this;
     }
 
 }

@@ -4,6 +4,11 @@
  * Description of Order
  *
  * @author shults
+ *
+ * Relations:
+ * @property OrderProducts[] $products
+ * @property Delivery $delivery
+ * @property Payment $payment
  */
 class Order extends CActiveRecord
 {
@@ -13,13 +18,22 @@ class Order extends CActiveRecord
     const STATUS_EXECUTED = 'executed';
     const STATUS_REJECTED = 'rejected';
 
+    /** @var array */
     private static $_statusChoises;
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function primaryKey()
     {
         return 'order_id';
     }
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function tableName()
     {
         return '{{orders}}';
@@ -28,7 +42,7 @@ class Order extends CActiveRecord
     /**
      * @see CActiveRecord
      * 
-     * @param type $className
+     * @param string $className
      * @return Order
      */
     public static function model($className = __CLASS__)
@@ -36,56 +50,65 @@ class Order extends CActiveRecord
         return parent::model($className);
     }
 
+    /**
+     * @return bool
+     * @throws CException
+     */
     public function beforeSave()
     {
+        // set language
         if ($this->getIsNewRecord()) {
             $this->language_id = Yii::app()->lang->language_id;
             $this->incoming_date = new CDbExpression('NOW()');
         }
 
-        if (!$this->getIsNewRecord())
+        if (!$this->getIsNewRecord()) {
             $this->recalculate();
+        }
 
         return parent::beforeSave();
     }
 
+    /**
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
-            'order_id' => 'ID',
+            'order_id' => Yii::t('app', 'ID'),
             'payment_id' => Yii::t('payment', 'Payment method'),
             'delivery_id' => Yii::t('delivery', 'Delivery method'),
-            'customer_full_name' => self::t('Full name'),
-            'customer_phone' => self::t('Customer phone'),
-            'customer_email' => self::t('E-Mail'),
-            'delivery_address' => self::t('Delivery address'),
-            //not_processed => не обработан
-            //rejected => отказ
-            //executed => выполнен
-            //performed => в процессе выполнения
-            'status' => self::t('Order status'),
-            'incoming_date' => self::t('Incoming date'), // дата поступления
-            'total_price' => self::t('Total price')
+            'customer_full_name' => Yii::t('app', 'Full name'),
+            'customer_phone' => Yii::t('app', 'Customer phone'),
+            'customer_email' => Yii::t('app', 'E-Mail'),
+            'delivery_address' => Yii::t('app', 'Delivery address'),
+            'status' => Yii::t('app', 'Order status'),
+            'incoming_date' => Yii::t('app', 'Incoming date'),
+            'total_price' => Yii::t('app', 'Total price')
         );
     }
 
+    /**
+     * @return array
+     */
     public function getStatusChoises()
     {
-        if (self::$_statusChoises === null)
+        if (self::$_statusChoises === null) {
             self::$_statusChoises = array(
-                'not_processed' => self::t('not_processed'),
-                'performed' => self::t('performed'),
-                'executed' => self::t('executed'),
-                'rejected' => self::t('rejected'),
+                'not_processed' => Yii::t('order', 'Not processed'),
+                'performed' => Yii::t('order', 'Performed'),
+                'executed' => Yii::t('order', 'Executed'),
+                'rejected' => Yii::t('order', 'Rejected'),
             );
+        }
+
         return self::$_statusChoises;
     }
 
-    public static function t($message, $params = null, $source = null, $language = null)
-    {
-        return Yii::t('order', $message, $params, $source, $language);
-    }
-
+    /**
+     * @inheritdoc
+     * @return array
+     */
     public function relations()
     {
         return array(
@@ -95,6 +118,10 @@ class Order extends CActiveRecord
         );
     }
 
+    /**
+     * @inheritdoc
+     * @return array
+     */
     public function rules()
     {
         return array(
@@ -104,13 +131,17 @@ class Order extends CActiveRecord
         );
     }
 
+    /**
+     * @throws CDbException
+     * @throws CException
+     */
     private function recalculate()
     {
-        if ($this->getIsNewRecord())
-            throw new CException(self::t('You cannot recalculate not existance order'));
-        if (Order::model()->findByPk($this->order_id)->status === self::STATUS_EXECUTED)
-            throw new CException(self::t('You cannot recalculate executed order'));
+        if (Order::model()->findByPk($this->order_id)->status === self::STATUS_EXECUTED) {
+            throw new CException(Yii::t('app', 'You cannot recalculate executed order'));
+        }
 
+        /** @var OrderProducts [] $products */
         if ($products = $this->getRelated('products', true)) {
             $totalPrice = 0;
             foreach ($products as $product) {
@@ -137,33 +168,48 @@ class Order extends CActiveRecord
      */
     public function addProductToOrder(Products $product)
     {
-        if ($this->getIsNewRecord())
-            throw new CException(self::t('You cannot add product into not existance order'));
+        if ($this->getIsNewRecord()) {
+            throw new CException(Yii::t('app', 'You cannot add product into not existent order'));
+        }
+
         $orderProduct = new OrderProducts;
         $orderProduct->order_id = $this->order_id;
         $orderProduct->product_id = $product->product_id;
         $orderProduct->product_price = $product->price;
-        if ($orderProduct->validate() && $orderProduct->save(false)) {
+
+        if ($orderProduct->validate()) {
+            $orderProduct->save(false);
             $this->save(false);
             return true;
         }
-        else
-            return false;
+
+        return false;
     }
 
+    /**
+     * @param $product_id
+     * @return bool
+     * @throws CDbException
+     * @throws CException
+     * @throws CHttpException
+     */
     public function dropProductFromOrderByProductId($product_id)
     {
-        if ($this->getIsNewRecord())
-            throw new CException(self::t('You cannot drop product from not existance order'));
-        if (($orderProduct = OrderProducts::model()->find('order_id=:order_id AND product_id=:product_id', array(
-            ':order_id' => $this->order_id,
-            ':product_id' => $product_id,
-                ))) === null)
-            throw new CHttpException(404, Yii::t('order', 'Such product does not exist in current order'));
+        if ($this->getIsNewRecord()) {
+            throw new CException(Yii::t('app', 'You cannot drop product from not existance order'));
+        }
+
+        $orderProduct = OrderProducts::model()->byOrderId($this->order_id)->byProductId($product_id)->find();
+
+        if ($orderProduct === null) {
+            throw new CHttpException(404, Yii::t('app', 'Such product does not exist in current order'));
+        }
+
         if ($orderProduct->delete()) {
             $this->save(false);
             return true;
         }
+
         return false;
     }
 
@@ -175,12 +221,15 @@ class Order extends CActiveRecord
      */
     public function incrementProductById($product_id)
     {
-        if ($this->getIsNewRecord())
-            throw new CException(self::t('You increment product to not existance order'));
-        if (($orderProduct = OrderProducts::model()->findByPk(array('order_id' => $this->order_id,
-            'product_id' => $product_id))) === null) {
+        $orderProduct = OrderProducts::model()->findByPk(array(
+            'order_id' => $this->order_id,
+            'product_id' => $product_id
+        ));
+
+        if ($orderProduct === null) {
             throw new CException('Product not found');
         }
+
         $orderProduct->number_of_products++;
         $orderProduct->save(false);
         $this->save(false);
@@ -195,20 +244,29 @@ class Order extends CActiveRecord
      */
     public function decrementProductById($product_id)
     {
-        if ($this->getIsNewRecord())
-            throw new CException(self::t('You decrement product to not existance order'));
-        if (($orderProduct = OrderProducts::model()->findByPk(array('order_id' => $this->order_id,
-            'product_id' => $product_id))) === null) {
+        $orderProduct = OrderProducts::model()->findByPk(array(
+            'order_id' => $this->order_id,
+            'product_id' => $product_id
+        ));
+
+        if ($orderProduct === null) {
             throw new CException('Product not found');
         }
+
         $orderProduct->number_of_products--;
-        if ($orderProduct->number_of_products == 0)
+
+        if ($orderProduct->number_of_products == 0) {
             $orderProduct->delete();
-        else
+        } else {
             $orderProduct->save(false);
+        }
+
         $this->save(false);
     }
 
+    /**
+     * @return bool
+     */
     public function beforeDelete()
     {
         if ($this->status === self::STATUS_EXECUTED) {
@@ -218,6 +276,9 @@ class Order extends CActiveRecord
         return parent::beforeDelete();
     }
 
+    /**
+     * @return array
+     */
     public function defaultScope()
     {
         return array(
@@ -229,10 +290,15 @@ class Order extends CActiveRecord
         );
     }
 
+    /**
+     * @return CActiveDataProvider
+     */
     public function search()
     {
-        $criteria = new CDbCriteria;
+        $criteria = $this->getDbCriteria();
+
         $this->status = null;
+
         if (isset($_GET[__CLASS__])) {
             $this->attributes = $_GET[__CLASS__];
 
@@ -262,9 +328,7 @@ class Order extends CActiveRecord
                 }
             }
         }
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria
-        ));
+        return new CActiveDataProvider($this);
     }
 
 }

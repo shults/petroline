@@ -8,7 +8,10 @@
 class Language extends CActiveRecord
 {
 
+    /** @var array */
     protected static $_adminNames;
+
+    /** @var array */
     protected static $_menuItems;
 
     /**
@@ -22,44 +25,66 @@ class Language extends CActiveRecord
         return parent::model($className);
     }
 
+    /**
+     * @return array
+     */
     public function getAdminNames()
     {
         if (self::$_adminNames === null) {
-            self::$_adminNames = array(self::t('Languages'), self::t('language'), self::t('languages'));
+            self::$_adminNames = array(
+                Yii::t('app', 'Languages'),
+                Yii::t('app', 'language'),
+                Yii::t('app', 'languages')
+            );
         }
         return self::$_adminNames;
     }
 
+    /**
+     * @return string
+     */
     public function tableName()
     {
         return '{{languages}}';
     }
 
+    /**
+     * @return string
+     */
     public function primaryKey()
     {
         return 'language_id';
     }
 
+    /**
+     * @return array
+     */
     public function rules()
     {
         return array(
             array('code, title', 'required'),
             array('code', 'length', 'is' => 2),
-            array('code', 'match', 'pattern' => '/[a-z]{2}/', 'message' => Yii::t('language', 'Field {attribute} can consist only letters')),
+            array('code', 'match', 'pattern' => '/[a-z]{2}/', 'message' => Yii::t('app', 'Field {attribute} can consist only letters')),
             array('default, enabled, deleted', 'safe'),
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
-            'enabled' => self::t('Enabled'),
-            'default' => self::t('Default'),
-            'title' => self::t('Title'),
-            'code' => self::t('Code'),
+            'enabled' => Yii::t('app', 'Enabled'),
+            'default' => Yii::t('app', 'Default'),
+            'title' => Yii::t('app', 'Title'),
+            'code' => Yii::t('app', 'Code'),
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeWidgets()
     {
         return array(
@@ -68,11 +93,17 @@ class Language extends CActiveRecord
         );
     }
 
+    /**
+     * @return CActiveDataProvider
+     */
     public function search()
     {
         return new CActiveDataProvider($this);
     }
 
+    /**
+     * @return array
+     */
     public function adminSearch()
     {
         return array(
@@ -81,16 +112,24 @@ class Language extends CActiveRecord
                 'code',
                 array(
                     'name' => 'default',
-                    'value' => '$data->default == 1 ? Yii::t("common", "Yes") : Yii::t("common", "No");'
+                    'value' => function(Language $model) {
+                        return $model->default == 1 ? Yii::t("common", "Yes") : Yii::t("common", "No");
+                    }
                 ),
                 array(
                     'name' => 'enabled',
-                    'value' => '$data->enabled == 1 ? Yii::t("common", "Yes") : Yii::t("common", "No");'
+                    'value' => function(Language $model) {
+                        return $model->default == 1 ? Yii::t("common", "Yes") : Yii::t("common", "No");
+                    }
                 )
             )
         );
     }
 
+    /**
+     * Defines default scope
+     * @return array
+     */
     public function defaultScope()
     {
         return array(
@@ -101,14 +140,21 @@ class Language extends CActiveRecord
         );
     }
 
+    /**
+     * @return bool
+     */
     public function beforeSave()
     {
+        // swirch off alla other langualges
         if ($this->default == 1) {
             Language::model()->updateAll(array('default' => 0));
         }
         return parent::beforeSave();
     }
-    
+
+    /**
+     * @return bool
+     */
     public function beforeDelete()
     {
         $this->deleted = 1;
@@ -116,11 +162,9 @@ class Language extends CActiveRecord
         return false;
     }
 
-    public static function t($message, $params = null, $source = null, $language = null)
-    {
-        return Yii::t('language', $message, $params, $source, $language);
-    }
-
+    /**
+     * @return array
+     */
     public static function getMenuItems()
     {
         if (self::$_menuItems === null) {
@@ -135,17 +179,20 @@ class Language extends CActiveRecord
         }
         return self::$_menuItems;
     }
-    
-    public function scopes()
+
+    /**
+     * By default finder
+     * @return $this
+     */
+    public function byDefault()
     {
-        return array(
-            'default' => array(
-                'condition' => '`default`=:default',
-                'params' => array(
-                    ':default' => 1
-                )
+        $this->getDbCriteria()->mergeWith([
+            'condition' => '`default`=:default',
+            'params' => array(
+                ':default' => 1
             )
-        );
+        ]);
+        return $this;
     }
 
 }

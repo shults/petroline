@@ -90,6 +90,22 @@ class ModelController extends AdminController
 		exit();
 	}
 
+    /**
+     * @param string $actionName
+     * @return callable
+     */
+    private function getLabelCallback($actionName) {
+        $moduleName = $this->module->name;
+
+        return function($model) use($moduleName, $actionName) {
+            return CHtml::normalizeUrl([
+                '/' . $moduleName . '/model/' . $actionName,
+                'name' => get_class($model),
+                'pk' => $model->primaryKey
+            ]);
+        };
+    }
+
 	/**
 	 * List models.
 	 *
@@ -97,59 +113,47 @@ class ModelController extends AdminController
 	 */
 	public function actionList($name)
 	{
-		$model=$this->module->loadModel($name);
+        /** @var CActiveRecord $model */
+		$model = $this->module->loadModel($name);
 
 		// unset default model values
 		$model->unsetAttributes();
 
 		if (isset($_GET[get_class($model)])){
-			// Do not set unsafe attributes
-			$params=$_GET[get_class($model)];
-			foreach($params as $key => $val) {
-				if (!$model->isAttributeSafe($key)){
-					unset($params[$key]);
-				}
-			}
-			$model->attributes=$params;
+			$model->attributes = $_GET[get_class($model)];
 		}
 
-		$this->breadcrumbs=array(
-			$this->module->getAdminName($model),
-		);
+        $this->breadcrumbs = [$this->module->getAdminName($model)];
 
-		$data1=array();
-		if (method_exists($model,'adminSearch')) {
-			$data1=$model->adminSearch();
-		}
+        $data1 = method_exists($model, 'adminSearch') ? $model->adminSearch() : [];
 
-		$urlPrefix='Yii::app()->createUrl("'.$this->module->name.'/model/';
-		$data2=array(
-			'id'=>'objects-grid',
-			'type'=>'striped bordered condensed',
-			'dataProvider'=>$model->search(),
+		$defaultData = array(
+			'id' => 'objects-grid',
+			'type' => 'striped bordered condensed',
+			'dataProvider' => $model->search(),
 			//'filter'=>$model,
-			'pager'=>array(
-				'class'=>'bootstrap.widgets.TbPager',
-				'displayFirstAndLast'=>true,
-				'firstPageLabel'=>'&lang;&lang;',
-				'prevPageLabel'=>'&lang;',
-				'nextPageLabel'=>'&rang;',
-				'lastPageLabel'=>'&rang;&rang;',
+			'pager' => array(
+				'class' => 'bootstrap.widgets.TbPager',
+				'displayFirstAndLast' => true,
+				'firstPageLabel' => '&lang;&lang;',
+				'prevPageLabel' => '&lang;',
+				'nextPageLabel' => '&rang;',
+				'lastPageLabel' => '&rang;&rang;'
 			),
-			'columns'=>array(
-				array(
-					'class'=>'bootstrap.widgets.TbButtonColumn',
-					'updateButtonUrl'=>$urlPrefix.'update",array("name"=>"'.get_class($model).'","pk"=>$data->primaryKey))',
-					'deleteButtonUrl'=>$urlPrefix.'delete",array("name"=>"'.get_class($model).'","pk"=>$data->primaryKey))',
-					'viewButtonUrl'=>$urlPrefix.'view",array("name"=>"'.get_class($model).'","pk"=>$data->primaryKey))',
-					'viewButtonOptions'=>array(
-						'style'=>'display:none;',
-					 ),
-				),
-			),
+			'columns' => array(
+				[
+                    'class'=>'bootstrap.widgets.TbButtonColumn',
+                    'updateButtonUrl' => $this->getLabelCallback('update'),
+                    'deleteButtonUrl' => $this->getLabelCallback('delete'),
+                    'viewButtonUrl' => $this->getLabelCallback('view'),
+                    'viewButtonOptions' => [
+                        'style'=>'display:none;'
+                    ]
+                ]
+			)
 		);
 
-		$data=array_merge_recursive($data1,$data2);
+		$data = array_merge_recursive($data1,$defaultData);
 
 		if (Yii::app()->request->isAjaxRequest) {
 			$this->widget('bootstrap.widgets.TbGridView',$data);

@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScript('make-order', "
     <tbody>
         <tr>
             <td class="content_wrapper4_td">
-                <?php if (!Cart::get()->getIsEmpty()): ?>
+                <?php if (!Cart::get()->isEmpty()): ?>
                     <table width="" border="0" cellspacing="0" cellpadding="0" class="tableBox_shopping_cart main">
                         <tbody>
                             <tr>

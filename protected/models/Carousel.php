@@ -9,7 +9,14 @@ class Carousel extends CActiveRecord
     const NEED_WIDTH = 676;
     const NEED_HEIGHT = 310;
 
-    public $adminNames = array('Модуль карусель', 'слайд', 'слайд');
+    public function getAdminNames()
+    {
+        return [
+            Yii::t('app', 'Carousel module'),
+            Yii::t('app', 'slide'),
+            Yii::t('app', 'slide'),
+        ];
+    }
 
     /**
      * @param string $className
@@ -39,14 +46,6 @@ class Carousel extends CActiveRecord
     }
 
     /**
-     * @return string
-     */
-    public function primaryKey()
-    {
-        return 'id';
-    }
-
-    /**
      * @return CActiveDataProvider
      */
     public function search()
@@ -65,8 +64,8 @@ class Carousel extends CActiveRecord
                     'name' => 'image',
                     'type' => 'raw',
                     'filter' => false,
-                    'value' => function($data) {
-                        return CHtml::image($data->getFileUrl("image"), "", array("width" => 150));
+                    'value' => function(Carousel $model) {
+                        return CHtml::image($model->getFileUrl("image"), "", array("width" => 150));
                     }
                 ),
                 array(
@@ -76,8 +75,8 @@ class Carousel extends CActiveRecord
                     'name' => 'url',
                     'type' => 'raw',
                     'filter' => false,
-                    'value' => function($data) {
-                        return CHtml::link($data->getCarouselItemUrl(), $data->getCarouselItemUrl(), array("target" => "_blank"));
+                    'value' => function(Carousel $model) {
+                        return CHtml::link($model->getCarouselItemUrl(), $model->getCarouselItemUrl(), array("target" => "_blank"));
                     }
                 ),
                 array(
@@ -93,9 +92,7 @@ class Carousel extends CActiveRecord
      */
     public function getCarouselItemUrl()
     {
-        if ($this->url == '#')
-            return '#';
-        return Yii::app()->request->getBaseUrl(true) . '/' . $this->url;
+        return $this->url === '#' ? $this->url : Yii::app()->request->getBaseUrl(true) . '/' . $this->url;
     }
 
     /**
@@ -103,12 +100,15 @@ class Carousel extends CActiveRecord
      */
     public function beforeSave()
     {
-        if (!$this->url)
+        if (!$this->url) {
             $this->url = "#";
-        if ($this->isNewRecord) {
+        }
+
+        if ($this->getIsNewRecord()) {
             $this->order = ++$this->maxOrder()->find()->order;
             $this->language_id = Yii::app()->lang->language_id;
         }
+
         return parent::beforeSave();
     }
 

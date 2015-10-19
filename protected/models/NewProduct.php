@@ -4,6 +4,9 @@
  * Description of NewProduct
  *
  * @author shults
+ *
+ * Relations:
+ * @property Products $item
  */
 class NewProduct extends CActiveRecord
 {
@@ -19,16 +22,27 @@ class NewProduct extends CActiveRecord
         return parent::model($className);
     }
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function tableName()
     {
         return '{{new_products}}';
     }
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function primaryKey()
     {
         return 'product_id';
     }
 
+    /**
+     * @return array
+     */
     public function rules()
     {
         return array(
@@ -38,6 +52,9 @@ class NewProduct extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function defaultScope()
     {
         return array(
@@ -49,6 +66,9 @@ class NewProduct extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function relations()
     {
         return array(
@@ -56,16 +76,27 @@ class NewProduct extends CActiveRecord
         );
     }
 
+    /**
+     * @return bool
+     */
     public function beforeSave()
     {
-        if ($this->getIsNewRecord())
+        // set language if new property
+        if ($this->getIsNewRecord()) {
             $this->language_id = Yii::app()->lang->language_id;
+        }
+
+        // increase order
         if ($this->getIsNewRecord()) {
             $this->order = ++$this->maxOrder()->find()->order;
         }
+
         return parent::beforeSave();
     }
 
+    /**
+     * @return array
+     */
     public function scopes()
     {
         return array(
@@ -79,45 +110,52 @@ class NewProduct extends CActiveRecord
         );
     }
 
+    /**
+     * @return CActiveDataProvider
+     */
     public function search()
     {
         return new CActiveDataProvider($this);
     }
 
+    /**
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
-            'order' => self::t('Display order'),
-            'product_id' => self::t('Product')
+            'order' => Yii::t('app', 'Display order'),
+            'product_id' => Yii::t('app', 'Product')
         );
     }
 
-    public static function t($message, $params = null, $source = null, $language = null)
-    {
-        return Yii::t('catalog', $message, $params, $source, $language);
-    }
-
+    /**
+     * @throws CException
+     */
     public function orderUp()
     {
-        if ($this->getIsNewRecord())
-            throw new CException('You cannot order up not existance model');
         $this->order -= 1;
+
         if ($prevProduct = NewProduct::model()->find('`order`=:order', array(':order' => $this->order))) {
             $prevProduct->order += 1;
             $prevProduct->save(false);
         }
+
         $this->save(false);
     }
 
+    /**
+     * @throws CException
+     */
     public function orderDown()
     {
-        if ($this->getIsNewRecord())
-            throw new CException('You cannot order up not existance model');
         $this->order += 1;
+
         if (($nextProduct = NewProduct::model()->find('`order`=:order', array(':order' => $this->order)))) {
             $nextProduct->order -= 1;
             $nextProduct->save(false);
         }
+
         $this->save(false);
     }
     
@@ -130,8 +168,6 @@ class NewProduct extends CActiveRecord
      */
     public function getImageUrl($width, $height)
     {
-        if ($this->getIsNewRecord())
-            throw CException("Cannot call " . __METHOD__ . " for not existence record");
         return $this->item->getImageUrl($width, $height);
     }
 

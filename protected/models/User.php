@@ -7,11 +7,9 @@
  */
 class User extends CActiveRecord
 {
-    
+
     const SCENARIO_CREATE = 'create';
-    
     const SCENARIO_UPDATE = 'update';
-    
     const SCENARIO_CHANGE_PASSWORD = 'change_password';
 
     public $password_repeat;
@@ -21,11 +19,17 @@ class User extends CActiveRecord
         'administrator' => 'Administrator',
     );
 
+    /**
+     * @return string
+     */
     public function tableName()
     {
         return '{{users}}';
     }
 
+    /**
+     * @return string
+     */
     public function primaryKey()
     {
         return 'user_id';
@@ -34,7 +38,7 @@ class User extends CActiveRecord
     /**
      * @see CActiveRecord
      * 
-     * @param strint $className
+     * @param string $className
      * @return User 
      */
     public static function model($className = __CLASS__)
@@ -42,6 +46,9 @@ class User extends CActiveRecord
         return parent::model($className);
     }
 
+    /**
+     * @return bool
+     */
     public function beforeSave()
     {
         if ($this->getIsNewRecord()) {
@@ -52,9 +59,14 @@ class User extends CActiveRecord
         if ($this->getScenario() == self::SCENARIO_CHANGE_PASSWORD) {
             $this->password = sha1($this->password);
         }
+
         return parent::beforeSave();
     }
 
+    /**
+     * @inheritdoc
+     * @return array
+     */
     public function rules()
     {
         return array(
@@ -66,22 +78,21 @@ class User extends CActiveRecord
         );
     }
 
+    /**
+     * @inheritdoc
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
-            'role' => self::t('Role'),
-            'email' => self::t('E-Mail'),
-            'password' => self::t('Password'),
-            'first_name' => self::t('First name'),
-            'last_name' => self::t('Last name'),
-            'created_at' => self::t('Created at'),
-            'password_repeat' => self::t('Confirm password')
+            'role' => Yii::t('app', 'Role'),
+            'email' => Yii::t('app', 'E-Mail'),
+            'password' => Yii::t('app', 'Password'),
+            'first_name' => Yii::t('app', 'First name'),
+            'last_name' => Yii::t('app', 'Last name'),
+            'created_at' => Yii::t('app', 'Created at'),
+            'password_repeat' => Yii::t('app', 'Confirm password')
         );
-    }
-
-    public static function t($message, $params = null, $source = null, $language = null)
-    {
-        return Yii::t('user', $message, $params, $source, $language);
     }
 
 }

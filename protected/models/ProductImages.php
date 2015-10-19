@@ -1,40 +1,70 @@
 <?php
 
+/**
+ * Class ProductImages
+ */
 class ProductImages extends CActiveRecord
 {
 
     public static $MIME_TYPES = array('image/jpeg', 'image/png', 'image/gif', 'image/jpg');
     public $image;
+
+    /** @var array */
     protected static $_adminNames;
 
+    /**
+     * @return array
+     */
     public function getAdminNames()
     {
         if (self::$_adminNames === null) {
-            self::$_adminNames = array(self::t('Products'), self::t('product'), self::t('products'));
+            self::$_adminNames = array(
+                Yii::t('app', 'Products'),
+                Yii::t('app', 'product'),
+                Yii::t('app', 'products')
+            );
         }
         return self::$_adminNames;
     }
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function tableName()
     {
         return '{{product_images}}';
     }
 
+    /**
+     * @inheritdoc
+     * @return string
+     */
     public function primaryKey()
     {
         return 'image_id';
     }
 
+    /**
+     * @return CActiveDataProvider
+     */
     public function search()
     {
         return new CActiveDataProvider($this);
     }
 
+    /**
+     * @param string $className
+     * @return ProductImages
+     */
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
 
+    /**
+     * @return array
+     */
     public function rules()
     {
         return array(
@@ -42,13 +72,20 @@ class ProductImages extends CActiveRecord
         );
     }
 
+    /**
+     * @return array
+     */
     public function attributeLabels()
     {
         return array(
-            'image' => self::t('Image'),
+            'image' => Yii::t('app', 'Image'),
         );
     }
 
+    /**
+     * @inheritdoc
+     * @return array
+     */
     public function behaviors()
     {
         return array(
@@ -56,15 +93,21 @@ class ProductImages extends CActiveRecord
         );
     }
 
-    public static function t($message, $params = null, $source = null, $language = null)
-    {
-        return Yii::t('productImages', $message, $params, $source, $language);
-    }
-
+    /**
+     * @inheritdoc
+     */
     public function afterDelete()
     {
-        unlink(realpath(Yii::getPathOfAlias('root')) . $this->getFileUrl('filepath'));
+        $this->deleteFile();
         parent::afterDelete();
+    }
+
+    /**
+     * Deletes file from disk
+     */
+    private function deleteFile()
+    {
+        @unlink(realpath(Yii::getPathOfAlias('root')) . $this->getFileUrl('filepath'));
     }
     
     /**
